@@ -354,8 +354,7 @@ static void opd_options(int argc, char const *argv[])
 	optcon = opd_poptGetContext(NULL, argc, argv, options, 0);
 
 	if (showvers) {
-		printf(VERSION_STRING " compiled on " __DATE__ " " __TIME__ "\n");
-		exit(0);
+		show_version(argv[0]);
 	}
 
 	if (!vmlinux || streq("", vmlinux)) {
