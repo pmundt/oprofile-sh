@@ -70,12 +70,9 @@
 /* kernel image entries are offset by this many entries */
 #define OPD_KERNEL_OFFSET 524288
 
-/* FIXME ATHLON: four next #define can be tuned for full support to Athlon */
-/* PHE: I don't fix the problem "is these should be autoconf and/or runtime
- * settings" so hack it at hand for now */
 /* maximum nr. of counters, up to 4 for Athlon (18 for P4). The primary use
  * of this variable is for static/local array dimension. Never use it in loop
- * or in array index acccess/index checking. Don't change it without updating
+ * or in array index access/index checking. Don't change it without updating
  * OP_BITS_CTR! */
 #define OP_MAX_COUNTERS	4
 

@@ -604,6 +604,10 @@ asmlinkage static long my_sys_exit(int error_code)
 
 	goto out;
 out:
+	/* this looks UP-dangerous, as the exit sleeps and we don't
+	 * have a use count, but in fact its ok as sys_exit is noreturn,
+	 * so we can never come back to this non-existent exec page
+	 */
 	MOD_DEC_USE_COUNT;
 	return old_sys_exit(error_code);
 }
