@@ -3,6 +3,11 @@
 #ifndef OP_IOCTL_H
 #define OP_IOCTL_H
 
+/* FIXME: I knew this was too gross. If we ever support Pentium 4,
+ * we will have to use struct-passing, as we have 18 counters amongst
+ * other things.
+ */
+
 enum {
 
 /* wake up for reading all the entries in the

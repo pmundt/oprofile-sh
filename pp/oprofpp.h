@@ -19,8 +19,12 @@
 #include "../version.h"
 
 /* missing from libiberty.h */
-#define DMGL_PARAMS     (1 << 0)        /* Include function args */
-#define DMGL_ANSI       (1 << 1)        /* Include const, volatile, etc */
+#ifndef DMGL_PARAMS
+# define DMGL_PARAMS     (1 << 0)        /* Include function args */
+#endif 
+#ifndef DMGL_ANSI 
+# define DMGL_ANSI       (1 << 1)        /* Include const, volatile, etc */
+#endif
 char *cplus_demangle (const char *mangled, int options);
  
 void op_get_event_desc(u8 type, u8 um, char **typenamep, char **typedescp, char **umdescp);
@@ -60,5 +64,3 @@ struct opd_footer {
         u8 ctr0_um;
         u8 ctr1_um;
 };
-
- 
