@@ -394,6 +394,23 @@ off_t opd_get_fsize(const char *file, int fatal)
 }
 
 /**
+ * opd_get_mtime - get mtime of file
+ * @file: file name
+ *
+ * Returns the mtime of the given file or 0 on failure
+ */
+time_t opd_get_mtime(const char * file)
+{
+	struct stat st;
+
+	if (stat(file, &st))
+		return 0;
+
+	return st.st_mtime;
+}
+
+
+/**
  * opd_get_time - get current date and time
  *
  * Returns a string representing the current date

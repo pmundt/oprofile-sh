@@ -184,6 +184,8 @@ static void opd_options(int argc, char const *argv[])
 		exit(1);
 	}
 
+	footer.magic = OPD_MAGIC;
+	footer.version = OPD_VERSION;
 	footer.ctr0_type_val = opd_read_int_from_file("/proc/sys/dev/oprofile/0/event");
 	footer.ctr0_um = (u8) opd_read_int_from_file("/proc/sys/dev/oprofile/0/unit_mask");
 	footer.ctr1_type_val = opd_read_int_from_file("/proc/sys/dev/oprofile/1/event");

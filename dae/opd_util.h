@@ -66,6 +66,7 @@ fd_t opd_open_device(const char *name, int fatal);
 void opd_close_device(fd_t devfd);
 size_t opd_read_device(fd_t devfd, void *buf, size_t size, int seek);
 off_t opd_get_fsize(const char *file, int fatal);
+time_t opd_get_mtime(const char *file);
 
 char *opd_get_time(void);
 char *opd_get_line(FILE *fp);
