@@ -52,7 +52,6 @@ void op_get_event_desc(u8 type, u8 um, char **typenamep, char **typedescp, char 
 #define u16 u_int16_t
 #define u32 u_int32_t
 #define fd_t int
-#define streq(a,b) (!strcmp((a),(b)))
 
 #define verbprintf(args...) \
 	do { \

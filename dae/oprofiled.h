@@ -57,8 +57,8 @@
 			printf(args); \
 	} while (0)
 
-#define streq(a,b) (!strcmp((a),(b)))
-#define streqn(a,b,n) (!strncmp((a),(b),(n)))
+#define streq(a,b) (!strcmp((a), (b)))
+#define streqn(a,b,n) (!strncmp((a), (b), (n)))
 
 /* this char replaces '/' in sample filenames */
 #define OPD_MANGLE_CHAR '}'
