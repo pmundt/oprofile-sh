@@ -92,7 +92,13 @@ inline static void evict_op_entry(uint cpu, struct _oprof_data * data, const str
 	 *
 	 * for the current CPU, we might have interrupted another user of e.g.
 	 * runqueue_lock, deadlocking on SMP and racing on UP. So we check that IRQs
-	 * were not disabled (corresponding to the irqsave/restores in __wake_up()
+	 * were not disabled (corresponding to the irqsave/restores in __wake_up().
+	 *
+	 * Note that this requires all spinlocks taken by the full wake_up path
+	 * to have saved IRQs - otherwise we can interrupt whilst holding a spinlock 
+	 * taken from some non-wake_up() path and deadlock. Currently this means only
+	 * oprof_wait->lock and runqueue_lock: all instances disable IRQs before
+	 * taking the lock.
 	 *
 	 * This will mean that approaching the end of the buffer, a number of the
 	 * evictions may fail to wake up the daemon. We simply hope this doesn't
