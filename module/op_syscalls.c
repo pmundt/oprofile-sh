@@ -354,7 +354,6 @@ asmlinkage static int my_sys_execve(struct pt_regs regs)
 	}
 	ret = do_execve(filename, (char **)regs.ecx, (char **)regs.edx, &regs);
 
-	// FIXME: check sys_execve
 	if (!ret) {
 		PTRACE_OFF(current);
 
