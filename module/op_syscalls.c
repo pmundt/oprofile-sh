@@ -347,10 +347,12 @@ asmlinkage static int my_sys_execve(struct pt_regs regs)
 
 	MOD_INC_USE_COUNT;
 
+	lock_execve();
+
 	filename = getname((char *)regs.ebx);
 	if (IS_ERR(filename)) {
-		MOD_DEC_USE_COUNT;
-		return PTR_ERR(filename);
+		ret = PTR_ERR(filename);
+		goto out;
 	}
 	ret = do_execve(filename, (char **)regs.ecx, (char **)regs.edx, &regs);
 
@@ -361,7 +363,11 @@ asmlinkage static int my_sys_execve(struct pt_regs regs)
 		    (!sysctl.pgrp_filter || sysctl.pgrp_filter == current->pgrp))
 			oprof_output_maps(current);
 	}
+ 
 	putname(filename);
+
+out:
+	unlock_execve();
 	MOD_DEC_USE_COUNT;
         return ret;
 }

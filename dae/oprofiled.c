@@ -327,7 +327,7 @@ static void opd_pmc_options(void)
  */
 static void opd_rtc_options(void)
 {
-	int i;
+	uint i;
  
 	for (i = 0 ; i < op_nr_counters ; ++i) {
 		ctr_event[i] = ctr_count[i] =  ctr_um[i] = ctr_enabled[i] = 0;
