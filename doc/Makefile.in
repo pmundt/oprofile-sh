@@ -1,6 +1,6 @@
 # $Id$
 
-prefix=@prefix@
+prefix=$(DESTDIR)@prefix@
 MANDIR=@mandir@/man1
 CATDIR=@mandir@/cat1
 LN_SF=ln -sf

@@ -4,7 +4,7 @@
 
 all: oprofiled op_help
  
-prefix=@prefix@
+prefix=$(DESTDIR)@prefix@
 exec_prefix=@exec_prefix@
 BINDIR=@bindir@
 MANDIR=@mandir@
