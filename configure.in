@@ -16,7 +16,7 @@ AC_INIT(./op_user.h)
 AC_SUBST(PACKAGE)
 AC_SUBST(VERSION)
 PACKAGE=oprofile
-VERSION=0.0.7
+VERSION=0.0.8cvs
 
 dnl for the man page
 DATE="`date '+%a %d %B %Y'`"
