@@ -9,6 +9,9 @@ all: oprofile.o
 	$(MAKE) -C dae
 	$(MAKE) -C pp
 
+distclean: clean
+	rm -f Makefile dae/Makefile pp/Makefile
+ 
 install: oprofile.o
 	cp oprofile.o $(MODINSTALLDIR)
 	$(MAKE) -C dae install 
