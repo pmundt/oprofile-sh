@@ -15,9 +15,9 @@
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <linux/module.h>
 #include <linux/config.h>
 #include <linux/kernel.h>
-#include <linux/module.h>
 #include <linux/init.h>
 #include <linux/slab.h>
 #include <linux/delay.h>
@@ -174,11 +174,13 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 #endif
 
 // 2.4.7 introduced completions.
-#if LINUX_VERSION_CODE < KERNEL_VERSION(2,4,7)
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,4,8)
 #define DECLARE_COMPLETION(x)	DECLARE_MUTEX_LOCKED(x)
 #define init_completion(x)
 #define complete_and_exit(x, y) up_and_exit((x), (y))
 #define wait_for_completion(x) down(x)
+#else
+#include <linux/completion.h>
 #endif
 
 int oprof_init(void);
