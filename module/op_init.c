@@ -21,8 +21,6 @@
  
 EXPORT_NO_SYMBOLS;
 
-/* #define FORCE_RTC */
-
 static int __init hw_ok(void)
 {
 	/* we want to include all P6 processors (i.e. > Pentium Classic,
@@ -42,10 +40,6 @@ static int __init hw_ok(void)
 		sysctl.cpu_type = (current_cpu_data.x86_model > 5) ? CPU_PIII :
 			(current_cpu_data.x86_model > 2);
 	}
- 
-#ifdef FORCE_RTC
-	sysctl.cpu_type = CPU_RTC;
-#endif
  
 	return sysctl.cpu_type;
 }
