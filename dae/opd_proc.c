@@ -81,7 +81,7 @@ void opd_alarm(int val __attribute__((unused)))
 		struct opd_image* image = &opd_images[i];
 		for (j = 0 ; j < op_nr_counters ; ++j) {
 			if (image->sample_files[j].fd > 1)
-				msync(image->sample_files[i].start, image->len + sizeof(struct opd_footer), MS_ASYNC);
+				msync(image->sample_files[j].start, image->len + sizeof(struct opd_footer), MS_ASYNC);
 		}
 	}
 
