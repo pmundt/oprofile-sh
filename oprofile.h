@@ -79,6 +79,10 @@ struct _oprof_data {
 #define APIC_SPIV_APIC_ENABLED (1<<8)
 #endif
 
+#ifndef __ok_unused
+#define __ok_unused __attribute((__unused))
+#endif
+
 /* oprof_data->ready will be set this many samples
  * before the end of the eviction buffer
  */

@@ -51,6 +51,12 @@
 #define dprintf(args...)
 #endif
 
+#define verbprintf(args...) \
+        do { \
+		if (verbose) \
+			printf(args); \
+	} while (0)
+
 #define streq(a,b) (!strcmp((a),(b)))
 #define streqn(a,b,n) (!strncmp((a),(b),(n)))
 

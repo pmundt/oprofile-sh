@@ -55,6 +55,12 @@ void op_get_event_desc(u8 type, u8 um, char **typenamep, char **typedescp, char 
 #define fd_t int
 #define streq(a,b) (!strcmp((a),(b)))
 
+#define verbprintf(args...) \
+	do { \
+		if (verbose) \
+			printf(args); \
+	} while (0)
+
 /* kernel image entries are offset by this many entries */
 #define OPD_KERNEL_OFFSET 524288
  
