@@ -203,6 +203,17 @@ struct _descr { u16 limit; u32 base; } __attribute__((__packed__));
 struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 
 #define op_cpu_id() (cpu_number_map(smp_processor_id()))
+
+/* A work-around against a compiler bug in gcc 2.91.66, just mark all input
+ * register as magically cloberred by wrmsr */
+#if __GNUC__ == 2 && __GNUC_MINOR__ == 91
+#undef wrmsr
+#define wrmsr(msr,val1,val2)					\
+     __asm__ __volatile__("wrmsr"				\
+			  : /* no outputs */			\
+			  : "c" (msr), "a" (val1), "d" (val2)	\
+			  : "ecx", "eax", "edx")
+#endif
  
 /* branch prediction */
 #ifndef likely
