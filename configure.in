@@ -286,7 +286,7 @@ CFLAGS="$BKCFLAGS -I$KINC -O2 -D__KERNEL__ -Werror -Wall"
 AC_TRY_COMPILE( 
   [ #include <linux/cache.h> ],
   [ static int a __cacheline_aligned = 0; if (a) {} ],
-  AC_MSG_RESULT("yes");BKCFLAGS="-DHAVE_CACHE_LINE_ALIGNED",
+  AC_MSG_RESULT("yes");BKCFLAGS="-DHAVE_CACHE_LINE_ALIGNED $BKCFLAGS",
   AC_MSG_RESULT("no"))
 CFLAGS=$SAVE_CFLAGS
 
