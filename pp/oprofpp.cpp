@@ -30,9 +30,6 @@ using std::vector;
 using std::cout;
 using std::cerr;
  
-// ugly global var for opf_container.cpp
-uint op_nr_counters;
-
 static int ctr = -1;
 static int showvers;
 static char *gproffile;
@@ -410,9 +407,6 @@ int main(int argc, char const *argv[])
 	opp_samples_files samples_files(sample_file, counter);
 	opp_bfd abfd(samples_files.header[samples_files.first_file],
 		     samples_files.nr_samples, image_file);
-
-	// some other module needs this global var.
-	op_nr_counters = samples_files.nr_counters;
 
 	samples_files.output_header();
 
