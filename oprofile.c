@@ -1,6 +1,9 @@
 /* $Id$ */
 
 /* FIXME: data->next rotation ? */
+/* FIXME: with generation numbers we can place mappings in
+   every buffer. we still need one IPI, but we shouldn't need
+   to wait for it (?) and it avoids mapping-in-other-CPU problem */
 
 #include "oprofile.h"
 
