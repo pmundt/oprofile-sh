@@ -23,8 +23,6 @@
 
 static int remove_component_p(const char *);
 
-char linkbuf[FILENAME_MAX]="";
- 
 /**
  * opd_malloc - allocate memory
  * @size: size in bytes
@@ -384,6 +382,7 @@ void opd_close_file(FILE *fp)
  */ 
 char *opd_read_link(const char *name)
 {
+	static char linkbuf[FILENAME_MAX]="";
 	int c;
 	char *str; 
 
