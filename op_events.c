@@ -171,7 +171,7 @@ struct op_event op_events[] = {
   { CTR_ALL, OP_PII, 0xd6, 0, "RET_SEG_RENAMES", 500 },
 
   /* athlon events */
-  { CTR_ALL, OP_ATHLON, 0xc0, 0, "RETIRED_INSNS", 500,},
+  { CTR_ALL, OP_ATHLON, 0xc0, 0, "RETIRED_INSNS", 3000,},
   { CTR_ALL, OP_ATHLON, 0xc1, 0, "RETIRED_OPS", 500,},
   { CTR_ALL, OP_ATHLON, 0x80, 0, "ICACHE_FETCHES", 500,},
   { CTR_ALL, OP_ATHLON, 0x81, 0, "ICACHE_MISSES", 500,},

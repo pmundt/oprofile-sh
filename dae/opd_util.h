@@ -42,7 +42,7 @@
 #define OPD_VERSION 0x5
 
 /* header of the sample files */
-struct opd_footer {
+struct opd_header {
 	u8  magic[4];
 	u32 version;
 	u8 is_kernel;

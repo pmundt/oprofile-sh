@@ -84,8 +84,8 @@ enum {  OPD_KERNEL, /* nr. kernel samples */
 struct opd_sample_file {
 	fd_t fd;
 	/* mapped memory begin here */
-	struct opd_footer *footer;
-	/* start + sizeof(footer) ie. begin of map of samples */
+	struct opd_header *header;
+	/* start + sizeof(header) ie. begin of map of samples */
 	void *start;
 	/* the size of mapped memory comes from the opd_image */
 };
@@ -93,7 +93,7 @@ struct opd_sample_file {
 struct opd_image {
 	struct opd_sample_file sample_files[OP_MAX_COUNTERS];
 	int hash;
-	/* NOT counted the size of footer, to allow quick access check  */
+	/* NOT counted the size of header, to allow quick access check  */
 	off_t len;
 	time_t mtime;	/* image file mtime */
 	u8 kernel;
