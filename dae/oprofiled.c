@@ -424,8 +424,6 @@ static void opd_shutdown(struct op_sample *buf, size_t size, struct op_note *nbu
 	ssize_t count = -1;
 	ssize_t ncount = -1;
  
-	system("op_dump");
- 
 	/* the dump may have added no samples, so we must set
 	 * non-blocking */
 	if (fcntl(devfd, F_SETFL, fcntl(devfd, F_GETFL) | O_NONBLOCK) < 0) {
