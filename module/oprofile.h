@@ -235,10 +235,12 @@ int oprof_init_hashmap(void);
 void oprof_free_hashmap(void);
 void lvtpc_apic_setup(void *dummy);
 void lvtpc_apic_restore(void *dummy);
+void apic_restore(void);
 void install_nmi(void);
 void restore_nmi(void);
 int apic_setup(void);
-void do_fixmap(void);
+void fixmap_setup(void);
+void fixmap_restore(void);
 
 /* used by interrupt handlers */
 extern struct op_int_operations op_nmi_ops;
