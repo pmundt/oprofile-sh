@@ -216,8 +216,16 @@ void opp_treat_options(const char* file, poptContext optcon,
 
 	sample_file = samplefile;
 
-	if (!imagefile)
-		image_file = demangle_filename(sample_file);
+	if (!imagefile) {
+		/* we allow for user to specify a sample filename on the form
+		 * /var/opd/samples/}bin}nash}}}lib}libc.so so we need to
+		 * check against this form of mangled filename */
+		string lib_name;
+		string app_name = extract_app_name(sample_file, lib_name);
+		if (lib_name.length())
+			app_name = lib_name;
+		image_file = demangle_filename(app_name);
+	}
 	else
 		image_file = imagefile;
 }
