@@ -20,6 +20,17 @@ if test `pidof oprofiled`
 then
 	echo "Stopping profiling and killing daemon"
 	echo 1 >/proc/sys/dev/oprofile/dump_stop
+	COUNT=0
+	while test `pidof oprofiled`
+	do
+		sleep 1
+		COUNT=`expr $COUNT + 1`
+		if [ "$COUNT" -eq 30 ]; then
+			echo "Daemon stuck shutting down; killing !"
+			kill -9 `pidof oprofiled`
+			exit 0
+		fi
+	done
 	exit 0
 fi
  
