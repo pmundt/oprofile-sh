@@ -36,8 +36,8 @@ void op_get_event_desc(u8 type, u8 um, char **typenamep, char **typedescp, char 
 #define fd_t int
 #define streq(a,b) (!strcmp((a),(b)))
 
-/* kernel image entries are offset by this much */
-#define OPD_KERNEL_OFFSET 1000000
+/* kernel image entries are offset by this many entries */
+#define OPD_KERNEL_OFFSET 524288
  
 /* this char replaces '/' in sample filenames */
 #define OPD_MANGLE_CHAR '}'
