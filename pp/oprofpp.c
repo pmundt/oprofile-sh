@@ -1133,7 +1133,12 @@ int main(int argc, char const *argv[])
 	if (footer[i]->cpu_type == CPU_ATHLON)
 		op_nr_counters = 4;
 
-	printf("Cpu type: %s\n", op_get_cpu_type_str(footer[i]->cpu_type));
+	if (list_all_symbols_details)
+		/* TODO: temporary hack to fix and easy life of opf_filter.cpp
+		 * Will be cleanup when linking opf_filter with oprofpp. */
+		printf("Cpu type: %d\n", footer[i]->cpu_type);
+	else
+		printf("Cpu type: %s\n", op_get_cpu_type_str(footer[i]->cpu_type));
 
 	printf("Cpu speed was (MHz estimation) : %f\n", footer[i]->cpu_speed);
 
