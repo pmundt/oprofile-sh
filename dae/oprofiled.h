@@ -45,6 +45,9 @@
 /* maximum nr. of kernel modules */
 #define OPD_MAX_MODULES 64
 
+/* size of process hash table */
+#define OPD_MAX_PROC_HASH 128
+
 #define NR_CPUS 32
 
 /* stats for sample collection */
@@ -164,6 +167,7 @@ struct opd_proc {
 	struct opd_map *maps;
 	unsigned int nr_maps;
 	unsigned int max_nr_maps;
+	unsigned int last_map;
 	u16 pid;
 	int dead;
 	struct opd_proc *prev;
