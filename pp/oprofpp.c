@@ -1133,7 +1133,7 @@ int main(int argc, char const *argv[])
 	if (footer[i]->cpu_type == CPU_ATHLON)
 		op_nr_counters = 4;
 
-	printf("Cpu type: %d\n", footer[i]->cpu_type);
+	printf("Cpu type: %s\n", op_get_cpu_type_str(footer[i]->cpu_type));
 
 	printf("Cpu speed was (MHz estimation) : %f\n", footer[i]->cpu_speed);
 
