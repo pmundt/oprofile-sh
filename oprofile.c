@@ -641,10 +641,12 @@ doit:
 	spin_lock(&note_lock);
 
 	num = oprof_data[i].nextbuf;
-	/* might have overflowed */
+	printk("oprofile: num %u, nextbuf %u\n",num,oprof_data[i].nextbuf);
+	/* might have overflowed. If not, set the buffer back to the start. */
 	if (num < oprof_data[i].buf_size/2)
 		num = oprof_data[i].buf_size;
-	printk("oprofile: num %u, nextbuf %u\n",num,oprof_data[i].nextbuf);
+	else
+		oprof_data[i].nextbuf=0;
 
 	mybuf->count = mybuf->pid = 0;
 	mybuf->eip = num;
