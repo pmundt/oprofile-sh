@@ -571,6 +571,9 @@ again:
 	}
 	goto again;
 
+	/* FIXME: what if a signal occurs now ? What is returned to
+	 * the read() routine ?
+	 */
 doit:
 	pmc_select_stop(i);
 	spin_lock(&note_lock);

@@ -635,6 +635,10 @@ void opd_close_device(fd_t devfd)
  * The driver returning %EINTR is handled to allow signals.
  * Any other error return is fatal.
  *
+ * It is the caller's responsibility to do further opd_read_device()
+ * calls if the number of bytes read is not what is requested
+ * (where this is applicable).
+ *
  * The number of bytes read is returned.
  */ 
 size_t opd_read_device(fd_t devfd, void *buf, size_t size, int seek)
