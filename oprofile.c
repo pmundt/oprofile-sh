@@ -241,7 +241,8 @@ static void disable_local_P6_APIC(void *dummy)
 #endif
 }
 
-static uint old_lvtpc[NR_CPUS];
+static uint lvtpc_old_mask[NR_CPUS];
+static uint lvtpc_old_mode[NR_CPUS];
 
 static void __init lvtpc_apic_setup(void *dummy)
 {
@@ -249,17 +250,25 @@ static void __init lvtpc_apic_setup(void *dummy)
 
 	/* set up LVTPC as we need it */
 	/* IA32 V3, Figure 7.8 */
-	old_lvtpc[smp_processor_id()] = val = apic_read(APIC_LVTPC);
+	val = apic_read(APIC_LVTPC);
+	lvtpc_old_mask[smp_processor_id()] = val & APIC_LVT_MASKED;
 	/* allow PC overflow interrupts */
 	val &= ~APIC_LVT_MASKED;
 	/* set delivery to NMI */
+	lvtpc_old_mode[smp_processor_id()] = GET_APIC_DELIVERY_MODE(val);
 	val = SET_APIC_DELIVERY_MODE(val, APIC_MODE_NMI);
 	apic_write(APIC_LVTPC, val);
 }
 
 static void __exit lvtpc_apic_restore(void *dummy)
 {
-	apic_write(APIC_LVTPC, old_lvtpc[smp_processor_id()]);
+	uint val = apic_read(APIC_LVTPC);
+	val = SET_APIC_DELIVERY_MODE(val, lvtpc_old_mode[smp_processor_id()]);
+	if (lvtpc_old_mask[smp_processor_id()])
+		val |= APIC_LVT_MASKED;
+	else
+		val &= ~APIC_LVT_MASKED;
+	apic_write(APIC_LVTPC, val);
 }
 
 static int __init apic_needs_setup(void)
