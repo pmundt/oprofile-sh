@@ -180,7 +180,8 @@ void opp_samples_files::do_list_symbols(opp_bfd & abfd) const
 {
 	samples_files_t samples;
 
-	samples.add(*this, abfd, true, false, show_shared_libs, counter);
+	samples.add(*this, abfd, true, output_format_flags,
+		    show_shared_libs, counter);
 
 	vector<const symbol_entry *> symbols;
 
@@ -212,7 +213,10 @@ void opp_samples_files::do_list_symbol(opp_bfd & abfd) const
 
 	samples_files_t samples;
 
-	samples.add(*this, abfd, true, true, false, counter);
+	output_format_flags = 
+	  static_cast<OutSymbFlag>(output_format_flags | osf_details);
+
+	samples.add(*this, abfd, true, output_format_flags, false, counter);
 
 	const symbol_entry * symb = samples.find_symbol(abfd.syms[i]->value +
 						abfd.syms[i]->section->vma);
@@ -225,7 +229,6 @@ void opp_samples_files::do_list_symbol(opp_bfd & abfd) const
 	OutputSymbol out(samples, counter);
 
 	out.SetFlag(output_format_flags);
-	out.SetFlag(osf_details);
 
 	out.Output(cout, symb);
 }
@@ -342,7 +345,11 @@ void opp_samples_files::do_list_all_symbols_details(opp_bfd & abfd) const
 {
 	samples_files_t samples;
 
-	samples.add(*this, abfd, false, true, show_shared_libs, counter);
+	output_format_flags = 
+	  static_cast<OutSymbFlag>(output_format_flags | osf_details);
+
+	samples.add(*this, abfd, false, output_format_flags,
+		    show_shared_libs, counter);
 
 	vector<const symbol_entry *> symbols;
 
@@ -354,7 +361,6 @@ void opp_samples_files::do_list_all_symbols_details(opp_bfd & abfd) const
 
 	// this flag are implicit for oprofpp -L
 	out.SetFlag(osf_show_all_counters);
-	out.SetFlag(osf_details);
 
 	out.Output(cout, symbols, false);
 }
