@@ -166,6 +166,8 @@ struct opp_samples_files {
 	}
  
 	bool accumulate_samples(counter_array_t& counter, uint vma) const;
+	bool accumulate_samples(counter_array_t& counter,
+				uint start, uint end) const;
 
 	void output_header() const;
 
@@ -182,13 +184,13 @@ struct opp_samples_files {
 	// can in ctor.
 	int first_file;
 	uint nr_samples;
+	string sample_filename;
 
 private:
 	void output_event(int i) const;
 
 	// ctor helper
-	void open_samples_file(const string & sample_file, u32 counter,
-			       bool can_fail);
+	void open_samples_file(u32 counter, bool can_fail);
 	void check_event(int i);
 };
 

@@ -91,7 +91,7 @@ do_help() {
 	  --log-file=file              log file
 	  --base-dir=dir               base directory of daemon
 	  --samples-dir=file           output samples directory
-	  --separate-samples           separate samples for each distinct application  (experimental)
+	  --separate-samples           separate samples for each distinct application
 	  --device-file=file           profile device file
 	  --note-device-file=file      note device file
 	  --hash-map-device-file=file  profile hash map device file

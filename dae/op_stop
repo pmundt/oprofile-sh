@@ -18,7 +18,9 @@
 
 if test `pidof oprofiled`
 then
+	op_dump
 	echo "Stopping profiling and killing daemon"
+	sleep 1
 	kill `pidof oprofiled`
 	exit
 fi
