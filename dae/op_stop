@@ -16,14 +16,14 @@
 # Place - Suite 330, Boston, MA 02111-1307, USA.
 #
 
-PSLINE=`ps x | grep oprofiled | grep -v grep`
+if test ! -f /sbin/pidof; then
+	echo "No /sbin/pidof found !!!!!" >&2
+fi
 
-NAME=`echo $PSLINE | awk '{print $5}'`
-if [ "$NAME" = "oprofiled" ]
+if test `/sbin/pidof oprofiled`
 then
-	PID=`echo $PSLINE | awk '{print $1}'`
 	echo "Stopping profiling and killing daemon"
-	kill $PID
+	kill `/sbin/pidof oprofiled`
 	exit
 fi
  
