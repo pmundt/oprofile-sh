@@ -64,6 +64,7 @@ AC_SUBST(CC)
 AC_PROG_CC
 test "$GCC" || AC_ERROR(You would not have much luck compiling kernel code with non-gcc...)
 AC_PROG_CPP
+AC_PROG_CXX
 AC_CHECK_PROG(LD,ld,ld,)
 test "$LD" || AC_ERROR(ld not found)
 
