@@ -349,7 +349,7 @@ void do_list_symbols(void)
 	num = get_symbols(ibfd,&syms);
 
 	for (i=0; i < nr_samples; i++) {
-		printf("%d: %d %d\n",i,samples[i].count0,samples[i].count1);
+		printf("0x%x: %d %d\n",i,samples[i].count0,samples[i].count1);
 	}
 
 	if (!num) {
