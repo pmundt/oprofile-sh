@@ -173,8 +173,8 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 #define release_mmap_sem(mm) up_read(&mm->mmap_sem)
 #endif
 
-// 2.4.7 introduced completions.
-#if LINUX_VERSION_CODE < KERNEL_VERSION(2,4,8)
+// 2.4.9 introduced complete_and_exit
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,4,9)
 #define DECLARE_COMPLETION(x)	DECLARE_MUTEX_LOCKED(x)
 #define init_completion(x)
 #define complete_and_exit(x, y) up_and_exit((x), (y))
