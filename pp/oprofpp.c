@@ -672,7 +672,7 @@ int main(int argc, char const *argv[])
 		exit(1);
 	}
 
-	size = opd_get_fsize(samplefile) - sizeof(struct opd_footer); 
+	size = opd_get_fsize(samplefile, 1) - sizeof(struct opd_footer); 
 	samples = (struct opd_fentry *)mmap(0, size, PROT_READ, MAP_PRIVATE, fd, 0);
 
 	if (samples==(void *)-1) {

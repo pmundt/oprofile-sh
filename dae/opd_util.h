@@ -75,7 +75,7 @@ void opd_write_u32_ne(FILE *fp, u32 val);
 fd_t opd_open_device(const char *name, int fatal);
 void opd_close_device(fd_t devfd);
 size_t opd_read_device(fd_t devfd, void *buf, size_t size, int seek);
-off_t opd_get_fsize(const char *file);
+off_t opd_get_fsize(const char *file, int fatal);
  
 char *opd_get_time(void);
 char *opd_get_line(FILE *fp);
