@@ -39,6 +39,7 @@ static int list_symbols;
 static int output_linenr_info;
 static int show_shared_libs;
 static char * output_format;
+static int list_all_symbols_details;
 
 static OutSymbFlag output_format_flags;
 
