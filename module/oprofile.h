@@ -53,6 +53,29 @@ struct _oprof_data {
 	uint ctr_count[OP_MAX_COUNTERS]; /* reset counter values */
 } __cacheline_aligned;
 
+/* reflect /proc/sys/dev/oprofile/#counter files */
+struct oprof_counter {
+	int count;
+	int enabled;
+	int event;
+	int kernel;
+	int user;
+	int unit_mask;
+};
+
+/* reflect /proc/sys/dev/oprofile files */
+struct oprof_sysctl {
+	int buf_size; /* nr. in eviction buffser */
+	int hash_size; /* nr. in hash table */
+	int dump; /* sysctl dump */
+	int kernel_only; /* is profiling kernel only */
+	int note_size; /* nr. in note buffer */
+	int nr_interrupts; /* nr. interrupts occured */
+	pid_t pid_filter;
+	pid_t pgrp_filter;
+	struct oprof_counter ctr[OP_MAX_COUNTERS];
+};
+
 /* MSRs */
 #ifndef MSR_IA32_PERFCTR0
 #define MSR_IA32_PERFCTR0 0xc1
