@@ -27,7 +27,7 @@ dist:
 	(find -type d -name CVS | xargs rm -rf) ; \
 	autoconf ; \
 	./configure ; \
-	cp doc/Makefile doc/Makefile.tmp ; \
+	mv doc/Makefile doc/Makefile.tmp ; \
 	make distclean ; \
 	cd doc && make && rm -f Makefile.tmp && cd .. ; \
 	cd .. ; \
