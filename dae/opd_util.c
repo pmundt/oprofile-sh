@@ -22,19 +22,6 @@
 #include "opd_util.h"
 #include "../config.h"
 
-#ifndef HAVE_XCALLOC
-/* some system have a valid libiberty without xcalloc */
-void * xcalloc(size_t n_elem, size_t sz)
-{
-	void * ptr = xmalloc(n_elem * sz);
-
-	memset(ptr, '\0', n_elem * sz);
-
-	return ptr;
-}
-#endif
-
-
 /**
  * opd_mangle_filename - mangle a file filename
  * @smpdir: base directory name

@@ -156,12 +156,10 @@ struct oprof_sysctl {
 	(ops).pid != current->pid || \
 	op_full_count((ops).count))
 
-/* the top half of pid is likely to remain static,
-   so it's masked off. the ctr bit is used to separate
-   the two counters */
+/* the ctr bit is used to separate the two counters */
 #define op_hash(eip, pid, ctr) \
-	((((((eip&0xff000)>>3) ^ eip) ^ (pid&0xff)) ^ (eip<<9)) \
-	^ (ctr<<8)) & (data->hash_size - 1)
+	(((((((eip&0xff000)>>3) ^ eip) ^ pid) ^ (eip<<9)) \
+	^ (ctr<<8)) & (data->hash_size - 1))
 
 /* read/write of perf counters */
 #define get_perfctr(l,h,c) do { rdmsr(perfctr_msr[(c)], (l), (h)); } while (0)

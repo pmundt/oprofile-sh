@@ -22,16 +22,16 @@ install.user: all
 	$(MAKE) -C events install DESTDIR=$(DESTDIR)
 	$(MAKE) -C dae install DESTDIR=$(DESTDIR)
 	$(MAKE) -C pp install DESTDIR=$(DESTDIR)
-	$(MAKE) -C doc install DESTDIR=$(DESTDIR)
 	$(MAKE) -C gui install DESTDIR=$(DESTDIR)
+	$(MAKE) -C doc install DESTDIR=$(DESTDIR)
 
 uninstall:
 	$(MAKE) -C events uninstall
 	$(MAKE) -C module uninstall
 	$(MAKE) -C dae uninstall
 	$(MAKE) -C pp uninstall
-	$(MAKE) -C doc uninstall
 	$(MAKE) -C gui uninstall
+	$(MAKE) -C doc uninstall
 	@echo "Goodbye."
 
 clean:
