@@ -4,6 +4,8 @@
 
 #include "oprofile.h"
 
+EXPORT_NO_SYMBOLS;
+
 static char *op_version = VERSION_STRING;
 MODULE_AUTHOR("John Levon (moz@compsoc.man.ac.uk)");
 MODULE_DESCRIPTION("Continuous Profiling Module");
