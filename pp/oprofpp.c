@@ -317,8 +317,6 @@ void get_symbol_range(asymbol *sym, asymbol *next, u32 *start, u32 *end)
 		*end += sect_offset;
 	} else
 		*end = nr_samples;
-
-	printf("Symbol $%s$, value 0x%x, Start 0x%x, end 0x%x\n",sym->name,sym->value,*start,*end);
 }
  
 struct opp_count {
