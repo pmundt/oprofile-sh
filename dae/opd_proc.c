@@ -1037,12 +1037,12 @@ void opd_handle_mapping(const struct op_sample *sample)
 
 			strcat(file,"/");
 
-			if (strlen(hash_access(hash))+1 >= PATH_MAX) {
+			if (strlen(&hash_access(hash))+1 >= PATH_MAX) {
 				fprintf(stderr,"String \"%s\" too large.\n",file);
 				exit(1);
 			}
 
-			strcat(file,hash_access(hash));
+			strcat(file,&hash_access(hash));
 		}
 
 		printf("Mapping from 0x%x, size 0x%x, offset 0x%x, of file $%s$\n",
