@@ -76,7 +76,6 @@ esac
 # we can now default define individual counter setup variable.
 f=0
 while (( $f < $OP_MAX_COUNTERS )); do
-	CTR_COUNT[$f]=600000
 	CTR_USER[$f]=1
 	CTR_KERNEL[$f]=1
 	f=$(($f+1))
@@ -252,12 +251,22 @@ fi
 f=0
 while (( $f < $OP_MAX_COUNTERS )); do
 	if [[ ${#CTR_EVENT[$f]} != 0 ]]; then
+		if [ -z "${CTR_COUNT[$f]}" ]; then
+			echo "Event but no count specified for counter $f"
+			exit 1
+		fi
 		CTR_EVENT_VAL[$f]=`op_help --cpu-type=$CPUTYPE ${CTR_EVENT[$f]}`
 		if [ -z "${CTR_EVENT_VAL[$f]}" -a ! -z "${CTR_EVENT[$f]}" ]; then
 			echo "Unknown event \"${CTR_EVENT[$f]}\""
 			exit 1
 		fi
+	else 
+		if [ ! -z "${CTR_COUNT[$f]}" ]; then
+			echo "Count but no event specified for counter $f"
+			exit 1
+		fi
 	fi
+
 	f=$(($f+1))
 done
 
