@@ -18,7 +18,7 @@ all: oprofile.o
 install: all
 	-$(MKDIR_P) $(MODINSTALLDIR)
 	cp oprofile.o $(MODINSTALLDIR)
-	depmod -a @KVERS@
+	if test "@KVERS@" = "`uname -r`"; then depmod -a ; fi
 
 uninstall:
 	-rm -f $(MODINSTALLDIR)/oprofile.o
