@@ -6,6 +6,7 @@
 #include <linux/init.h>
 #include <linux/malloc.h>
 #include <linux/delay.h>
+#include <linux/vmalloc.h>
 
 #include <asm/uaccess.h>
 #include <asm/smplock.h>
