@@ -599,7 +599,7 @@ fd_t opd_open_device(const char *name, int fatal)
  
 	fd = open(name, O_RDONLY);
 	if (fatal && fd==-1) {
-		fprintf(stderr,"oprofiled:opd_open_device: %s: %s",name,strerror(errno)); 
+		fprintf(stderr,"oprofiled:opd_open_device: %s: %s\n",name,strerror(errno)); 
 		exit(1);
 	}
 
