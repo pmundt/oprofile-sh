@@ -68,6 +68,12 @@ then
 	exec op_help
 fi
 
+grep oprof /proc/devices >/dev/null
+if [ "$?" -eq 0 ]
+then
+	echo "Stopping profiling."
+	op_stop
+fi
 
 LOG_FILE=
 SAMPLES_DIR=
