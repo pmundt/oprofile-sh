@@ -194,7 +194,6 @@ poptGetContext(0, c, v, 0, 0);
 ],
 AC_MSG_RESULT([takes char **]) CXXFLAGS="$SAVE_CXXFLAGS";,
 AC_MSG_RESULT([takes const char **]); CFLAGS="$CFLAGS -DCONST_POPT"; CXXFLAGS="$SAVE_CXXFLAGS -DCONST_POPT")
-CXXFLAGS=$SAVE_CXXFLAGS 
 
 AC_MSG_CHECKING("whether to use included sstream")
 AC_TRY_COMPILE([#include <sstream>], [], 
