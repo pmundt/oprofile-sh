@@ -116,7 +116,8 @@ if test -z "$HARD_GET_CURRENT"; then
   AC_MSG_RESULT(no)
 else
   AC_MSG_RESULT(yes)
-  BKCFLAGS="$BKCFLAGS -DHARD_CURRENT"
+  # hard_get_current() can't work for us... 
+  AC_MSG_ERROR(This kernel version is unsupported. Check oprofile bug tracker for more information.)
 fi
 
 AC_MSG_CHECKING(for x86 architecture)
