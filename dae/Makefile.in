@@ -22,7 +22,7 @@ clean:
  
 CFLAGS=-Wall -Wstrict-prototypes -O2 -pipe -Wstrict-prototypes -Wunused -W -Wshadow -Wmissing-prototypes -Winline @CFLAGS@
 LIBS=@extra_libraries@ -lpopt
-INCLUDES=@extra_includes@
+INCLUDES=-I. @extra_includes@
 HEADERS=oprofiled.h opd_util.h ../op_user.h ../version.h
 SOURCES=oprofiled.c opd_util.c opd_proc.c ../op_events.c
  

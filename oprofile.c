@@ -252,8 +252,9 @@ static void __exit smp_apic_restore(void *dummy)
 
 static int __init apic_setup(void)
 {
-	/* FIXME: davej says it might be possible to use PCI to find
-	   SMP systems with one CPU */
+	/* FIXME: we need to detect UP kernel, SMP hardware, and
+	 * not go past smp_apic_setup, to avoid screwing up the APIC
+	 */
 	if (smp_num_cpus > 1) {
 		smp_apic_setup(NULL);
 		return 0;
