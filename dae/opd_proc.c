@@ -75,7 +75,6 @@ static void opd_handle_old_sample_file(char * mangled, char * sum);
    report stats */
 void opd_alarm(int val __attribute__((unused)))
 {
-	static int last = -1;
 	struct opd_proc *proc;
 	struct opd_proc *next;
 	uint i;
@@ -114,13 +113,6 @@ void opd_alarm(int val __attribute__((unused)))
 	printf("Nr. notifications: %lu\n",opd_stats[OPD_NOTIFICATIONS]);
 	fflush(stdout);
 
-	/* we should demand some data if we haven't got any recently */
-
-	if (last==(int)opd_stats[OPD_DUMP_COUNT])
-		system("sysctl -w dev.oprofile.dump=1 >/dev/null");
-
-	last = opd_stats[OPD_DUMP_COUNT];
-	
 	alarm(60*10);
 }
 

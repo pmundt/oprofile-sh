@@ -399,7 +399,8 @@ static int oprof_output_maps(struct task_struct *task)
 	if (!(mm=task->mm))
 		goto out;
 
-	down(&mm->mmap_sem);
+ 
+	take_mmap_sem(mm);
 	spin_lock(&map_lock);
 	for (map=mm->mmap; map; map=map->vm_next) {
 		if (!(map->vm_flags&VM_EXEC) || !map->vm_file)
@@ -410,7 +411,7 @@ static int oprof_output_maps(struct task_struct *task)
 		is_execve = 0;
 	}
 	spin_unlock(&map_lock);
-	up(&mm->mmap_sem);
+	release_mmap_sem(mm);
 
 out:
 	return size;

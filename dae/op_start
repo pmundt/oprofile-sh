@@ -385,3 +385,7 @@ then
 	echo "Check the log file \"$LOG_FILE\" and /var/log/messages"
 	exit 1
 fi
+
+echo "Daemon started. Remember you may need to"
+echo "echo 1 >/proc/sys/dev/oprofile/dump"
+echo "to get profiling data ..."

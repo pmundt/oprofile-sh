@@ -148,6 +148,15 @@ asmlinkage void op_nmi(void);
 struct _descr { u16 limit; u32 base; } __attribute__((__packed__));
 struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 
+// 2.4.3 introduced rw mmap semaphore 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,4,3)
+#define take_mmap_sem(mm) down(&mm->mmap_sem)
+#define release_mmap_sem(mm) up(&mm->mmap_sem)
+#else
+#define take_mmap_sem(mm) down_read(&mm->mmap_sem)
+#define release_mmap_sem(mm) up_read(&mm->mmap_sem)
+#endif
+ 
 void my_set_fixmap(void);
 int op_check_events(u8 ctr0_type, u8 ctr1_type, u8 ctr0_um, u8 ctr1_um, int proc);
 void op_intercept_syscalls(void);
