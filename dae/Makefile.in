@@ -2,7 +2,7 @@
 
 INSTALL_LIST=oprofiled op_start op_dump op_stop
 
-CFLAGS=-Wall -Wstrict-prototypes -O2 -pipe -Wstrict-prototypes -Wunused -W -Wshadow -Wmissing-prototypes -Winline @CFLAGS@
+CFLAGS=-Wall -Wstrict-prototypes -pipe -Wunused -W -Wshadow -Wmissing-prototypes -Winline @CFLAGS@
 LIBS=@extra_libraries@ -lpopt -liberty
 
 SOURCES=oprofiled.c opd_util.c opd_proc.c

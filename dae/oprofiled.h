@@ -44,7 +44,7 @@
 
 /* various defines */
 
-//#define OPD_DEBUG
+/*#define OPD_DEBUG*/
 
 #ifdef OPD_DEBUG
 #define dprintf(args...) printf(args)

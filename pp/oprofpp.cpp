@@ -313,6 +313,8 @@ void opp_samples_files::do_dump_gprof(opp_bfd & abfd) const
 		}
 	}
 
+	free(hist);
+
 	opd_write_file(fp, hist, histsize * sizeof(u16));
 	opd_close_file(fp);
 }
