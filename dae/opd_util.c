@@ -805,6 +805,6 @@ poptContext opd_poptGetContext(const char * name,
 #ifdef CONST_POPT
 	return poptGetContext(name, argc, argv, options, flags); 
 #else
-	return poptGetContext(name, argc, (char **)argv, options, flags); 
+	return poptGetContext((char *)name, argc, (char **)argv, options, flags); 
 #endif
 }

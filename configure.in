@@ -90,6 +90,7 @@ CFLAGS="-Werror $CFLAGS"
 AC_TRY_COMPILE(,[
 void monkey() __attribute__((malloc));
 ],AC_MSG_RESULT("yes"); CFLAGS="$SAVE_CFLAGS -DMALLOC_OK", AC_MSG_RESULT("no"); CFLAGS="$SAVE_CFLAGS")
+CFLAGS=$SAVE_CFLAGS 
 
 AC_MSG_CHECKING("whether __builtin_expect is understood")
 SAVE_CFLAGS=$CFLAGS
@@ -193,6 +194,7 @@ poptGetContext(0, c, v, 0, 0);
 ],
 AC_MSG_RESULT([takes char **]) CXXFLAGS="$SAVE_CXXFLAGS";,
 AC_MSG_RESULT([takes const char **]); CFLAGS="$CFLAGS -DCONST_POPT"; CXXFLAGS="$SAVE_CXXFLAGS -DCONST_POPT")
+CXXFLAGS=$SAVE_CXXFLAGS 
 
 AC_MSG_CHECKING("whether to use included sstream")
 AC_TRY_COMPILE([#include <sstream>], [], 
