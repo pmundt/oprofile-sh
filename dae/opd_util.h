@@ -18,7 +18,14 @@
 #ifndef OPD_UTIL_H
 #define OPD_UTIL_H
 
+#include <stdio.h>
+#include <string.h> 
+#include <sys/stat.h>
+#include <unistd.h> 
 #include <sys/types.h>
+#include <errno.h> 
+#include <time.h> 
+#include <fcntl.h> 
 
 #define FALSE 0
 #define TRUE 1

@@ -19,7 +19,7 @@
 #include <netinet/in.h> 
 #include <stdlib.h> 
  
-#include "oprofiled.h"
+#include "opd_util.h"
 
 static int remove_component_p(const char *);
 
