@@ -293,6 +293,7 @@ void opd_do_samples(const struct op_sample *opd_buf, size_t count)
 			continue;
 
 		if (opd_is_mapping(&opd_buf[i])) {
+			opd_stats[OPD_NOTIFICATIONS]++;
 			switch (opd_buf[i].count) {
 				case OP_FORK:
 					opd_handle_fork(&opd_buf[i]);
