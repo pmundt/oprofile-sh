@@ -120,7 +120,7 @@ static void opp_get_options(int argc, const char **argv, string & image_file,
 	if (list_symbols || list_all_symbols_details || symbol) {
 		OutSymbFlag fl = ParseOutputOption(output_format);
 		if (fl == osf_none) {
-			cerr << "oprofpp: illegal --output-format flags.\n";
+			cerr << "oprofpp: invalid --output-format flags.\n";
 			OutputSymbol::ShowHelp();
 			exit(EXIT_FAILURE);
 		}
