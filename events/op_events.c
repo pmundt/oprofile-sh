@@ -197,7 +197,7 @@ struct op_event op_events[] = {
   { CTR_ALL, OP_ATHLON, 0xcf, 0, "HARDWARE_INTERRUPTS", 10,},
 
   /* other CPUs */
-  { CTR_0, OP_RTC, 0, 0, "RTCBLAHBLAHBLAH", 128,},
+  { CTR_0, OP_RTC, 0xff, 0, "RTC Interrupts", 2,},
 };
 
 /* the total number of events for all processor type */

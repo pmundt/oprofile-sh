@@ -323,6 +323,22 @@ static void opd_pmc_options(void)
 } 
  
 /**
+ * opd_rtc_options - read sysctls + set up for rtc options
+ */
+static void opd_rtc_options(void)
+{
+	int i;
+ 
+	for (i = 0 ; i < op_nr_counters ; ++i) {
+		ctr_event[i] = ctr_count[i] =  ctr_um[i] = ctr_enabled[i] = 0;
+	}
+ 
+	ctr_count[0] = opd_read_int_from_file("/proc/sys/dev/oprofile/rtc_value");
+	/* FIXME FIXME FIXME, oh wow, please FIXME */
+	ctr_event[0] = 0xff;
+}
+ 
+/**
  * opd_options - parse command line options
  * @argc: argc
  * @argv: argv array
@@ -360,6 +376,8 @@ static void opd_options(int argc, char const *argv[])
 
 	if (cpu_type != CPU_RTC) {
 		opd_pmc_options();
+	} else {
+		opd_rtc_options();
 	}
 
 	if (cpu_speed_str && strlen(cpu_speed_str))

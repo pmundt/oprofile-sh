@@ -774,6 +774,7 @@ void opp_samples_files::open_samples_file(u32 counter, bool can_fail)
 	fd[counter] = open(temp.c_str(), O_RDONLY);
 	if (fd[counter] == -1) {
 		if (can_fail == false)	{
+			/* FIXME: nicer message if e.g. wrong counter */ 
 			fprintf(stderr, "oprofpp: Opening %s failed. %s\n", temp.c_str(), strerror(errno));
 			exit(EXIT_FAILURE);
 		}
