@@ -629,6 +629,9 @@ static int oprof_read(struct file *file, char *buf, size_t count, loff_t *ppos)
 	uint num;
 	ssize_t max;
 
+	if (!capable(CAP_SYS_PTRACE))
+		return -EPERM;
+
 	switch (MINOR(file->f_dentry->d_inode->i_rdev)) {
 		case 2: return oprof_map_read(buf,count,ppos);
 		case 1: return -EINVAL;
