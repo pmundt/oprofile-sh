@@ -235,13 +235,11 @@ std::string demangle_symbol(const char* name)
 	if (demangle) {
 		const char * cp = name;
 
-		while (*cp && *cp == '_')
-			cp++;
-
+		// Do not try to strip leading underscore, this leads to many
+		// C++ demangling failure.
 		if (*cp) {
 			char *unmangled = cplus_demangle(cp, DMGL_PARAMS | DMGL_ANSI);
 			if (unmangled) {
-				/* FIXME: leading underscores ? */
 				std::string result(unmangled);
 
 				opd_free(unmangled);
