@@ -1,3 +1,5 @@
+# $Id$
+ 
 all: sprofile.o
 
 clean:

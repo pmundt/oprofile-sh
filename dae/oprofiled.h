@@ -1,6 +1,4 @@
-/* oprofiled.h */
-/* John Levon (moz@compsoc.man.ac.uk) */
-/* May 2000 */
+/* $Id$ */
 
 #ifndef OPROFILED_H
 #define OPROFILED_H

@@ -1,4 +1,5 @@
 #!/bin/sh
+# $Id$ 
 
 # ugh
 PID=`ps x | grep oprofiled | grep -v grep | awk '{print $1}'`

@@ -1,6 +1,4 @@
-/* opd_util.h */
-/* John Levon (moz@compsoc.man.ac.uk) */
-/* June 2000 */
+/* $Id$ */
 
 #ifndef OPD_UTIL_H
 #define OPD_UTIL_H 

@@ -1,4 +1,5 @@
 #!/bin/sh
+# $Id$
 
 # quick and ugly interface
 # op_start --help and op_start --list-events have info

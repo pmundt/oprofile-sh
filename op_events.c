@@ -1,4 +1,3 @@
-/* op_events.c */
 /* $Id$ */ 
 
 /* Adapted from libpperf 0.5 by M. Patrick Goda and Michael S. Warren */

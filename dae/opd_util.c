@@ -1,6 +1,4 @@
-/* opd_util.c */
-/* John Levon (moz@compsoc.man.ac.uk) */
-/* May 2000 */
+/* $Id$ */
 
 /* for hton */ 
 #include <netinet/in.h> 

@@ -1,4 +1,4 @@
-/* oprofile_nmi.S */
+/* $Id$ */
 
 #include <linux/sys.h>
 #include <linux/linkage.h>
