@@ -16,8 +16,6 @@
  */
 
 #include "op_dcache.h"
-/* get the real request_region */
-#undef request_region
 #include <linux/ioport.h>
 
 #ifdef NEED_2_2_DENTRIES
