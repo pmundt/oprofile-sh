@@ -488,6 +488,8 @@ static void opd_do_read(struct op_sample *buf, size_t size, struct op_note *nbuf
 				goto out;
 			}
 		}
+		opd_do_notes(nbuf, ncount);
+		opd_do_samples(buf, count);
 	}
  
 out:
