@@ -1304,6 +1304,7 @@ void opd_handle_exec(u16 pid)
  *
  * 4001e000-400fc000 r-xp 00000000 03:04 31011      /lib/libc-2.1.2.so
  */
+/* FIXME: handle (deleted) */
 static int opd_add_ascii_map(struct opd_proc *proc, const char *line)
 {
 	struct opd_map *map = &proc->maps[proc->nr_maps];
