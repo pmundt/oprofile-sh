@@ -206,6 +206,8 @@ static void opd_options(int argc, char const *argv[])
         if (ret & OP_CTR1_PII_EVENT) fprintf(stderr, "oprofiled: ctr1: %d: event only available on PII\n", footer.ctr1_type_val);
         if (ret & OP_CTR0_PIII_EVENT) fprintf(stderr, "oprofiled: ctr0: %d: event only available on PIII\n", footer.ctr0_type_val);
         if (ret & OP_CTR1_PIII_EVENT) fprintf(stderr, "oprofiled: ctr1: %d: event only available on PIII\n", footer.ctr1_type_val);
+        if (ret & OP_CTR0_ATHLON_EVENT) fprintf(stderr, "oprofiled: ctr0: %d: event only available on AMD Athlon\n", footer.ctr0_type_val);
+        if (ret & OP_CTR1_ATHLON_EVENT) fprintf(stderr, "oprofiled: ctr1: %d: event only available on AMD Athlon\n", footer.ctr1_type_val);
 
 	if (ret != OP_EVENTS_OK) {
 		poptPrintHelp(optcon, stderr, 0);
