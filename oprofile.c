@@ -556,7 +556,7 @@ int oprof_thread(void *arg)
  
 void oprof_start_thread(void)
 {
-	if (kernel_thread(oprof_thread, NULL, 0)<0)
+	if (kernel_thread(oprof_thread, NULL, CLONE_FS|CLONE_FILES|CLONE_SIGHAND)<0)
 		printk(KERN_ERR "oprofile: couldn't spawn wakeup thread.\n"); 
 }
 
