@@ -137,7 +137,7 @@ private:
  */
 struct samples_file_t
 {
-	samples_file_t(const string & filename);
+	samples_file_t(const std::string & filename);
 	~samples_file_t();
 
 	bool check_headers(const samples_file_t & headers) const;
