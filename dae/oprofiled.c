@@ -294,8 +294,8 @@ void opd_do_samples(const struct op_sample *opd_buf)
 					opd_handle_fork(&opd_buf[i]);
 					break;
 
-				case OP_DROP:
-					opd_handle_drop_mappings(&opd_buf[i]);
+				case OP_EXEC:
+					opd_handle_exec(&opd_buf[i]);
 					break;
 
 				case OP_MAP:

@@ -497,7 +497,7 @@ asmlinkage static int my_sys_execve(struct pt_regs regs)
 
 		if ((!pid_filter || pid_filter==current->pid) &&
 		    (!pgrp_filter || pgrp_filter==current->pgrp)) {
-			samp.count = OP_DROP;
+			samp.count = OP_EXEC;
 			samp.pid = current->pid;
 			/* how many bytes to read from map buffer */
 			samp.eip = oprof_output_maps(current);
@@ -510,7 +510,7 @@ asmlinkage static int my_sys_execve(struct pt_regs regs)
 
 		current->ptrace &= ~PT_DTRACE;
 
-		samp.count = OP_DROP;
+		samp.count = OP_EXEC;
 		samp.pid = current->pid;
 		/* how many bytes to read from map buffer */
 		samp.eip = oprof_output_maps(current);
