@@ -627,14 +627,18 @@ bool opp_bfd::get_linenr(uint sym_idx, uint offset,
 		ret = false;
 	}
 
-	// gcc 2.95 defer emission of linenr info after the end of function
-	// prolog so on finding linenr info for samples inside the prolog
-	// (or for the function symbol itself) return always 0 as linenr. We
-	// work around by scanning forward for a vma with valid linenr info.
-	// Problem uncovered by Norbert Kaufmann. The work-around decrease,
-	// on tincas application, the number of failure to retrieve linenr
-	// info from 835 to 173. Most of the remaining are c++ inline function
-	// mainly from the stl library. Fix #529622
+	/* binutils 2.12 and below have a small bug where functions without a
+	 * debug entry at the prologue start do not give a useful line number
+	 * from bfd_find_nearest_line(). This can happen with certain gcc
+	 * versions such as 2.95.
+	 *
+	 * We work around this problem by scanning forward for a vma with 
+	 * valid linenr info, if we can't get a valid line number.
+	 * Problem uncovered by Norbert Kaufmann. The work-around decreases,
+	 * on the tincas application, the number of failure to retrieve linenr
+	 * info from 835 to 173. Most of the remaining are c++ inline functions
+	 * mainly from the STL library. Fix #529622
+	 */
 	if (/*ret == false || */linenr == 0) {
 		// FIXME: looking at debug info for all gcc version shows
 		// than the same problems can -perhaps- occur for epilog code:
