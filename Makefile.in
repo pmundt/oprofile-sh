@@ -94,7 +94,7 @@ op_syscalls.o: op_syscalls.c oprofile.h
 oprofile.s: oprofile.c oprofile.h
 	$(CC) $(KCFLAGS) -S $<
 
-op_events.o: op_events.c
+op_events.o: op_events.c op_user.h
 	$(CC) $(KCFLAGS) -c -o $@ $<
 
 oprofile_nmi.o: oprofile_nmi.S

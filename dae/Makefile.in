@@ -14,13 +14,13 @@ INSTALL_LIST=oprofiled op_start op_dump op_stop op_help
 
 install: $(INSTALL_LIST)
 	-$(MKDIR_P) $(BINDIR)
-	@for f in $(INSTALL_LIST); do				 \
+	for f in $(INSTALL_LIST); do \
 		cp $$f $(BINDIR)/$$f && chmod 755 $(BINDIR)/$$f; \
 	done
 
 uninstall:
-	@for f in $(INSTALL_LIST); do	\
-		rm -f $(BINDIR)/$$f;	\
+	for f in $(INSTALL_LIST); do \
+		-rm -f $(BINDIR)/$$f; \
 	done
 
 clean:
