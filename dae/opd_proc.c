@@ -1367,6 +1367,8 @@ static void opd_get_ascii_maps(struct opd_proc *proc)
 			opd_free(line);
 		}
 	} while (1);
+
+	opd_close_file(fp);
 }
 
 /**
