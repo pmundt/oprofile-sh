@@ -361,18 +361,18 @@ static void do_list_symbols_details(opp_bfd & abfd,
  */
 void opp_samples_files::output_header() const
 {
-	op_cpu cpu = static_cast<op_cpu>(header[first_file]->cpu_type);
+	const struct opd_header * header = first_header();
+
+	op_cpu cpu = static_cast<op_cpu>(header->cpu_type);
  
 	printf("Cpu type: %s\n", op_get_cpu_type_str(cpu));
 
-	printf("Cpu speed was (MHz estimation) : %f\n",
-	       header[first_file]->cpu_speed);
+	printf("Cpu speed was (MHz estimation) : %f\n", header->cpu_speed);
 
 	for (uint i = 0 ; i < OP_MAX_COUNTERS; ++i) {
-		if (fd[i] != -1) {
-			op_print_event(cout, i, cpu, header[i]->ctr_event,
-				       header[i]->ctr_um,
-				       header[i]->ctr_count);
+		if (samples[i] != 0) {
+			op_print_event(cout, i, cpu, header->ctr_event,
+				       header->ctr_um, header->ctr_count);
 		}
 	}
 }
@@ -388,7 +388,7 @@ int main(int argc, char const *argv[])
 	opp_get_options(argc, argv, image_file, sample_file, counter);
 
 	opp_samples_files samples_files(sample_file, counter);
-	opp_bfd abfd(samples_files.header[samples_files.first_file],
+	opp_bfd abfd(samples_files.first_header(),
 		     samples_files.nr_samples, image_file);
 
 	if (!gproffile)
