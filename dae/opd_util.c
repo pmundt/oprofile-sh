@@ -452,7 +452,7 @@ ssize_t opd_read_device(fd_t devfd, void *buf, size_t size, int seek)
  
 	count = read(devfd, buf, size);
 
-	if (count < 0 && errno != EINTR) {
+	if (count < 0 && errno != EINTR && errno != EAGAIN) {
 		perror("oprofiled:opd_read_device: ");
 		exit(1);
 	}
