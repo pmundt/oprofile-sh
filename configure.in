@@ -110,7 +110,7 @@ mv=0
 AX_COMPILE_OPTION(CONFIG_MODVERSIONS,mv=1,mv=0)
 AX_MSG_RESULT_YN($mv)
 MODVERSIONS=""
-test "$mv" = 1 && MODVERSIONS="-DMODVERSIONS"
+test "$mv" = 1 && MODVERSIONS="-DMODVERSIONS -include $KINC/linux/modversions.h"
 AC_SUBST(MODVERSIONS)
 
 # this serves to ensure that CONFIG_X86_UP_IOAPIC *or* CONFIG_X86_UP_APIC
