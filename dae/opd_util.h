@@ -90,7 +90,7 @@ void opd_write_u32_he(FILE *fp, u32 val);
 #define opd_try_open_device(n) opd_open_device((n), 0)
 fd_t opd_open_device(const char *name, int fatal);
 void opd_close_device(fd_t devfd);
-size_t opd_read_device(fd_t devfd, void *buf, size_t size, int seek);
+ssize_t opd_read_device(fd_t devfd, void *buf, size_t size, int seek);
 off_t opd_get_fsize(const char *file, int fatal);
 time_t opd_get_mtime(const char *file);
 

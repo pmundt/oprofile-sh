@@ -450,7 +450,20 @@ static int oprof_read(struct file *file, char *buf, size_t count, loff_t *ppos)
 	if (*ppos || count != max)
 		return -EINVAL;
 
-	wait_event_interruptible(oprof_wait, is_ready());
+	if (file->f_flags & O_NONBLOCK) {
+		uint cpu;
+		for (cpu = 0; cpu < smp_num_cpus; ++cpu) {
+			if (oprof_data[cpu].nextbuf) {
+				cpu_num = cpu;
+				oprof_ready[cpu_num] = 2;
+				break;
+			}
+		}
+		if (cpu == smp_num_cpus)
+			return -EAGAIN;
+	} else {
+		wait_event_interruptible(oprof_wait, is_ready());
+	}
 
 	if (signal_pending(current))
 		return -EINTR;
