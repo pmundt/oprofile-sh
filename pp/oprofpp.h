@@ -63,7 +63,7 @@ char *cplus_demangle (const char *mangled, int options);
 			printf(args); \
 	} while (0)
 
-void opp_get_options(int argc, char const *argv[]);
+void opp_treat_options(const char * filename, poptContext * optcon);
 std::string demangle_symbol(const char* symbol);
 
 //---------------------------------------------------------------------------

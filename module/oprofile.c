@@ -761,25 +761,22 @@ static struct file_operations oprof_fops = {
  * /proc/sys/dev/oprofile/
  *                        bufsize
  *                        hashsize
+ *                        notesize
  *                        dump
  *                        kernel_only
  *                        pid_filter
  *                        pgrp_filter
  *                        nr_interrupts
- *                        0/
+ *                        #ctr/
  *                          event
  *                          enabled
  *                          count
  *                          unit_mask
  *                          kernel
  *                          user
- *                        1/
- *                          event
- *                          enabled
- *                          count
- *                          unit_mask
- *                          kernel
- *                          user
+ *
+ * #ctr is in [0-1] for PPro core, [0-3] for Athlon core
+ *
  */
 
 /* These access routines are basically not safe on SMP for module unload.
