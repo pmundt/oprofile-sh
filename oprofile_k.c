@@ -300,9 +300,13 @@ static int oprof_output_maps(struct task_struct *task)
 	if (!buffer)
 		return 0;
  
+	/* we don't need to worry about mm_users here, since there is at
+	   least one user (current), and if there's other code using this
+	   mm, then mm_users must be at least 2, so we should never have to
+	   mmput() here. */
+ 
 	task_lock(task);
-	if ((mm=task->mm))
-		atomic_inc(&task->mm->mm_users);
+	mm=task->mm;
 	task_unlock(task);
  
 	if (!mm)
@@ -319,7 +323,10 @@ static int oprof_output_maps(struct task_struct *task)
 	}
 
 	up(&mm->mmap_sem);
-	mmput(mm);
+ 
+	/* FIXME: remove */
+	if (!atomic_read(&mm->mm_users))
+		printk(KERN_ERR "Huh ? mm_users is 0\n");
  
 out:
 	free_page((ulong)buffer);
