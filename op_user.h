@@ -125,7 +125,7 @@ struct op_note {
 
 /* nr. entries in hash map, prime
  * this is the maximum number of name components allowed
- * Must not be more than 4093
+ * Must be a prime number
  */
 #define OP_HASH_MAP_NR 4093
 
