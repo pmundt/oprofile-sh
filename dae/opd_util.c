@@ -20,6 +20,8 @@
 #include "opd_util.h"
 #include "../config.h"
 
+/* FIXME: move into util/ ?? */
+ 
 /**
  * opd_mangle_filename - mangle a file filename
  * @smpdir: base directory name

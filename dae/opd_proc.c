@@ -35,7 +35,7 @@ static struct opd_proc *opd_procs[OPD_MAX_PROC_HASH];
 u32 ctr_count[OP_MAX_COUNTERS];
 u8 ctr_event[OP_MAX_COUNTERS];
 u8 ctr_um[OP_MAX_COUNTERS];
-extern u32 cpu_type;
+extern op_cpu cpu_type;
 double cpu_speed;
 
 /* list of image */

@@ -52,7 +52,7 @@ int separate_running_bit;
 static u32 prof_on __cacheline_aligned;
 
 static int op_major;
-int cpu_type;
+op_cpu cpu_type;
 
 static volatile uint oprof_opened __cacheline_aligned;
 static volatile uint oprof_note_opened __cacheline_aligned;

@@ -32,7 +32,7 @@ int kernel_only;
 /* Unfortunately popt does not have, on many versions, the POPT_ARG_DOUBLE type
  * so I must first store it as a string. */
 static const char *cpu_speed_str;
-u32 cpu_type;
+op_cpu cpu_type;
 int separate_samples;
 static int ignore_myself;
 static int opd_buf_size=OP_DEFAULT_BUF_SIZE;

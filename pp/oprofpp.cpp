@@ -529,7 +529,9 @@ void opp_samples_files::output_event(int i) const
  */
 void opp_samples_files::output_header() const
 {
-	printf("Cpu type: %s\n", op_get_cpu_type_str(header[first_file]->cpu_type));
+	op_cpu cpu = static_cast<op_cpu>(header[first_file]->cpu_type);
+ 
+	printf("Cpu type: %s\n", op_get_cpu_type_str(cpu));
 
 	printf("Cpu speed was (MHz estimation) : %f\n", header[first_file]->cpu_speed);
 
