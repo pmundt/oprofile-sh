@@ -22,6 +22,13 @@ distclean: clean
 	rm -f Makefile doc/oprofile.1 dae/Makefile pp/Makefile gui/Makefile tags config.status config.log config.cache version.h
 
 # broken 
+# dist check list:
+# 1. make dist (with doopr) 
+# 2. upload to sf
+# 3. untar into webpage
+# 4. add release
+# 5. send release email
+# 6. update freshmeat
 dist:
 	mkdir tmpdist ; \
 	cd tmpdist ; \
