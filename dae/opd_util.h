@@ -26,6 +26,7 @@
 #include <errno.h> 
 #include <time.h> 
 #include <fcntl.h> 
+#include <popt.h>
 
 #include "../op_user.h"
 
@@ -64,6 +65,11 @@ struct opd_fentry {
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/* ugh */
+poptContext opd_poptGetContext(const char * name,
+                int argc, const char ** argv,
+                const struct poptOption * options, int flags);
 
 /* utility functions */
 #define opd_calloc(memb, size) opd_malloc(memb*size)

@@ -139,8 +139,7 @@ void opp_get_options(int argc, const char **argv)
 	char *file_ctr_str;
 	int counter;
 	
-	/* Some old version of popt needs the cast to char ** */
-	optcon = poptGetContext(NULL, argc, argv, options, 0);
+	optcon = opd_poptGetContext(NULL, argc, argv, options, 0);
 
 	c=poptGetNextOpt(optcon);
 

@@ -790,3 +790,21 @@ size_t opd_read_device(fd_t devfd, void *buf, size_t size, int seek)
 	} while (count < 0);
 	return count;
 }
+
+ 
+/**
+ * opd_poptGetContext - wrapper for popt
+ *
+ * Use this instead of poptGetContext to cope with
+ * different popt versions. 
+ */
+poptContext opd_poptGetContext(const char * name,
+		int argc, const char ** argv,
+		const struct poptOption * options, int flags)
+{
+#ifdef CONST_POPT
+	return poptGetContext(name, argc, argv, options, flags); 
+#else
+	return poptGetContext(name, argc, (char **)argv, options, flags); 
+#endif
+}
