@@ -13,7 +13,9 @@ INCLUDES=
 HEADERS=cprofiled.h
 SOURCES=cprofiled.c cpd_util.c cpd_proc.c ../cp_events.c
  
-srcdoc: $(SOURCES)
+srcdoc: cprofiled-src.html
+
+cprofiled-src.html: $(SOURCES)
 	kernel-doc -html $(SOURCES) >cprofiled-src.html
  
 cprofiled: $(SOURCES) $(HEADERS) 
