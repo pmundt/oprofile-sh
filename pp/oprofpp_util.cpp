@@ -521,6 +521,13 @@ bool opp_bfd::get_linenr(uint sym_idx, uint offset,
 		linenr = 0;
 	}
 
+	// functioname and symbol name can be different if we query linenr info
+	// if we accept it we can get samples for the wrong symbol (#484660)
+	if (ret == true && functionname && 
+	    strcmp(functionname, syms[sym_idx]->name)) {
+		ret = false;
+	}
+
 	return ret;
 }
 
