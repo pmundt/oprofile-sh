@@ -75,7 +75,6 @@ void opd_alarm(int val __attribute__((unused)))
 		}
 	}
 
-	/* FIXME: div by zero */
 	printf("%s stats:\n",opd_get_time());
 	printf("Nr. kernel samples: %lu\n",opd_stats[OPD_KERNEL]);
 	printf("Nr. samples lost due to no process information: %lu\n",opd_stats[OPD_LOST_PROCESS]);
