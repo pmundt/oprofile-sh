@@ -494,7 +494,7 @@ int oprof_thread(void *arg)
 		}
 		current->state = TASK_INTERRUPTIBLE;
 		/* FIXME: determine best value here */
-		schedule_timeout(HZ/20);
+		schedule_timeout(HZ/10);
 
 		if (diethreaddie)
 			break;
@@ -627,7 +627,8 @@ static int oprof_read(struct file *file, char *buf, size_t count, loff_t *ppos)
 	/* might have overflowed from map buffer or ejection buffer */
 	if (num < oprof_data[cpu_num].buf_size-OP_PRE_WATERMARK && oprof_ready[cpu_num] != 2) {
 		printk(KERN_ERR "oprofile: Detected overflow of size %d. You must increase the "
-				"hash table size or reduce the interrupt frequency\n", num);
+				"hash table size or reduce the interrupt frequency (%d)\n", 
+				num, oprof_ready[cpu_num]);
 		num = oprof_data[cpu_num].buf_size;
 	} else
 		oprof_data[cpu_num].nextbuf=0;
