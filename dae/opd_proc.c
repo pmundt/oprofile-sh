@@ -161,7 +161,7 @@ static void opd_handle_old_sample_file(const char * mangled, time_t mtime)
 	fp = fopen(mangled, "r"); 
 	if (!fp) {
 		/* file might not be there, or it just might not be
-		 * openable for some reason, so try to unlink anyway
+		 * openable for some reason, so try to remove anyway
 		 */
 		goto del;
 	}
@@ -189,7 +189,7 @@ closedel:
 	fclose(fp);
 del:
 	verbprintf("Deleting old sample file \"%s\".\n", mangled);
-	unlink(mangled);
+	remove(mangled);
 }
 
 
@@ -513,7 +513,7 @@ static void opd_check_image_mtime(struct opd_image * image)
 		}
 		sprintf(mangled + len, "#%d", i);
 		verbprintf("Deleting out of date \"%s\"\n", mangled);
-		unlink(mangled);
+		remove(mangled);
 	}
 	free(mangled);
 
