@@ -172,7 +172,7 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 #define take_mmap_sem(mm) down_read(&mm->mmap_sem)
 #define release_mmap_sem(mm) up_read(&mm->mmap_sem)
 #endif
- 
+
 int oprof_init(void);
 void oprof_exit(void);
 void my_set_fixmap(void);

@@ -95,8 +95,6 @@ out:
 	return;
 full_entry:
 	evict_op_entry(data, &data->entries[h].samples[i]);
-	data->entries[h].samples[i].count = OP_COUNTER*ctr + 1;
-	goto out;
 new_entry:
 	fill_op_entry(&data->entries[h].samples[i],regs,ctr);
 	goto out;
