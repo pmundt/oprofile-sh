@@ -862,6 +862,7 @@ int main(int argc, char *argv[])
 			for (j=0; j < op_nr_events; j++) {
 				if (!strcmp(op_events[j].name, argv[i]) && 
 				    (op_events[j].cpu_mask & cpu_type_mask)) {
+					printf("%d\n", op_events[j].val); 
 					return 0;
 				}
 			}
