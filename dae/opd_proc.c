@@ -1368,7 +1368,7 @@ static void opd_get_ascii_maps(struct opd_proc *proc)
 	if (!fp)
 		return;
 
-	do {
+	while (1) {
 		line = opd_get_line(fp);
 		if (streq(line, "") && feof(fp)) {
 			free(line);
@@ -1377,7 +1377,7 @@ static void opd_get_ascii_maps(struct opd_proc *proc)
 			opd_add_ascii_map(proc, line);
 			free(line);
 		}
-	} while (1);
+	}
 
 	opd_close_file(fp);
 }

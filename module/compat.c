@@ -57,7 +57,7 @@ int wind_dentries_2_2(struct dentry *dentry)
 	return 1;
 }
  
-/* called with map_lock held */
+/* called with note_lock held */
 uint do_path_hash_2_2(struct dentry *dentry)
 {
 	/* BKL is already taken */

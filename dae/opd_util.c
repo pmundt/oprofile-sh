@@ -365,7 +365,7 @@ char *opd_get_line(FILE *fp)
 	buf = xmalloc(max);
 	cp = buf; 
 
-	do {
+	while (1) {
 		switch (c = fgetc(fp)) { 
 			case EOF:
 			case '\n':
@@ -384,7 +384,7 @@ char *opd_get_line(FILE *fp)
 				}
 				break;
 		}
-	} while (1);
+	}
 }
 
 /**
