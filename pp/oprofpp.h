@@ -91,12 +91,14 @@ struct opp_bfd {
 	~opp_bfd();
 
 	bool get_linenr(uint sym_idx, uint offset, 
-			const char*& filename, unsigned int& linenr) ;
+			const char*& filename, unsigned int& linenr);
 	void output_linenr(uint sym_idx, uint offset);
 	void get_symbol_range(uint sym_idx, u32 & start, u32 & end) const;
 	int symbol_index(const char* symbol) const;
 
 	u32 sym_offset(uint num_symbols, u32 num) const;
+
+	bool have_debug_info() const;
 
 	bfd *ibfd;
 	// sorted vector of interesting symbol.
