@@ -119,7 +119,8 @@ test "$nmipatch" = 1 && KCFLAGS="$KCFLAGS -DOP_EXPORTED_DO_NMI"
 KCFLAGS="-I$KINC $KCFLAGS"
 AC_SUBST(KCFLAGS)
 
-MODINSTALLDIR=/lib/modules/$KVERS/misc
+MODINSTALLDIR=/lib/modules/$KVERS/kernel/arch/i386/kernel
+ 
 AC_ARG_WITH(module-dir,
 [  --with-module-dir=dir        Path to module installation directory], MODINSTALLDIR=$withval)
 AC_SUBST(MODINSTALLDIR)
