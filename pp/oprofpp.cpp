@@ -964,10 +964,14 @@ void opp_samples_files::do_list_symbols(opp_bfd & abfd) const
 		printf_symbol(scounts[i].sym->name);
 
 		// FIXME: why we output also zero samples symbol ?
-		printf("[0x%.8lx]: %2.4f%% (%u samples)\n", 
-		       scounts[i].sym->value+scounts[i].sym->section->vma,
-		       (((double)scounts[i].count[ctr]) / tot[ctr])*100.0, 
-		       scounts[i].count[ctr]);
+		if (scounts[i].count[ctr]) {
+			printf("[0x%.8lx]: %2.4f%% (%u samples)\n", 
+			       scounts[i].sym->value+scounts[i].sym->section->vma,
+			       (((double)scounts[i].count[ctr]) / tot[ctr])*100.0, 
+			       scounts[i].count[ctr]);
+		} else {
+			printf(" (0 samples)\n");
+		}
 	}
 }
  
