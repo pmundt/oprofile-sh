@@ -65,6 +65,16 @@ char *cplus_demangle (const char *mangled, int options);
 
 void opp_treat_options(const char * filename, poptContext * optcon);
 std::string demangle_symbol(const char* symbol);
+void quit_error(poptContext * optcon, char const *err);
+
+// defined in oprofpp_util.cpp
+extern int verbose;
+extern int demangle;
+extern char const *samplefile;
+extern char *basedir;
+extern const char *imagefile;
+extern int list_all_symbols_details;
+extern int ctr;
 
 //---------------------------------------------------------------------------
 // A simple container of counter.
