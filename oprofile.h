@@ -216,6 +216,13 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 #include <linux/completion.h>
 #endif
 
+// 2.4.10 introduced APIC setup under normal APIC config
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,4,10)
+#ifndef CONFIG_X86_UP_APIC
+#define NEED_FIXMAP_HACK
+#endif
+#endif
+ 
 // 2.4.10 introduced MODULE_LICENSE
 #ifndef MODULE_LICENSE
 #define MODULE_LICENSE(x)
