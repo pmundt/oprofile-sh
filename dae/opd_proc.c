@@ -943,12 +943,14 @@ static void opd_drop_module_sample(u32 eip)
 			if (eip >= info.addr && eip < info.addr + info.size) {
 				verbprintf("Sample from unprofilable module %s\n", name);
 				opd_enter_invalid_module(name, &info);
-				return;
-			} 
+				goto out;
+			}
 		}
 		mod++;
 		name += strlen(name) + 1;
 	}
+out:
+	opd_free(module_names);
 }
 
 /**
