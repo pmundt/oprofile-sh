@@ -330,7 +330,7 @@ static int output_path_hash(const char *name, uint len)
 /* called with map_lock held */
 inline static u32 *map_out32(u32 val)
 {
-	u32 * pos=nextmapbuf;
+	u32 * pos=&map_buf[nextmapbuf];
 	map_buf[nextmapbuf++] = val;
 	if (nextmapbuf==OP_MAX_MAP_BUF)
 		nextmapbuf=0;
