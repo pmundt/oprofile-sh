@@ -847,6 +847,12 @@ int __init oprof_init(void)
 	if (err<0)
 		goto out_err;
 
+	err = oprof_init_hashmap();
+	if (err<0) {
+		unregister_chrdev(op_major,"oprof");
+		goto out_err;
+	}
+
 	op_intercept_syscalls();
 
 	printk("oprofile: /dev/oprofile enabled, major %u\n",op_major);
@@ -862,6 +868,8 @@ out_err:
 
 void __exit oprof_exit(void)
 {
+	oprof_free_hashmap();
+
 	op_replace_syscalls();
 
 	unregister_chrdev(op_major,"oprof");
