@@ -566,6 +566,7 @@ void oprof_put_note(struct op_sample *samp)
 {
 	struct _oprof_data *data = &oprof_data[0];
 
+	printk("in pos %d\n",data->nextbuf); 
 	/* FIXME: IPIs are expensive */
 	spin_lock(&note_lock);
 	pmc_select_stop(0);
