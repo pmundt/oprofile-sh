@@ -1235,12 +1235,12 @@ void opd_handle_mapping(const struct op_mapping *mapping)
 	hash = mapping->hash;
 
 	while (hash) {
-		if (hash==-1) {
+		if (hash == -1) {
 			/* possibly deleted file */
 			return;
 		}
 
-		if (hash >= OP_HASH_MAP_NR) {
+		if (hash < 0 || hash >= OP_HASH_MAP_NR) {
 			fprintf(stderr,"hash value %u out of range.\n",hash);
 			return;
 		}
