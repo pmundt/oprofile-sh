@@ -82,7 +82,7 @@ struct _oprof_data {
  * entries are added to the map buffer in an attempt to
  * prevent overflow
  */
-#define OP_MAP_BUF_WATERMARK 1024
+#define OP_MAP_BUF_WATERMARK 2048
 
 /* nr. entries in hash map, prime */
 #define OP_HASH_MAP_NR 1023
