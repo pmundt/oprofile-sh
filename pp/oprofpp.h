@@ -99,7 +99,11 @@ struct opp_bfd {
 	u32 sym_offset(uint num_symbols, u32 num) const;
 
 	bfd *ibfd;
+	// sorted vector of interesting symbol.
 	std::vector<asymbol*> syms;
+	// vector of symbol filled by the bfd lib. Call to bfd lib must this
+	// instead of the syms vector.
+	asymbol **bfd_syms;
 	// image file such the linux kernel need than all vma are offset
 	// by this value.
 	u32 sect_offset;
