@@ -1091,6 +1091,7 @@ void opd_put_sample(const struct op_sample *sample)
  *
  * Add the mapping specified to the process @proc.
  */
+/* FIXME: what if we are remapping over an old mapping - we want to find this one first ! */ 
 static void opd_put_mapping(struct opd_proc *proc, struct opd_image * image, u32 start, u32 offset, u32 end)
 {
 	verbprintf("Placing mapping for process %d: 0x%.8x-0x%.8x, off 0x%.8x, \"%s\" at maps pos %d\n",

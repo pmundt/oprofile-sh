@@ -47,7 +47,7 @@ op_rtc.o: op_rtc.c
 	$(CC) $(KCFLAGS) -c -o $@ $<
 
 # can't use auto deps here
-oprofile_c.o: oprofile.c oprofile.h ../op_user.h
+oprofile_c.o: oprofile.c oprofile.h ../op_user.h compat.h compat22.h compat24.h
 	$(CC) $(KCFLAGS) -c -o $@ $<
 
 op_x86.o: op_x86.c
