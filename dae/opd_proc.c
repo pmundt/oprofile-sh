@@ -581,7 +581,7 @@ static struct opd_proc *opd_get_proc(u16 pid)
  * Return %TRUE if the EIP value @eip is within the boundaries
  * of the map @map, %FALSE otherwise.
  */
-static int opd_is_in_map(struct opd_map *map, u32 eip)
+inline static int opd_is_in_map(struct opd_map *map, u32 eip)
 {
 	return (eip >= map->start && eip < map->end);
 }
