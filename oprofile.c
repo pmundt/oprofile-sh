@@ -251,7 +251,7 @@ static void pmc_start(void *info)
 	/* assert: all enable counter are setup except the bit start/stop,
 	 * all counter disable contains zeroes (except perhaps the reserved
 	 * bit 21), counter disable contains -1 sign extended in msr count */
-
+ 
 	/* enable all needed counter */
 	if (separate_running_bit == 0)
 		pmc_start_P6();

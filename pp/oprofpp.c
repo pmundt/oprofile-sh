@@ -17,6 +17,7 @@
 
 // FIXME: rename to oprofpp.cpp
  
+// FIXME: sprintf -> sstream (and elsewhere) 
 #include <algorithm>
 
 #include "oprofpp.h"

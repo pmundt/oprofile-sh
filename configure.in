@@ -179,17 +179,26 @@ AC_CHECK_LIB(bfd, bfd_openr,, AC_MSG_ERROR(bfd library not found))
 AC_PATH_XTRA 
 LIBS="$X_PRE_LIBS $LIBS $X_LIBS -lX11 $X_EXTRA_LIBS"
  
+# C++ tests
+ 
 QT2_DO_IT_ALL
  
 AC_MSG_CHECKING("popt prototype")
+SAVE_CXXFLAGS=$CXXFLAGS
+CXXFLAGS="-Werror $CXXFLAGS"
 AC_TRY_COMPILE([#include <popt.h>],
 [
 int c; char **v;
 poptGetContext(0, c, v, 0, 0);
 ],
-AC_MSG_RESULT([takes char **]);,
-AC_MSG_RESULT([takes const char **]); CFLAGS="$CFLAGS -DCONST_POPT"; CXXFLAGS="$CXXFLAGS -DCONST_POPT")
+AC_MSG_RESULT([takes char **]) CXXFLAGS="$SAVE_CXXFLAGS";,
+AC_MSG_RESULT([takes const char **]); CFLAGS="$CFLAGS -DCONST_POPT"; CXXFLAGS="$SAVE_CXXFLAGS -DCONST_POPT")
 
+AC_MSG_CHECKING("whether to use included sstream")
+AC_TRY_COMPILE([#include <sstream>], [], 
+AC_MSG_RESULT([no]);,
+AC_MSG_RESULT([yes]); CXXFLAGS="$CXXFLAGS -I../include")
+ 
 AC_OUTPUT(Makefile dae/Makefile doc/Makefile doc/oprofile.1 pp/Makefile gui/Makefile gui/ui/Makefile version.h)
 
 if test "$HAVE_QT2" -eq 0; then
