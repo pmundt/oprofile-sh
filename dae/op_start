@@ -192,6 +192,16 @@ done
 CTR0_EVENT_VAL=`op_help $CTR0_EVENT`
 CTR1_EVENT_VAL=`op_help $CTR1_EVENT`
 
+if [ -z "$CTR0_EVENT_VAL" && ! -z "$CTR0_EVENT" ]; then
+	echo "Unknown event \"$CTR0_EVENT\""
+	exit 1
+fi
+
+if [ -z "$CTR1_EVENT_VAL" && ! -z "$CTR1_EVENT" ]; then
+	echo "Unknown event \"$CTR1_EVENT\""
+	exit 1
+fi
+
 grep oprof /proc/devices >/dev/null
 if [ "$?" -ne 0 ]; then
 	modprobe oprofile
