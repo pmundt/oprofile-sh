@@ -87,7 +87,6 @@ static void opd_open_logfile(void)
 		perror("oprofiled: couldn't dup stdout to stderr: ");
 		exit(1);
 	}
-
 }
 
 /**

@@ -439,6 +439,7 @@ do_start() {
 
 	vecho "cpu speed (estimation) : $cpu_speed"
 
+	vecho "executing oprofiled $OPD_ARGS"
 	oprofiled $OPD_ARGS
 	sleep 4
 	PID=`ps x | grep oprofiled | grep -v grep | awk '{print $1}'`
