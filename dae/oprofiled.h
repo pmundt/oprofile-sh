@@ -123,6 +123,7 @@ struct opd_proc {
 	unsigned int max_nr_maps;
 	unsigned int last_map;
 	u16 pid;
+	u16 accessed;
 	int dead;
 	struct opd_proc *prev;
 	struct opd_proc *next;
