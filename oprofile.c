@@ -69,6 +69,9 @@ static void evict_op_entry(struct _oprof_data *data, struct op_sample *ops)
 	if (++data->nextbuf!=data->buf_size)
 		return;
 
+	/* FIXME: we should wake up a few samples before the end so we 
+	 * can reduce the amount of thread wakeups
+	 */ 
 	data->nextbuf=0;
 	oprof_ready[smp_processor_id()] = 1;
 }
