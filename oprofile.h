@@ -47,6 +47,11 @@ struct _oprof_data {
 #define P6_MSR_EVNTSEL1 0x187
 #define MSR_APIC_BASE   0x1B
 
+/* oprof_data->ready will be set this many samples
+ * before the end of the eviction buffer
+ */
+#define OP_PRE_WATERMARK 10
+
 #define OP_BITS 2
 /* 1==mapping info, 0 otherwise */
 #define OP_MAPPING (1U<<15)
