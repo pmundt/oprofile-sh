@@ -126,15 +126,6 @@ private:
 	void check_event(int i);
 };
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void opp_get_options(int argc, char const *argv[]);
-
-#ifdef __cplusplus
-}
-#endif
-
 
 #endif /* OPROFPP_H */
