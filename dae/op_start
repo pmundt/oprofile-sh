@@ -451,6 +451,6 @@ then
 	exit 1
 fi
 
-echo "Daemon started. Remember you may need to"
-echo "echo 1 >/proc/sys/dev/oprofile/dump"
-echo "to get profiling data ..."
+echo "Daemon started. Remember you may need to use"
+echo "op_dump"
+echo "to get or flush profiling data ..."
