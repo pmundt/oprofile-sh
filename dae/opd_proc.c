@@ -241,7 +241,9 @@ static void opd_handle_old_sample_file(const char * mangled, time_t mtime)
 
 	fp = fopen(mangled, "r"); 
 	if (!fp) {
-		verbprintf("Can't open %s\n", mangled);
+		/* file might not be there, or it just might not be
+		 * openable for some reason, so try to unlink anyway
+		 */
 		goto del;
 	}
 
@@ -348,6 +350,7 @@ static void opd_open_image(struct opd_image *image)
 {
 	uint i;
 
+	/* FIXME: image->app_name can be null. */
 	verbprintf("Opening image \"%s\" for app \"%s\"\n",
 		   image->name, image->app_name);
 
@@ -1575,8 +1578,7 @@ void opd_handle_exit(const struct op_note *note)
 	if (proc) {
 		proc->dead = 1;
 		proc->accessed = 1;
-	}
-	else {
+	} else {
 		verbprintf("unknown proc %u just exited.\n", note->pid);
 	}
 }
