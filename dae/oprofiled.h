@@ -116,7 +116,7 @@ struct opd_footer {
 	double cpu_speed;
 	time_t mtime;
 	/* binary compatibility reserve */
-	u32  reserved2[28];
+	u32  reserved2[31];
 };
 
 struct opd_image {
