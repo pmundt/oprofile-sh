@@ -142,7 +142,6 @@ struct opd_image {
 /* kernel module */
 struct opd_module {
 	struct opd_image *image;
-	char *name;
 	u32 start;
 	u32 end;
 };
