@@ -28,7 +28,7 @@ static pid_t mypid;
 static sigset_t maskset;
 static fd_t devfd;
 fd_t mapdevfd;
-char **hashmap;
+char *hashmap;
 
 static void opd_sighup(int val);
 static void opd_open_logfile(void);

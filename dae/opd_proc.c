@@ -19,7 +19,7 @@ extern u8 ctr0_type_val;
 extern u8 ctr1_type_val;
 extern int ctr0_um;
 extern int ctr1_um;
-extern char **hashmap;
+extern char *hashmap;
  
 /* LRU list of processes */ 
 static struct opd_proc *opd_procs;
