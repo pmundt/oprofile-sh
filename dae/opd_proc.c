@@ -643,7 +643,7 @@ int bstreq(const char *str1, const char *str2)
 	if (*a || *b)
 		return 0;
 
-	while (a!=str1) {
+	while (a != str1) {
 		if (*b-- != *a--)
 			return 0;
 	}
