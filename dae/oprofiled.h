@@ -75,6 +75,15 @@
 
 #define OP_COUNT_MASK ((1U<<(16-OP_BITS))-1U)
 
+/* nr. entries in hash map, prime */
+#define OP_HASH_MAP_NR 1023
+
+/* size of hash map entries */
+#define OP_HASH_LINE 128
+
+/* size of hash map in bytes */
+#define OP_HASH_MAP_SIZE OP_HASH_LINE*OP_HASH_MAP_NR
+
 /* mapping notification types */ 
 /* fork(),vfork(),clone() */
 #define OP_FORK ((1U<<15)|(1U<<0))
