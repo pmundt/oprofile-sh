@@ -19,11 +19,14 @@
 if test `pidof oprofiled`
 then
 	echo "Stopping profiling and killing daemon"
-	echo 1 >/proc/sys/dev/oprofile/dump_stop
 	COUNT=0
 	while test `pidof oprofiled`
 	do
 		sleep 1
+		# we need this in here because we can send a dump_stop that gets missed
+		# when the daemon is just starting up - a better fix is a lockfile for
+		# "fully started up"
+		echo 1 >/proc/sys/dev/oprofile/dump_stop
 		COUNT=`expr $COUNT + 1`
 		if [ "$COUNT" -eq 30 ]; then
 			echo "Daemon stuck shutting down; killing !"
