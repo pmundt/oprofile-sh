@@ -62,12 +62,13 @@ char *cplus_demangle (const char *mangled, int options);
 void verbprintf(const char* args, ...) __attribute__((format (printf, 1, 2)));
 void opp_treat_options(const char * filename, poptContext optcon,
 		       std::string & image_file, std::string & sample_file,
-		       int & counter);
+		       int & counter, int & sort_by_counter);
 std::string demangle_symbol(const char* symbol);
 void quit_error(poptContext optcon, char const *err);
 std::string demangle_filename(const std::string & samples_filename);
 bool is_excluded_symbol(const std::string & symbol);
 void check_headers(const opd_header * f1, const opd_header * f2);
+void validate_counter(int counter_mask, int & sort_by);
 
 // given a --counter=0,1,..., option parameter return a mask representing
 // each counter. Bit i is oon if counter i was specified.

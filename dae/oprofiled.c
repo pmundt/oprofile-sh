@@ -357,6 +357,10 @@ static void opd_options(int argc, char const *argv[])
 		show_version(argv[0]);
 	}
 
+	cpu_type = op_get_cpu_type();
+	if (cpu_type == CPU_ATHLON)
+		op_nr_counters = 4;
+
 	if (!vmlinux || streq("", vmlinux)) {
 		fprintf(stderr, "oprofiled: no vmlinux specified.\n");
 		poptPrintHelp(optcon, stderr, 0);
@@ -624,10 +628,6 @@ int main(int argc, char const *argv[])
 	size_t n_buf_bytesize;
 	struct sigaction act;
 	int i;
-
-	cpu_type = op_get_cpu_type();
-	if (cpu_type == CPU_ATHLON)
-		op_nr_counters = 4;
 
 	opd_options(argc, argv);
 
