@@ -53,6 +53,8 @@ static u32 prof_on __cacheline_aligned;
 
 /* in the process of quitting ? */
 static int quitting;
+/* is partial_stop made ?  Re-using quitting for this purpose is obfuscated */
+static int partial_stop;
  
 static int op_major;
 
@@ -315,6 +317,9 @@ static void pmc_stop(void *info)
 
 inline static void pmc_select_start(uint cpu)
 {
+	if (partial_stop)
+		return;
+
 	if (cpu == op_cpu_id())
 		pmc_start(NULL);
 	else
@@ -323,6 +328,9 @@ inline static void pmc_select_start(uint cpu)
 
 inline static void pmc_select_stop(uint cpu)
 {
+	if (partial_stop)
+		return;
+
 	if (cpu == op_cpu_id())
 		pmc_stop(NULL);
 	else
@@ -494,7 +502,7 @@ static int oprof_read(struct file *file, char *buf, size_t count, loff_t *ppos)
 		quitting = 0;
 		return 0;
 	}
-		 
+
 	pmc_select_stop(cpu_num);
 
 	/* buffer might have overflowed */
@@ -760,10 +768,14 @@ out:
  */
 static void oprof_partial_stop(void)
 {
+	if (partial_stop)
+		return;
+
 	op_replace_syscalls();
 	smp_call_function(pmc_stop, NULL, 0, 1);
 	pmc_stop(NULL);
 	restore_nmi();
+	partial_stop = 1;
 }
  
 static int oprof_stop(void)
