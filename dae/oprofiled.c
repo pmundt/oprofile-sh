@@ -4,7 +4,7 @@
 
 extern struct opd_footer footer;
  
-static char *version="oprofiled 0.0.1";
+static char *version=VERSION_STRING;
  
 static u8 ctr0_type_val;
 static u8 ctr1_type_val;

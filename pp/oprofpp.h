@@ -16,6 +16,7 @@
 #include <sys/mman.h>
 
 #include "../dae/opd_util.h"
+#include "../version.h"
 
 /* missing from libiberty.h */
 #define DMGL_PARAMS     (1 << 0)        /* Include function args */

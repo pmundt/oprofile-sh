@@ -24,6 +24,7 @@
 #include <sys/mman.h> 
 
 #include "opd_util.h"
+#include "../version.h" 
  
 /* various defines */
  

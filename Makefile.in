@@ -3,7 +3,7 @@
 KCPPFLAGS=@KCPPFLAGS@
 MODINSTALLDIR=@MODINSTALLDIR@
  
-.PHONY: all install clean
+.PHONY: all install clean distclean
  
 all: oprofile.o
 	$(MAKE) -C dae

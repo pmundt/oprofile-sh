@@ -11,6 +11,8 @@
 #include <asm/smplock.h> 
 #include <asm/apic.h>
  
+#include "version.h"
+ 
 #define uint uint 
 #define ulong ulong
  

@@ -2,6 +2,8 @@
 
 #include "oprofpp.h"
  
+static char *version = VERSION_STRING; 
+ 
 static char *samplefile;
 static char *gproffile;
 static char *symbol;
