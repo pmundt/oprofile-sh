@@ -787,6 +787,10 @@ static struct file_operations oprof_fops = {
 
 static int nr_interrupts;
 
+/* These access routines are basically not safe on SMP for module unload.
+ * And there is nothing we can do about it - the API is broken.
+ */
+ 
 static int get_nr_interrupts(ctl_table *table, int write, struct file *filp, void *buffer, size_t *lenp)
 {
 	uint cpu;
