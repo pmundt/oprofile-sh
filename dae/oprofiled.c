@@ -450,7 +450,7 @@ void opd_do_notes(struct op_note *opd_buf, size_t count)
 	struct op_note * note;
  
 	/* prevent signals from messing us up */
-	sigprocmask(SIG_UNBLOCK, &maskset, NULL);
+	sigprocmask(SIG_BLOCK, &maskset, NULL);
 
 	for (i = 0; i < count/sizeof(struct op_note); i++) {
 		note = &opd_buf[i];
