@@ -839,7 +839,7 @@ static void opd_handle_kernel_sample(u32 eip, u16 count)
  */
 inline static u32 opd_map_offset(struct opd_map *map, u32 eip)
 {
-	return map->offset + eip - map->start;
+	return (eip - map->start) + map->offset;
 }
 
 /**
