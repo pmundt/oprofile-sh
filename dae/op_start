@@ -16,6 +16,12 @@
 # Place - Suite 330, Boston, MA 02111-1307, USA.
 #
 
+# ensure bash2
+if [ "${BASH_VERSINFO[0]}" -lt 2 ]; then
+	exec /bin/bash2 $0 $@
+fi
+
+ 
 # quick and ugly interface
 # op_start --help and op_start --list-events have info
 
