@@ -9,8 +9,10 @@ exec_prefix=@exec_prefix@
 BINDIR=@bindir@
 MANDIR=@mandir@
 CC=@CC@
+MKDIR_P=mkdir -p
 
 install: oprofiled op_start op_dump op_stop op_help
+	-$(MKDIR_P) $(BINDIR)
 	cp oprofiled $(BINDIR)/oprofiled
 	cp op_start $(BINDIR)/op_start
 	cp op_dump $(BINDIR)/op_dump

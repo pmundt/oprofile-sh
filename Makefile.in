@@ -2,6 +2,7 @@
 
 BKCFLAGS=@BKCFLAGS@ @MODVERSIONS@
 MODINSTALLDIR=@MODINSTALLDIR@/oprofile
+MKDIR_P=mkdir -p
 CC=@CC@
 LD=@LD@
 
@@ -41,7 +42,7 @@ tags:
 	ctags -R
 
 install: oprofile.o
-	mkdir -p $(MODINSTALLDIR)
+	-$(MKDIR_P) $(MODINSTALLDIR)
 	cp oprofile.o $(MODINSTALLDIR)
 	depmod -a
 	$(MAKE) -C dae install
