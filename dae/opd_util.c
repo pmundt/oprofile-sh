@@ -221,7 +221,7 @@ static int remove_component_p (const char *path)
  * @path: string pointer to the path.
  *
  *  Simplify a path name in place, deleting redundant components.  This
- * reduces OS overhead and guarantees that equivalent paths compare
+ *  reduces OS overhead and guarantees that equivalent paths compare
  *  the same (modulo symlinks).
  *
  *  Transforms made:
