@@ -201,7 +201,3 @@ AC_MSG_RESULT([no]);,
 AC_MSG_RESULT([yes]); CXXFLAGS="$CXXFLAGS -I../include")
  
 AC_OUTPUT(Makefile dae/Makefile doc/Makefile doc/oprofile.1 pp/Makefile gui/Makefile gui/ui/Makefile version.h)
-
-if test "$HAVE_QT2" -eq 0; then
-	echo "WARNING: Qt2 not found; no GUI will be built"
-fi 
