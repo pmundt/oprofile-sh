@@ -399,7 +399,7 @@ static int oprof_output_maps(struct task_struct *task)
 	if (!(mm = task->mm))
 		goto out;
 
- 
+
 	take_mmap_sem(mm);
 	spin_lock(&map_lock);
 	for (map = mm->mmap; map; map = map->vm_next) {
@@ -423,7 +423,7 @@ asmlinkage static int my_sys_execve(struct pt_regs regs)
 	int ret;
 
 	MOD_INC_USE_COUNT;
- 
+
 	filename = getname((char *)regs.ebx);
 	if (IS_ERR(filename)) {
 		MOD_DEC_USE_COUNT;
@@ -449,7 +449,7 @@ static void out_mmap(ulong addr, ulong len, ulong prot, ulong flags,
 	struct file *file;
 
 	MOD_INC_USE_COUNT;
- 
+
 	file = fget(fd);
 	if (!file)
 		return;
@@ -487,7 +487,7 @@ asmlinkage static int my_old_mmap(struct mmap_arg_struct *arg)
 	int ret;
 
 	MOD_INC_USE_COUNT;
- 
+
 	ret = old_old_mmap(arg);
 
 	if ((pid_filter && current->pid != pid_filter) ||
@@ -527,7 +527,7 @@ asmlinkage static int my_sys_fork(struct pt_regs regs)
 	int ret;
 
 	MOD_INC_USE_COUNT;
- 
+
 	ret = old_sys_fork(regs);
 	if (ret)
 		oprof_report_fork(pid,ret);
@@ -566,7 +566,7 @@ asmlinkage static long my_sys_init_module(const char *name_user, struct module *
 	long ret;
 
 	MOD_INC_USE_COUNT;
- 
+
 	ret = old_sys_init_module(name_user, mod_user);
 
 	if (ret >= 0) {
@@ -586,7 +586,7 @@ asmlinkage static long my_sys_exit(int error_code)
 	struct op_sample samp;
 
 	MOD_INC_USE_COUNT;
- 
+
 	if ((pid_filter && current->pid != pid_filter) ||
 	    (pgrp_filter && current->pgrp != pgrp_filter))
 		goto out;
