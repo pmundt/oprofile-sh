@@ -84,6 +84,9 @@ struct _oprof_data {
  
 #define streqn(a, b, len) (!strncmp((a), (b), (len)))
 
+/* maximum nr. of counters, up to 4 for Athlon (18 for P4) */
+#define OP_MAX_COUNTERS 4
+ 
 /* oprof_data->ready will be set this many samples
  * before the end of the eviction buffer.
  * The purpose of this is to avoid overflowing the sample
