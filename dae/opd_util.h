@@ -55,8 +55,9 @@ struct opd_header {
 	u32 ctr_count;
 	double cpu_speed;
 	time_t mtime;
+	int separate_samples;
 	/* binary compatibility reserve */
-	u32  reserved2[21];
+	u32 reserved1[20];
 };
 
 struct opd_fentry {
@@ -67,7 +68,7 @@ struct opd_fentry {
 extern "C" {
 #endif
 
-char* opd_mangle_filename(const char *smpdir, const char* filename);
+char* opd_mangle_filename(const char *smpdir, const char* filename, const char * app_name);
 
 #define opd_try_open_file(n,m) opd_do_open_file((n), (m), 0)
 #define opd_open_file(n,m) opd_do_open_file((n), (m), 1)
