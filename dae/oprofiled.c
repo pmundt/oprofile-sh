@@ -22,6 +22,7 @@ extern struct opd_footer footer;
 static int showvers;
 int verbose; 
 
+int kernel_only;
 static u8 ctr0_type_val;
 static u8 ctr1_type_val;
 /* unit masks used for the samples file output */
@@ -64,6 +65,7 @@ static struct poptOption options[] = {
 	{ "hash-map-device-file", 'h', POPT_ARG_STRING, &devhashmapfilename, 0, "profile hashmap device file", "file", },
 	{ "map-file", 'f', POPT_ARG_STRING, &systemmapfilename, 0, "System.map for running kernel file", "file", },
 	{ "vmlinux", 'k', POPT_ARG_STRING, &vmlinux, 0, "vmlinux kernel image", "file", },
+	{ "kernel-only", 'o', POPT_ARG_INT, &kernel_only, 0, "profile only kernel", "file", },
 	{ "version", 'v', POPT_ARG_NONE, &showvers, 0, "show version", NULL, },
 	{ "verbose", 'V', POPT_ARG_NONE, &verbose, 0, "be verbose in log file", NULL, },
 	POPT_AUTOHELP

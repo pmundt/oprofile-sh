@@ -149,6 +149,7 @@ void my_set_fixmap(void);
 int op_check_events(u8 ctr0_type, u8 ctr1_type, u8 ctr0_um, u8 ctr1_um, int proc);
 void op_intercept_syscalls(void);
 void op_replace_syscalls(void);
+void op_save_syscalls(void);
 int is_map_ready(void); 
 int oprof_hash_map_open(void);
 int oprof_hash_map_release(void);
