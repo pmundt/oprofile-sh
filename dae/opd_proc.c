@@ -75,10 +75,12 @@ void opd_alarm(int val __attribute__((unused)))
 	struct opd_proc *next;
 	uint i;
 
+/*
 	for (i=0; i < nr_images; i++) {
 		if (opd_images[i].fd != -1)
 			msync(opd_images[i].start, opd_images[i].len, MS_ASYNC);
 	}
+*/ 
 
 	for (i=0; i < OPD_MAX_PROC_HASH; i++) {
 		proc = opd_procs[i];

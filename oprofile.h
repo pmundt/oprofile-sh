@@ -140,7 +140,7 @@ struct _oprof_data {
 
 #define op_check_range(val,l,h,str) do { \
         if ((val) < (l) || (val) > (h)) { \
-                printk(str,(val)); \
+                printk(str, (val), (l), (h)); \
                 return 0; \
         } } while (0);
 
@@ -184,6 +184,7 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 int oprof_init(void);
 void oprof_exit(void);
 void my_set_fixmap(void);
+int op_min_count(u8 ctr_type);
 int op_check_events(u8 ctr0_type, u8 ctr1_type, u8 ctr0_um, u8 ctr1_um, int proc);
 void op_intercept_syscalls(void);
 void op_replace_syscalls(void);
