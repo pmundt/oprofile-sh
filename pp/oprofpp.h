@@ -67,6 +67,7 @@ void opp_treat_options(const char * filename, poptContext optcon);
 std::string demangle_symbol(const char* symbol);
 void quit_error(poptContext optcon, char const *err);
 std::string demangle_filename(const std::string & samples_filename);
+bool is_excluded_symbol(const std::string & symbol);
 
 // defined in oprofpp_util.cpp
 extern int verbose;
@@ -74,6 +75,7 @@ extern int demangle;
 extern char const *samplefile;
 extern char *basedir;
 extern const char *imagefile;
+extern const char * exclude_symbols_str;
 extern int list_all_symbols_details;
 extern int ctr;
 
