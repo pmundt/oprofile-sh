@@ -13,6 +13,8 @@ AC_REVISION($Id$)
 AC_PREREQ(2.13)
 AC_INIT(./op_user.h)
 
+AC_CONFIG_HEADER(config.h)
+
 AC_SUBST(PACKAGE)
 AC_SUBST(VERSION)
 PACKAGE=oprofile
@@ -219,6 +221,10 @@ AC_MSG_CHECKING("whether to use included sstream")
 AC_TRY_COMPILE([#include <sstream>], [], 
 AC_MSG_RESULT([no]);,
 AC_MSG_RESULT([yes]); CXXFLAGS="$CXXFLAGS -I../include")
+
+dnl some distro have a libiberty.a but does not have a libiberty.h
+AC_CHECK_HEADERS(libiberty.h)
+AC_CHECK_FUNCS(xcalloc)
 
 dnl bfd.h pre 1998 check only for gnu 2.xx series, so gcc 3.0 can't compile it
 AC_MSG_CHECKING("whether bfd define bool")

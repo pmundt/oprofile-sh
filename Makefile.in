@@ -50,7 +50,7 @@ maintainerclean: distclean
 	rm -f configure doc/Makefile aclocal.m4
 
 distclean: clean
-	rm -f Makefile module/Makefile events/Makefile util/Makefile doc/oprofile.1 dae/Makefile pp/Makefile gui/Makefile gui/ui/Makefile tags config.status config.log config.cache version.h Rules.make
+	rm -f Makefile module/Makefile events/Makefile util/Makefile doc/oprofile.1 dae/Makefile pp/Makefile gui/Makefile gui/ui/Makefile tags config.status config.log config.cache version.h Rules.make config.h config.h.in
 
 tags:
 	ctags -R

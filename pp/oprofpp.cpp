@@ -285,7 +285,7 @@ void opp_samples_files::do_dump_gprof(opp_bfd & abfd) const
 	/* abbreviation */
 	opd_write_u8(fp, '1');
 
-	hist = (u16*)opd_calloc0(histsize, sizeof(u16)); 
+	hist = (u16*)xcalloc(histsize, sizeof(u16)); 
  
 	for (i = 0; i < abfd.syms.size(); i++) {
 		abfd.get_symbol_range(i, start, end); 
