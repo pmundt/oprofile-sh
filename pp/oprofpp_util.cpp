@@ -201,9 +201,7 @@ void opp_treat_options(const char* file, poptContext optcon,
 		counter = temp_counter;
 
 	if (counter == -1) {
-		/* list_all_symbols_details always output all counter and do
-		 * not made any sort, it is the responsability of the backend
-		 * (op_to_source) to treat this */
+		/* list_all_symbols_details always output all counter */
 		if (!list_all_symbols_details)
 			counter = 0;
 	}
