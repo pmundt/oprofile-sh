@@ -200,6 +200,8 @@ LIBS="$X_PRE_LIBS $LIBS $X_LIBS -lX11 $X_EXTRA_LIBS"
  
 # C++ tests
  
+AC_LANG_CPLUSPLUS
+
 QT2_DO_IT_ALL
  
 AC_MSG_CHECKING("popt prototype")
