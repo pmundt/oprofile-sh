@@ -55,10 +55,7 @@ static int __init hw_ok(void)
 	if (expected_cpu_type != -1 && expected_cpu_type != cpu_type) {
 
 		printk("oprofile: user space/module cpu detection mismatch\n");
-
-		/* FIXME: oprofile list */
-		printk("please send the next line and your /proc/cpuinfo to moz@compsoc.man.ac.uk\n");
-
+		printk("please send the next line and your /proc/cpuinfo to oprofile-list@lists.sf.net\n");
 		printk("vendor %d step %d model %d, expected_cpu_type %d, cpu_type %d\n",
 		       current_cpu_data.x86_vendor, current_cpu_data.x86,
 		       current_cpu_data.x86_model, expected_cpu_type,

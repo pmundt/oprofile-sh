@@ -55,9 +55,6 @@
 #define CPU_ATHLON	3
 #define MAX_CPU_TYPE	4
 
-/* default value must be set by configure */
-#define DEFAULT_CPU_TYPE CPU_PII
-
 #ifndef NR_CPUS 
 #define NR_CPUS 32
 #endif 
