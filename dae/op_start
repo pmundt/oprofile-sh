@@ -4,6 +4,8 @@
 # quick and ugly interface
 # op_start --help and op_start --list-events have info
 
+# FIXME: chmod's
+ 
 BUF_SIZE=8192
 HASH_SIZE=4096
 CTR0_TYPE=
