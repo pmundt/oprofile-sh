@@ -479,6 +479,7 @@ do_start() {
 	vecho "executing oprofiled $OPD_ARGS"
 	oprofiled $OPD_ARGS
  
+	# FIXME: does not check child is up and running 
 	COUNT=0
 	while test -z `pidof oprofiled`
 	do
