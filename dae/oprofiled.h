@@ -70,6 +70,15 @@ extern int separate_samples;
 /* size of process hash table */
 #define OPD_MAX_PROC_HASH 1024
 
+extern uint op_nr_counters;
+extern int verbose;
+extern int kernel_only;
+extern op_cpu cpu_type; 
+extern int separate_samples;
+extern char * smpdir; 
+extern char * vmlinux;
+extern unsigned long opd_stats[];
+
 /* list manipulation: come from the linux header, with some macro removed */
 /* There is no real need to put this in ../util/misc.c */
 /* FIXME: but do please put it in a separate header inside dae */

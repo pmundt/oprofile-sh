@@ -464,6 +464,7 @@ ssize_t opd_read_device(fd_t devfd, void *buf, size_t size, int seek)
  * opd_move_regular_file - move file between directory
  * @new_dir: the destination directory
  * @old_dir: the source directory
+ * @name: the filename
  *
  * move the file @old_dir/@name to @new_dir/@name iff
  * @old_dir/@name is a regular file
