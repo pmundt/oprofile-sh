@@ -382,7 +382,7 @@ void opp_bfd::open_bfd_image(const string & filename, bool is_kernel)
  */
 static bool symcomp(const asymbol * a, const asymbol * b)
 {
-	return a->value + a->section->vma <= b->value + b->section->vma;
+	return a->value + a->section->vma < b->value + b->section->vma;
 }
 
 /* need a better filter, but only this gets rid of _start
@@ -442,7 +442,7 @@ bool opp_bfd::get_symbols()
 		}
 	}
 
-	std::sort(syms.begin(), syms.end(), symcomp);
+	std::stable_sort(syms.begin(), syms.end(), symcomp);
 
 	verbprintf("nr symbols %u\n", syms.size());
 
