@@ -61,13 +61,9 @@ int wind_dentries_2_2(struct dentry *dentry)
 uint do_path_hash_2_2(struct dentry *dentry)
 {
 	uint value;
-	struct dentry *root;
 
 	/* BKL is already taken */
- 
-	root = dget(current->fs->root);
-	value = do_hash(dentry, 0, root, 0);
-	dput(root);
+	value = do_hash(dentry, 0, 0, 0);
 	return value;
 }
 
