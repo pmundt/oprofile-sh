@@ -33,7 +33,7 @@ int ctr = -1;
 
 static uint nr_samples; 
 /* if != -1 appended to samples files with "-%d" format */
-int backup_number = -1;
+static int backup_number = -1;
 
 /**
  * remangle - convert a filename into the related sample file name

@@ -76,7 +76,6 @@ extern char *basedir;
 extern const char *imagefile;
 extern int list_all_symbols_details;
 extern int ctr;
-extern int backup_number;
 
 //---------------------------------------------------------------------------
 // A simple container of counter.
