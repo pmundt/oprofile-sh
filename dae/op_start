@@ -281,9 +281,6 @@ then
 		exit 1
 	fi
 	chmod 700 "$SAMPLES_DIR"
-else
-	cd "$SAMPLES_DIR"
-	rm -rf *
 fi
 
 MAJOR_NR=`grep oprof /proc/devices | awk '{print $1}'`
@@ -347,7 +344,7 @@ if [ "$CTR0_EVENT" != "" ]; then
 fi
 
 if [ "$CTR1_EVENT" != "" ]; then
-	OPD_ARGS="$OPD_ARGS --ctr1-event=$CTR0_EVENT --ctr1-unit-mask=$CTR0_UM"
+	OPD_ARGS="$OPD_ARGS --ctr1-event=$CTR1_EVENT --ctr1-unit-mask=$CTR1_UM"
 fi
 if [ "$MAP_FILE" != "" ]; then
 	OPD_ARGS="$OPD_ARGS --map-file=$MAP_FILE"

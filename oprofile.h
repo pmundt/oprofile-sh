@@ -145,15 +145,6 @@ asmlinkage void op_nmi(void);
 struct _descr { u16 limit; u32 base; } __attribute__((__packed__));
 struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 
-/* If the do_nmi() patch has been applied, we can use the NMI watchdog */
-#ifdef OP_EXPORTED_DO_NMI
-void do_nmi(struct pt_regs * regs, long error_code);
-#define DO_NMI(r,e) do { do_nmi((r),(e)); } while (0)
-#else
-void my_do_nmi(struct pt_regs * regs, long error_code);
-#define DO_NMI(r,e) do { my_do_nmi((r),(e)); } while (0)
-#endif
-
 void my_set_fixmap(void);
 int op_check_events(u8 ctr0_type, u8 ctr1_type, u8 ctr0_um, u8 ctr1_um, int proc);
 void op_intercept_syscalls(void);

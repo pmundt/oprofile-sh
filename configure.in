@@ -117,12 +117,6 @@ if test "$smp" = 0; then
   test "$apic" = 0 && AC_MSG_ERROR(local APIC not configured)
 fi
 
-AC_MSG_CHECKING(for do_nmi patch)
-nmipatch=0
-AX_EGREP([^ *EXPORT_SYMBOL *\( *do_nmi *\) *], $KSRC/arch/i386/kernel/i386_ksyms.c, nmipatch=1)
-AX_MSG_RESULT_YN($nmipatch)
-test "$nmipatch" = 1 && KCFLAGS="$KCFLAGS -DOP_EXPORTED_DO_NMI"
-
 KCFLAGS="-I$KINC $KCFLAGS"
 AC_SUBST(KCFLAGS)
 
