@@ -92,6 +92,7 @@ struct opd_sample_file {
 
 struct opd_image {
 	struct opd_sample_file sample_files[OP_MAX_COUNTERS];
+	int hash;
 	/* NOT counted the size of footer, to allow quick access check  */
 	off_t len;
 	time_t mtime;	/* image file mtime */
