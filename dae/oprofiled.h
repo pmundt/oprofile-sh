@@ -68,6 +68,8 @@
 #define OPD_MAX_PROC_HASH 1024
 
 enum {  OPD_KERNEL, /* nr. kernel samples */
+	OPD_MODULE, /* nr. module samples */
+	OPD_LOST_MODULE, /* nr. samples in module for which modules can not be located */
 	OPD_LOST_PROCESS, /* nr. samples for which process info couldn't be accessed */
 	OPD_PROCESS, /* nr. userspace samples */
 	OPD_LOST_MAP_PROCESS, /* nr. samples for which map info couldn't be accessed */
