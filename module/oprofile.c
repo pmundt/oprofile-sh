@@ -346,8 +346,11 @@ inline static void up_and_check_note(void)
 	if (likely(note_pos < (sysctl.note_size - OP_PRE_NOTE_WATERMARK) && !is_ready()))
 		return;
  
+	/* if we reach the end of the buffer, just pin
+	 * to the last entry until it is read. This loses
+	 * notes, but we have no choice. */
 	if (unlikely(note_pos == sysctl.note_size)) {
-		note_pos = 0;
+		note_pos = sysctl.note_size - 1;
 	}
  
 	/* we just use cpu 0 as a convenient one to wake up */
