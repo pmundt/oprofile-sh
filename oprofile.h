@@ -187,11 +187,13 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 #else
 #define likely(a) (a)
 #endif
+#endif
 #ifndef unlikely
 #ifdef EXPECT_OK
 #define unlikely(a) __builtin_expect((a), 0)
 #else
 #define unlikely(a) (a)
+#endif
 #endif
  
 /* we can't unload safely on SMP */
