@@ -8,6 +8,7 @@ prefix=@prefix@
 exec_prefix=@exec_prefix@
 BINDIR=@bindir@
 MANDIR=@mandir@
+CC=@CC@
 
 install: oprofiled op_start op_stop op_help
 	cp oprofiled $(BINDIR)/oprofiled
