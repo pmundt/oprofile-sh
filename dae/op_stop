@@ -19,8 +19,8 @@
 if test `pidof oprofiled`
 then
 	echo "Stopping profiling and killing daemon"
-	kill -SIGUSR1 `pidof oprofiled`
-	exit
+	echo 1 >/proc/sys/dev/oprofile/dump_stop
+	exit 0
 fi
  
 # if profiler is not started consider as ok to try to stop it.

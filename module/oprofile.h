@@ -68,6 +68,7 @@ struct oprof_sysctl {
 	int buf_size; /* nr. in eviction buffser */
 	int hash_size; /* nr. in hash table */
 	int dump; /* sysctl dump */
+	int dump_stop; /* dump and stop */
 	int kernel_only; /* is profiling kernel only */
 	int note_size; /* nr. in note buffer */
 	int nr_interrupts; /* nr. interrupts occured */
