@@ -60,11 +60,9 @@ int wind_dentries_2_2(struct dentry *dentry)
 /* called with map_lock held */
 uint do_path_hash_2_2(struct dentry *dentry)
 {
-	uint value;
-
 	/* BKL is already taken */
-	value = do_hash(dentry, 0, 0, 0);
-	return value;
+
+	return do_hash(dentry, 0, 0, 0);
 }
 
 #endif /* NEED_2_2_DENTRIES */
