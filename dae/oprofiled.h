@@ -72,6 +72,7 @@ extern int separate_samples;
 
 /* list manipulation: come from the linux header, with some macro removed */
 /* There is no real need to put this in ../util/misc.c */
+/* FIXME: but do please put it in a separate header inside dae */
 
 /*
  * Simple doubly linked list implementation.

@@ -455,7 +455,7 @@ static void opd_shutdown(struct op_sample *buf, size_t size, struct op_note *nbu
 		} else if (count > 0) {
 			opd_do_samples(buf, count);
 		}
-	};
+	}
 }
 
 /**

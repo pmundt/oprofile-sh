@@ -758,7 +758,7 @@ out:
  * stop interrupts being generated and notes arriving.
  * This needs to be idempotent.
  */
-static int oprof_partial_stop(void)
+static void oprof_partial_stop(void)
 {
 	op_replace_syscalls();
 	smp_call_function(pmc_stop, NULL, 0, 1);
