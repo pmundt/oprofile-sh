@@ -50,7 +50,7 @@ struct _oprof_data {
 /* oprof_data->ready will be set this many samples
  * before the end of the eviction buffer
  */
-#define OP_PRE_WATERMARK 10
+#define OP_PRE_WATERMARK 50
 
 #define OP_BITS 2
 /* 1==mapping info, 0 otherwise */
