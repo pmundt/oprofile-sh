@@ -131,16 +131,16 @@ struct op_sample {
 
 /* nr. entries in hash map, prime
  * this is the maximum number of name components allowed
- * This is the maximal value we have bits for
+ * Must not be more than 4093
  */
 #define OP_HASH_MAP_NR 4093
 
-/* size of hash map entries */
-#define OP_HASH_LINE 128
-
-struct op_hash {
-	char name[OP_HASH_LINE];
-	u16 parent;
+/* size of string pool in bytes */
+#define POOL_SIZE 65536
+ 
+struct op_hash_index {
+	uint name;
+	uint parent;
 } __attribute__((__packed__));
 
 /* temporary mapping structure */
@@ -154,7 +154,7 @@ struct op_mapping {
 };
 
 /* size of hash map in bytes */
-#define OP_HASH_MAP_SIZE (OP_HASH_MAP_NR * sizeof(struct op_hash))
+#define OP_HASH_MAP_SIZE (OP_HASH_MAP_NR * sizeof(struct op_hash_index) + POOL_SIZE)
 
 #ifdef __cplusplus
 extern "C" {

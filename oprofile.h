@@ -97,6 +97,7 @@ struct _oprof_data {
 #define APIC_SPIV_APIC_ENABLED (1<<8)
 #endif
 
+#define streq(a, b) (!strcmp((a), (b)))
 #define streqn(a, b, len) (!strncmp((a), (b), (len)))
 
 /* oprof_data->ready will be set this many samples
