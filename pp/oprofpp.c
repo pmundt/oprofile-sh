@@ -138,6 +138,16 @@ static void get_options(int argc, char const *argv[])
 	/* non-option file, either a sample or binary image file */
 	file = poptGetArg(optcon);
 
+	/* some minor memory leak from the next call */
+	if (imagefile)
+		imagefile = opd_relative_to_absolute_path(imagefile, NULL);
+
+	if (samplefile)
+		samplefile = opd_relative_to_absolute_path(samplefile, NULL);
+
+	if (file)
+		file = opd_relative_to_absolute_path(file, NULL);
+
 	if (file) {
 		if (strchr(file, OPD_MANGLE_CHAR))
 			samplefile = file;

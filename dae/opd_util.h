@@ -42,6 +42,10 @@ void *opd_malloc0(size_t size);
 #endif
 void *opd_realloc(void *buf, size_t size);
 void opd_free(void *p);
+char *opd_strdup(const char* str);
+
+char *opd_simplify_pathname(char *path);
+char *opd_relative_to_absolute_path(const char *path, const char *base_dir);
  
 #define opd_try_open_file(n,m) opd_do_open_file((n), (m), 0)
 #define opd_open_file(n,m) opd_do_open_file((n), (m), 1)
