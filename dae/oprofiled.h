@@ -37,7 +37,6 @@
 #include <sys/stat.h>
 #include <sys/poll.h>
 #include <sys/mman.h>
-#include <sys/ioctl.h>
 
 #include "opd_util.h"
 #include "../version.h"

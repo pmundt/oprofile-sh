@@ -112,7 +112,7 @@ void opd_alarm(int val __attribute__((unused)))
 	/* we should demand some data if we haven't got any recently */
 
 	if (last==(int)opd_stats[OPD_DUMP_COUNT])
-		ioctl(mapdevfd, 0, NULL);
+		system("sysctl -w dev.oprofile.dump=1");
 
 	last = opd_stats[OPD_DUMP_COUNT];
 	

@@ -17,9 +17,6 @@
 #
 
 echo "Stopping profiling and killing daemon"
-oprofctl --stop
- 
-# make sure the daemon is dead
 PID=`ps x | grep oprofiled | grep -v grep | awk '{print $1}'`
 if [ "$PID" != "" ]
 then

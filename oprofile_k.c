@@ -47,7 +47,7 @@ static void set_pte_phys(ulong vaddr, ulong phys)
 	pmd = pmd_offset(pgd, vaddr);
 	pte = pte_offset(pmd, vaddr);
 	prot = PAGE_KERNEL;
-	if (boot_cpu_data.x86_capability & X86_FEATURE_PGE)
+	if (test_bit(X86_FEATURE_PGE, &boot_cpu_data.x86_capability))
 		pgprot_val(prot) |= _PAGE_GLOBAL;
 	set_pte(pte, mk_pte_phys(phys, prot));
 	__flush_tlb_one(vaddr);
@@ -133,6 +133,11 @@ static char *hash_map;
 void oprof_put_note(struct op_sample *samp);
 
 /* --------- device routines ------------- */
+
+int is_map_ready(void)
+{
+	return map_open && hash_map_open;
+}
 
 static u32 output_path_hash(const char *name, uint len);
 

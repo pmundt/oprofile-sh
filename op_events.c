@@ -555,9 +555,19 @@ int main (int argc, char *argv[])
 	uint i;
 	uint j;
 
-	if (argc>1 && (!strcmp(argv[1],"--version") || !strcmp(argv[1],"-v"))) {
-		printf(VERSION_STRING " compiled on " __DATE__ " " __TIME__ "\n");
-		exit(0);
+	if (argc>1) {
+		if ((!strcmp(argv[1],"--version") || !strcmp(argv[1],"-v"))) {
+			printf(VERSION_STRING " compiled on " __DATE__ " " __TIME__ "\n");
+			exit(0);
+		}
+
+		/* interpret given string */
+
+		for (i=0; i < op_nr_events; i++) {
+			if (!strcmp(op_events[i].name, argv[1]))
+				printf("%d\n",op_events[i].val);
+		}
+		return 0;
 	}
  
 	printf("oprofile: available events\n");
