@@ -17,6 +17,8 @@
 
 #include "oprofile.h"
 
+/* these routines are in a separate file so the rest can be compiled for i686 */
+ 
 EXPORT_NO_SYMBOLS;
 
 MODULE_PARM(expected_cpu_type, "i");

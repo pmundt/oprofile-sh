@@ -31,43 +31,6 @@ extern pid_t pid_filter;
 extern pid_t pgrp_filter;
 extern u32 prof_on;
 
-/* FIXME: can remove this code altogether if UP oopser makes mainline, and insist on
- * CONFIG_X86_UP_APIC
- */
-#ifndef CONFIG_X86_UP_APIC
-
-#ifndef APIC_DEFAULT_PHYS_BASE
-#define APIC_DEFAULT_PHYS_BASE 0xfee00000
-#endif
-static void set_pte_phys(ulong vaddr, ulong phys)
-{
-	pgprot_t prot;
-	pgd_t *pgd;
-	pmd_t *pmd;
-	pte_t *pte;
-
-	pgd = pgd_offset_k(vaddr);
-	pmd = pmd_offset(pgd, vaddr);
-	pte = pte_offset(pmd, vaddr);
-	prot = PAGE_KERNEL;
-	if (test_bit(X86_FEATURE_PGE, &boot_cpu_data.x86_capability))
-		pgprot_val(prot) |= _PAGE_GLOBAL;
-	set_pte(pte, mk_pte_phys(phys, prot));
-	__flush_tlb_one(vaddr);
-}
-
-void my_set_fixmap(void)
-{
-	ulong address = __fix_to_virt(FIX_APIC_BASE);
-
-	set_pte_phys (address, APIC_DEFAULT_PHYS_BASE);
-}
-#else /* !CONFIG_X86_UP_APIC */
-void my_set_fixmap(void)
-{
-}
-#endif /* !CONFIG_X86_UP_APIC */
-
 /* Given PGD from the address space's page table, return the kernel
  * virtual mapping of the physical memory mapped at ADR.
  */

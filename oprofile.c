@@ -975,20 +975,20 @@ int __init oprof_init(void)
 		return err;
 
 	if ((err = init_sysctl()))
-		goto out_err;
+		return err;
 
 	if ((err = smp_call_function(lvtpc_apic_setup, NULL, 0, 1)))
 		goto out_err;
 
  	err = op_major = register_chrdev(0, "oprof", &oprof_fops);
 	if (err<0)
-		goto out_err;
+		goto out_err2;
 
 	err = oprof_init_hashmap();
 	if (err < 0) {
 		printk("oprofile: couldn't allocate hash map !\n"); 
 		unregister_chrdev(op_major, "oprof");
-		goto out_err;
+		goto out_err2;
 	}
 
 	/* module might not be unloadable */
@@ -1000,9 +1000,11 @@ int __init oprof_init(void)
 	printk("oprofile: oprofile loaded, major %u\n", op_major);
 	return 0;
 
+out_err2:
+	smp_call_function(lvtpc_apic_restore, NULL, 0, 1);
+	lvtpc_apic_restore(NULL);
 out_err:
-	smp_call_function(disable_local_P6_APIC, NULL, 0, 1);
-	disable_local_P6_APIC(NULL);
+	cleanup_sysctl();
 	return err;
 }
 

@@ -133,7 +133,7 @@ struct _oprof_data {
 	((((((eip&0xff000)>>3) ^ eip) ^ (pid&0xff)) ^ (eip<<9)) \
 	^ (ctr<<8)) & (data->hash_size - 1)
 
-/* do not rely on MSR numbers being neighbours */
+/* read/write of perf counters */
 #define get_perfctr(l,h,c) do { rdmsr(perfctr_msr[(c)], (l), (h)); } while (0)
 #define set_perfctr(l,c) do { wrmsr(perfctr_msr[(c)], -(u32)(l), -1); } while (0)
 #define ctr_overflowed(n) (!((n) & (1U<<31)))
@@ -230,4 +230,3 @@ void lvtpc_apic_restore(void *dummy);
 void install_nmi(void);
 void restore_nmi(void);
 int apic_setup(void);
-void disable_local_P6_APIC(void *dummy);
