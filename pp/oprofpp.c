@@ -1064,6 +1064,7 @@ struct gmon_hdr {
  * Dump gprof-format samples for the image specified by samplefile to
  * the file specified by gproffile.
  */
+// FIXME: too slow (and others) 
 void opp_samples_files::do_dump_gprof(struct opp_bfd* abfd) const
 {
 	static gmon_hdr hdr = { { 'g', 'm', 'o', 'n' }, GMON_VERSION, {0,0,0,},}; 
