@@ -1030,6 +1030,7 @@ void opd_put_sample(const struct op_sample *sample)
 	if (kernel_only)
 		return;
 
+	/* FIXME: is this comment correct now we always apply the note buffer first ? */
 	/* here we don't want to add the new process because we don't know if it
 	 * was execve()d or a thread
 	 */
