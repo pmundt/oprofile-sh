@@ -368,7 +368,7 @@ void opd_do_samples(const struct op_sample *opd_buf, size_t count)
 		}
  
 		opd_stats[OPD_NOTIFICATIONS]++;
-		 
+
 		/* is a mapping type notification ? */
 		if (IS_OP_MAP(opd_buf[i].count)) {
 			if (IS_OP_EXEC(opd_buf[i].count))

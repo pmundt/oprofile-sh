@@ -61,6 +61,10 @@ struct opd_fentry {
 	u32 count;
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* utility functions */
 #define opd_calloc(memb, size) opd_malloc(memb*size)
 #define opd_calloc0(memb, size) opd_malloc0(memb*size)
@@ -107,5 +111,9 @@ time_t opd_get_mtime(const char *file);
 
 char *opd_get_time(void);
 char *opd_get_line(FILE *fp);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* OPD_UTIL_H */
