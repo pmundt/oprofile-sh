@@ -21,10 +21,12 @@
  
 EXPORT_NO_SYMBOLS;
 
+// FIXME: remove 
 MODULE_PARM(expected_cpu_type, "i");
 MODULE_PARM_DESC(expected_cpu_type, "Allow checking of detected hardware from the user space");
 static op_cpu expected_cpu_type = CPU_NO_GOOD;
 
+// FIXME: 
 extern uint op_nr_counters;
 extern int separate_running_bit;
 
@@ -38,6 +40,7 @@ static int __init hw_ok(void)
 		(current_cpu_data.x86_vendor != X86_VENDOR_AMD &&
 		 current_cpu_data.x86 != 6)) {
 		printk(KERN_ERR "oprofile: not an Intel P6 or AMD Athlon processor. Sorry.\n");
+		// FIXME: return CPU_RTC 
 		return CPU_NO_GOOD;
 	}
 
@@ -49,6 +52,7 @@ static int __init hw_ok(void)
 			(current_cpu_data.x86_model > 2);
 	}
  
+	// FIXME: move to op_nmi.C init
 	if (sysctl.cpu_type == CPU_ATHLON) {
 		op_nr_counters = 4;
 		separate_running_bit = 1;

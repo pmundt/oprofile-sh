@@ -54,6 +54,7 @@ enum op_cpu_ {
 	CPU_PII,
 	CPU_PIII,
 	CPU_ATHLON,
+	CPU_RTC,
 	MAX_CPU_TYPE
 };
  
