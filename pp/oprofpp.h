@@ -132,7 +132,36 @@ private:
 	bool get_symbols();
 };
 
+/**
+ * A class to store one samples file
+ */
+struct samples_file_t
+{
+	samples_file_t(const string & filename);
+	~samples_file_t();
+
+	bool check_headers(const samples_file_t & headers) const;
+
+	// probably needs to be private and create the neccessary member
+	// function (not simple getter), make private and compile to see
+	// what operation we need later. I've currently not a clear view
+	// of what we need
+//private:
+	opd_fentry *samples;		// header + sizeof(header)
+	opd_header *header;		// mapping begin here
+	fd_t fd;
+	// This do not include the header size
+	size_t size;
+
+private:
+	// neither copy-able or copy constructible
+	samples_file_t(const samples_file_t &);
+	samples_file_t& operator=(const samples_file_t &);
+};
+
 /* if entry i is invalid all members are set to zero except fd[i] set to -1 */
+/* It will be nice if someone redesign this to use samples_file_t for the
+ * internal implementation of opp_samples_files */
 struct opp_samples_files {
 	opp_samples_files(const std::string & sample_file);
 	~opp_samples_files();
