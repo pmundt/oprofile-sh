@@ -574,9 +574,7 @@ void oprof_out8(struct op_sample *ops)
 	if (++data->nextbuf==(data->buf_size-OP_PRE_WATERMARK)) {
 		oprof_ready[0] = 1;
 		wake_up(&oprof_wait);
-	}
-
-	if (data->nextbuf==data->buf_size)
+	} else if (data->nextbuf==data->buf_size)
 		data->nextbuf=0;
 
 	pmc_select_start(0);
