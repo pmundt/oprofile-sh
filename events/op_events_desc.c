@@ -36,6 +36,7 @@ static struct op_cpu_type op_cpu_types[] = {
 	{ "PentiumPro",  CPU_PPRO },
 	{ "Pentium II",  CPU_PII },
 	{ "Pentium III", CPU_PIII },
+	{ "Pentium(R) III", CPU_PIII },
 	{ "Celeron",	 CPU_PII },
 	{ "Coppermine",  CPU_PIII },
 	{ "Athlon",	 CPU_ATHLON },
