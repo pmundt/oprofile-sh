@@ -117,9 +117,9 @@ struct opd_footer {
 /* note that pid_t is 32 bits, but only 16 are used
    currently, so to save cache, we use u16 */
 struct op_sample {
-        u32 eip;
-        u16 pid;
         u16 count;
+        u16 pid;
+        u32 eip;
 } __attribute__((__packed__,__aligned__(8)));
 
 struct opd_image {
