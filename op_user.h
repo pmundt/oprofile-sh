@@ -72,7 +72,7 @@ typedef enum op_cpu_ op_cpu;
 /* 16384 * 8 = 131072 bytes default */
 #define OP_DEFAULT_BUF_SIZE 16384
 /* note buffer size */
-#define OP_DEFAULT_NOTE_SIZE 8192
+#define OP_DEFAULT_NOTE_SIZE 16384
 
 /* kernel image entries are offset by this many entries */
 #define OPD_KERNEL_OFFSET 524288

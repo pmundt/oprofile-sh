@@ -144,7 +144,7 @@ struct op_int_operations {
 /* ready will be set this many notes before the end of the 
  * note buffer.
  */
-#define OP_PRE_NOTE_WATERMARK 64
+#define OP_PRE_NOTE_WATERMARK 512
 
 /* maximum depth of dname trees - this is just a page */
 #define DNAME_STACK_MAX 1024
