@@ -350,6 +350,11 @@ inline static void up_and_check_note(void)
 	 * to the last entry until it is read. This loses
 	 * notes, but we have no choice. */
 	if (unlikely(note_pos == sysctl.note_size)) {
+		static int warned;
+		if (!warned) {
+			printk("note buffer overflow: consider to restart profiler with increased size of note buffer");
+			warned = 1;
+		}
 		note_pos = sysctl.note_size - 1;
 	}
  
