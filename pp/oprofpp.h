@@ -73,7 +73,7 @@ struct opd_fentry {
 };
 
 #define OPD_MAGIC 0xdeb6
-#define OPD_VERSION 0x1
+#define OPD_VERSION 0x2
 
 /* at the end of the sample files */
 struct opd_footer {
@@ -84,4 +84,5 @@ struct opd_footer {
         u8 ctr1_type_val;
         u8 ctr0_um;
         u8 ctr1_um;
+	char md5sum[16];
 };

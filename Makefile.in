@@ -41,6 +41,7 @@ install: oprofile.o
 	depmod -a
 	$(MAKE) -C dae install
 	$(MAKE) -C pp install
+	$(MAKE) -C doc install 
 
 clean:
 	rm -f *.o config.status config.log config.cache

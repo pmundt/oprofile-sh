@@ -87,7 +87,9 @@ static void opd_open_logfile(void)
 		exit(1);
 	}
 
-	if (dup2(1,2)==-1) {
+	fprintf(stderr, "Using log file \"%s\"\n", logfilename);
+ 
+	if (dup2(1,2) == -1) {
 		perror("oprofiled: couldn't dup stdout to stderr: ");
 		exit(1);
 	}
@@ -105,11 +107,24 @@ static void opd_open_files(void)
 {
 	fd_t hashmapdevfd;
 
-	hashmapdevfd = opd_open_device(devhashmapfilename,1);
-	devfd = opd_open_device(devfilename,1);
-
+	hashmapdevfd = opd_open_device(devhashmapfilename, 0);
+	if (hashmapdevfd == -1) {
+		perror("Failed to open hash map device: ");
+		exit(1);
+	}
+ 
+	devfd = opd_open_device(devfilename, 0);
+	if (devfd == -1) {
+		if (errno == EINVAL)
+			fprintf(stderr, "Failed to open device. Possibly you have passed incorrect\n"
+				"parameters. Check /var/log/messages.");
+		else
+			perror("Failed to open hash map device: ");
+		exit(1);
+	} 
+ 
 	hashmap = mmap(0, OP_HASH_MAP_SIZE, PROT_READ, MAP_SHARED, hashmapdevfd, 0);
-	if ((long)hashmap==-1) {
+	if ((long)hashmap == -1) {
 		perror("oprofiled: couldn't mmap hash map: ");
 		exit(1);
 	}
@@ -118,7 +133,7 @@ static void opd_open_files(void)
 	close(0);
 	close(1);
 
-	if (open("/dev/null",O_RDONLY)==-1) {
+	if (open("/dev/null",O_RDONLY) == -1) {
 		perror("oprofiled: couldn't re-open stdin as /dev/null: ");
 		exit(1);
 	}
@@ -395,12 +410,12 @@ int main(int argc, char const *argv[])
 
 	opd_init_images();
 
-	/* yes, this is racey. */
-	opd_get_ascii_procs();
-
 	opd_go_daemon();
 
 	opd_open_files();
+
+	/* yes, this is racey. */
+	opd_get_ascii_procs();
 
 	for (i=0; i< OPD_MAX_STATS; i++) {
 		opd_stats[i] = 0;
