@@ -134,20 +134,20 @@ struct op_sample {
 struct opd_image {
 	fd_t fd;
 	void *start;
-	off_t len; 
+	off_t len;
 	u8 kernel; 
 	char *name;
 };
  
 /* kernel module */
 struct opd_module {
-	struct opd_image *image;
+	int image;
 	u32 start;
 	u32 end;
 };
  
 struct opd_map {
-	struct opd_image *image;
+	int image;
 	u32 start;
 	u32 offset;
 	u32 end;
