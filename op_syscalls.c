@@ -448,8 +448,6 @@ static void out_mmap(ulong addr, ulong len, ulong prot, ulong flags,
 {
 	struct file *file;
 
-	MOD_INC_USE_COUNT;
-
 	file = fget(fd);
 	if (!file)
 		return;

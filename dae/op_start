@@ -101,7 +101,7 @@ do_sysctl()
 	dev_name=`echo $arg | tr . /`
 
 	if [ ! -f /proc/sys/$dev_name ]; then
-		echo "/proc/sys/$dev_name does not exist or is not a regular file"
+		echo "/proc/sys/$dev_name does not exist or is not a regular file" >&2
 		exit 1
 	fi
 
