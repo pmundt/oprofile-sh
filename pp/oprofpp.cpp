@@ -25,6 +25,9 @@
 #include "../util/file_manip.h"
 #include "opf_filter.h"
 
+using std::string;
+using std::vector;
+ 
 // ugly global var for opf_container.cpp
 uint op_nr_counters;
  

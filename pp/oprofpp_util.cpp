@@ -23,6 +23,8 @@
 #include "../util/file_manip.h"
 #include "../util/string_manip.h"
  
+using std::string;
+ 
 int verbose;
 char const *samplefile;
 char *basedir="/var/opd";
