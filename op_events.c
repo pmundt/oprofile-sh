@@ -353,10 +353,10 @@ struct op_unit_desc {
  
 static struct op_unit_desc op_unit_descs[] = {
 	{ { NULL, NULL, NULL, NULL, NULL, NULL, }, },
-	{ { "I cache state",
-	  "S cache state",
-	  "E cache state",
-	  "M cache state",
+	{ { "(I)nvalid cache state",
+	  "(S)hared cache state",
+	  "(E)xclusive cache state",
+	  "(M)odified cache state",
 	  "MESI cache state", NULL, }, },
 	{ { "self-generated transactions", 
 	  "any transactions", NULL, NULL, NULL, NULL, }, },
