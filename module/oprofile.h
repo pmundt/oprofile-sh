@@ -39,7 +39,7 @@
 
 struct op_entry {
 	struct op_sample samples[OP_NR_ENTRY];
-} __attribute__((__aligned__(SMP_CACHE_BYTES)));
+} __cacheline_aligned;
 
 /* per-cpu dynamic data */
 struct _oprof_data {
@@ -49,8 +49,9 @@ struct _oprof_data {
 	uint buf_size; /* nr. in buffer */
 	uint nextbuf; /* next in buffer (atomic) */
 	uint next; /* next sample in entry */
+	uint nr_irq;
 	uint ctr_count[OP_MAX_COUNTERS]; /* reset counter values */
-} __attribute__((__aligned__(SMP_CACHE_BYTES)));
+} __cacheline_aligned;
 
 /* MSRs */
 #ifndef MSR_IA32_PERFCTR0
