@@ -28,7 +28,7 @@
 
 /* various defines */
 
-#define OPD_DEBUG
+//#define OPD_DEBUG
 
 #ifdef OPD_DEBUG
 #define dprintf(args...) printf(args)
@@ -147,6 +147,7 @@ struct opd_image {
 
 /* kernel module */
 struct opd_module {
+	char *name;
 	int image;
 	u32 start;
 	u32 end;
