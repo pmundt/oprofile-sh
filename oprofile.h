@@ -198,6 +198,11 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 #include <linux/completion.h>
 #endif
 
+// 2.4.10 introduced MODULE_LICENSE
+#ifndef MODULE_LICENSE
+#define MODULE_LICENSE(x)
+#endif
+ 
 /* These arrays are filled by hw_ok() */
 extern uint perfctr_msr[OP_MAX_COUNTERS];
 extern uint eventsel_msr[OP_MAX_COUNTERS];

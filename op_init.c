@@ -20,6 +20,8 @@
 EXPORT_NO_SYMBOLS;
 
 extern int cpu_type;
+extern uint op_nr_counters;
+extern int separate_running_bit;
 
 static int __init hw_ok(void)
 {
@@ -40,6 +42,11 @@ static int __init hw_ok(void)
 	else
 		cpu_type = (current_cpu_data.x86_model > 5) ? CPU_PIII :
 			(current_cpu_data.x86_model > 2);
+ 
+	if (cpu_type == CPU_ATHLON) {
+		op_nr_counters = 4;
+		separate_running_bit = 1;
+	}
 	return cpu_type;
 }
 
