@@ -1050,9 +1050,8 @@ void __exit oprof_exit(void)
 
 	/* currently no need to reset APIC state */
 
-	/* bit 21 is reserved */
 	for (i = 0 ; i < op_nr_counters ; ++i) {
-		wrmsr(eventsel_msr[i], saved_eventsel_low[i] & ~(1<<21), saved_eventsel_high[i]);
+		wrmsr(eventsel_msr[i], saved_eventsel_low[i], saved_eventsel_high[i]);
 		wrmsr(perfctr_msr[i], saved_perfctr_low[i], saved_perfctr_high[i]);
 	}
 
