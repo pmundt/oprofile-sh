@@ -272,7 +272,7 @@ fi
 f=0
 while (( $f < $OP_MAX_COUNTERS )); do
 	if [[ ${#CTR_EVENT[$f]} != 0 ]]; then
-		CTR_EVENT_VAL[$f]=`op_help --cpu-type=$CPU_TYPE ${CTR_EVENT[$f]}`
+		CTR_EVENT_VAL[$f]=`op_help --cpu-type=$CPUTYPE ${CTR_EVENT[$f]}`
 		if [ -z "${CTR_EVENT_VAL[$f]}" -a ! -z "${CTR_EVENT[$f]}" ]; then
 			echo "Unknown event \"${CTR_EVENT[$f]}\""
 			exit 1
