@@ -658,6 +658,7 @@ int main(int argc, char const *argv[])
 	/* simple sleep-then-process loop */
 	opd_do_read(sbuf, s_buf_bytesize, nbuf, n_buf_bytesize);
 
+	opd_print_stats();
 	printf("oprofiled stopped %s", opd_get_time());
 	return 0;
 }

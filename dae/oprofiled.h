@@ -319,6 +319,7 @@ void opd_init_images(void);
 void opd_put_sample(const struct op_sample *sample);
 void opd_read_system_map(const char *filename);
 void opd_alarm(int val);
+void opd_print_stats(void);
 
 void opd_handle_fork(const struct op_note *note);
 void opd_handle_exec(u16 pid);

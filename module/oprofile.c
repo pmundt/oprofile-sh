@@ -477,6 +477,11 @@ static int oprof_read(struct file *file, char *buf, size_t count, loff_t *ppos)
 		}
 		if (cpu == smp_num_cpus)
 			return -EAGAIN;
+	} else if (quitting) {
+		/* we might have done dump_stop just before the daemon 
+		 * is about to sleep */
+		quitting = 0;
+		return 0;
 	} else {
 		wait_event_interruptible(oprof_wait, is_ready());
 	}
