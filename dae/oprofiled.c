@@ -87,7 +87,7 @@ static void opd_open_logfile(void)
 		exit(1);
 	}
 
-	fprintf(stderr, "Using log file \"%s\"\n", logfilename);
+	printf("Using log file \"%s\"\n", logfilename);
  
 	if (dup2(1,2) == -1) {
 		perror("oprofiled: couldn't dup stdout to stderr: ");
