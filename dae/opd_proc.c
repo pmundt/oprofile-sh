@@ -1046,7 +1046,7 @@ void opd_handle_mapping(const struct op_sample *sample)
 				exit(1);
 			}
 
-			c -= strlen(&hash_access(hash)+1);
+			c -= strlen(&hash_access(hash))+1;
 			strncpy(c,"/",1);
 			strncpy(c+1,&hash_access(hash),strlen(&hash_access(hash)));
 		}
