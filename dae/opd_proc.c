@@ -565,6 +565,7 @@ static void opd_check_image_mtime(struct opd_image * image)
 	for (i=0; i < op_nr_counters; i++) {
 		struct opd_sample_file * file = &image->sample_files[i]; 
 		if (file->fd > 0) {
+			list_del_init(&file->lru_node);
 			close(file->fd);
 			munmap(file->header, image->len + sizeof(struct opd_header));
 		}

@@ -698,6 +698,7 @@ static int oprof_start(void)
 
 	/* save the sysctl settable things to protect against change through
 	 * systcl the profiler params */
+	sysctl_parms.cpu_type = sysctl.cpu_type;
 	sysctl = sysctl_parms;
 
 	if ((err = oprof_init_data()))
