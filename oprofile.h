@@ -61,7 +61,7 @@ struct _oprof_data {
 /* FIXME: for things like TUX, where the value of PAGE_OFFSET
  * means that kernel/user addresses cannot be distinguished
  * by value, we need to add another bit for kernel/user,
- * maybe by testing for KERNEL_DS
+ * but how ?
  */
 
 /* fork(),vfork(),clone() */
