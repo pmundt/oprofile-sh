@@ -255,12 +255,10 @@ static void __init smp_apic_setup(void *dummy)
 	apic_write(APIC_LVTPC, val);
 }
 
-#ifdef ALLOW_UNLOAD
 static void __exit smp_apic_restore(void *dummy)
 {
 	apic_write(APIC_LVTPC, old_lvtpc[smp_processor_id()]);
 }
-#endif
 
 static int __init apic_setup(void)
 {
