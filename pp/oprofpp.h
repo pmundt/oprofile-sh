@@ -63,9 +63,9 @@ char *cplus_demangle (const char *mangled, int options);
 			printf(args); \
 	} while (0)
 
-void opp_treat_options(const char * filename, poptContext * optcon);
+void opp_treat_options(const char * filename, poptContext optcon);
 std::string demangle_symbol(const char* symbol);
-void quit_error(poptContext * optcon, char const *err);
+void quit_error(poptContext optcon, char const *err);
 std::string demangle_filename(const std::string & samples_filename);
 
 // defined in oprofpp_util.cpp

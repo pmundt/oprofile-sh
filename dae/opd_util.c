@@ -826,19 +826,3 @@ int opd_move_regular_file(const char *new_dir,
 	return ret;
 }
  
-/**
- * opd_poptGetContext - wrapper for popt
- *
- * Use this instead of poptGetContext to cope with
- * different popt versions. 
- */
-poptContext opd_poptGetContext(const char * name,
-		int argc, const char ** argv,
-		const struct poptOption * options, int flags)
-{
-#ifdef CONST_POPT
-	return poptGetContext(name, argc, argv, options, flags); 
-#else
-	return poptGetContext((char *)name, argc, (char **)argv, options, flags); 
-#endif
-}

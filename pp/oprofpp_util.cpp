@@ -91,11 +91,11 @@ std::string demangle_filename(const std::string & samples_filename)
  *
  * err may be NULL
  */
-void quit_error(poptContext * optcon, char const *err)
+void quit_error(poptContext optcon, char const *err)
 {
 	if (err)
 		fprintf(stderr, err); 
-	poptPrintHelp(*optcon, stderr, 0);
+	poptPrintHelp(optcon, stderr, 0);
 	exit(EXIT_FAILURE);
 }
  
@@ -121,7 +121,7 @@ void quit_error(poptContext * optcon, char const *err)
  *
  * post-condition: samplefile and imagefile are setup
  */
-void opp_treat_options(const char* file, poptContext * optcon)
+void opp_treat_options(const char* file, poptContext optcon)
 {
 	const char *file_backup_str;
 	char *file_ctr_str;

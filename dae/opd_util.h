@@ -66,11 +66,6 @@ struct opd_fentry {
 extern "C" {
 #endif
 
-/* ugh */
-poptContext opd_poptGetContext(const char * name,
-                int argc, const char ** argv,
-                const struct poptOption * options, int flags);
-
 #ifdef MALLOC_OK
 #define OP_ATTRIB_MALLOC	__attribute__((malloc))
 #else
