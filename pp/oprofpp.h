@@ -142,6 +142,8 @@ struct samples_file_t
 
 	bool check_headers(const samples_file_t & headers) const;
 
+	u32 count(uint start, uint end) const;
+
 	// probably needs to be private and create the neccessary member
 	// function (not simple getter), make private and compile to see
 	// what operation we need later. I've currently not a clear view
@@ -152,6 +154,7 @@ struct samples_file_t
 	fd_t fd;
 	// This do not include the header size
 	size_t size;
+	size_t nr_samples;
 
 private:
 	// neither copy-able or copy constructible
