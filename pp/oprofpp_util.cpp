@@ -627,7 +627,7 @@ int opp_bfd::symbol_index(const char* symbol) const
  * verify that header @f1 and @f2 are coherent.
  * all error are fatal
  */
-static void check_headers(const opd_header * f1, const opd_header * f2)
+void check_headers(const opd_header * f1, const opd_header * f2)
 {
 	if (f1->mtime != f2->mtime) {
 		fprintf(stderr, "oprofpp: header timestamps are different (%ld, %ld)\n", f1->mtime, f2->mtime);

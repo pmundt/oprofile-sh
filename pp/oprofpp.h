@@ -69,6 +69,7 @@ std::string demangle_symbol(const char* symbol);
 void quit_error(poptContext optcon, char const *err);
 std::string demangle_filename(const std::string & samples_filename);
 bool is_excluded_symbol(const std::string & symbol);
+void check_headers(const opd_header * f1, const opd_header * f2);
 
 // defined in oprofpp_util.cpp
 extern int verbose;
