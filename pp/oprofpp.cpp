@@ -432,7 +432,8 @@ int main(int argc, char const *argv[])
 	opp_get_options(argc, argv);
 
 	opp_samples_files samples_files;
-	opp_bfd abfd(samples_files.header[samples_files.first_file]);
+	opp_bfd abfd(samples_files.header[samples_files.first_file],
+		     samples_files.nr_samples);
 
 	samples_files.output_header();
 

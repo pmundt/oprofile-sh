@@ -98,7 +98,7 @@ class counter_array_t {
 };
 
 struct opp_bfd {
-	opp_bfd(const opd_header * header);
+	opp_bfd(const opd_header * header, uint nr_samples);
 	~opp_bfd();
 
 	bool get_linenr(uint sym_idx, uint offset, 
@@ -122,6 +122,7 @@ struct opp_bfd {
 	u32 sect_offset;
 
 private:
+	uint nr_samples;
 	// ctor helper
 	void open_bfd_image(const char* file, bool is_kernel);
 	bool get_symbols();
@@ -177,6 +178,7 @@ struct opp_samples_files {
 	// cached value: index to the first opened file, setup as nearly as we
 	// can in ctor.
 	int first_file;
+	uint nr_samples;
 
 private:
 	void output_event(int i) const;
