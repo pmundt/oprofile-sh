@@ -145,8 +145,10 @@ void *opd_realloc(void *buf, size_t size)
  */
 char *opd_strdup(const char *str) 
 {
-	char *temp = (char *)opd_malloc(strlen(str) + 1);
-	memcpy(temp, str, strlen(str) + 1);
+	size_t sz = strlen(str) + 1;
+
+	char *temp = (char *)opd_malloc(sz);
+	memcpy(temp, str, sz);
 
 	return temp;
 }
@@ -422,7 +424,6 @@ char *opd_read_link(const char *name)
 {
 	static char linkbuf[FILENAME_MAX]="";
 	int c;
-	char *str; 
 
 	c = readlink(name, linkbuf, FILENAME_MAX);
 
@@ -434,10 +435,7 @@ char *opd_read_link(const char *name)
 	else 
 		linkbuf[c] = '\0'; 
 
-	str = (char *)opd_malloc(strlen(linkbuf) + 1);
-
-	strcpy(str, linkbuf);
-	return str; 
+	return opd_strdup(linkbuf);
 } 
  
 /**
