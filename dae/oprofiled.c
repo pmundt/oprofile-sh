@@ -110,7 +110,7 @@ static void opd_open_files(void)
 			fprintf(stderr, "Failed to open device. Possibly you have passed incorrect\n"
 				"parameters. Check /var/log/messages.");
 		else
-			perror("Failed to open hash map device: ");
+			perror("Failed to open profile device: ");
 		exit(1);
 	} 
  
