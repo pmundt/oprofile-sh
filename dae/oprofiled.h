@@ -132,10 +132,10 @@ void opd_put_sample(const struct op_sample *sample);
 void opd_read_system_map(const char *filename);
 void opd_alarm(int val);
 
-void opd_handle_fork(const struct op_sample *sample);
+void opd_handle_fork(const struct op_note *note);
 void opd_handle_exec(u16 pid);
-void opd_handle_exit(const struct op_sample *sample);
-void opd_handle_mapping(const struct op_mapping *mapping);
+void opd_handle_exit(const struct op_note *note);
+void opd_handle_mapping(const struct op_note *note);
 void opd_clear_module_info(void);
 
 #endif /* OPROFILED_H */
