@@ -366,13 +366,6 @@ void opp_bfd::open_bfd_image(const string & filename, bool is_kernel)
 		exit(EXIT_FAILURE);
 	}
 
-	/* FIXME: I let this as warning until we check than caller code is
-	 * enough robust and treatment of samples outside any symbols is
-	 * implemented */
-	if (get_symbols() == false) {
-		fprintf(stderr, "oprofpp: warning couldn't get any symbols from image file \"%s\".\n", filename.c_str());
-	}
-
 	if (is_kernel) {
 		asection *sect;
 		sect = bfd_get_section_by_name(ibfd, ".text");
