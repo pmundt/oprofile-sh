@@ -184,6 +184,14 @@ static void opd_options(int argc, char const *argv[])
 		exit(1);
 	}
 
+	footer.ctr0_type_val = opd_read_int_from_file("/proc/sys/dev/oprofile/0/0/event");
+	footer.ctr0_um = (u8) opd_read_int_from_file("/proc/sys/dev/oprofile/0/0/unit_mask");
+	footer.ctr1_type_val = opd_read_int_from_file("/proc/sys/dev/oprofile/0/1/event");
+	footer.ctr1_um = (u8) opd_read_int_from_file("/proc/sys/dev/oprofile/0/1/unit_mask");
+	
+	footer.ctr0_count = opd_read_int_from_file("/proc/sys/dev/oprofile/0/0/count");
+	footer.ctr1_count = opd_read_int_from_file("/proc/sys/dev/oprofile/0/1/count");
+
 	ret = op_check_events(footer.ctr0_type_val, footer.ctr1_type_val, footer.ctr0_um, footer.ctr1_um, cpu_type);
 
         if (ret & OP_CTR0_NOT_FOUND) fprintf(stderr, "oprofiled: ctr0: %d: no such event\n",footer. ctr0_type_val);
@@ -393,14 +401,6 @@ int main(int argc, char const *argv[])
 	size_t opd_buf_bytesize;
 	struct sigaction act;
 	int i;
-
-	footer.ctr0_type_val = opd_read_int_from_file("/proc/sys/dev/oprofile/0/0/event");
-	footer.ctr0_um = (u8) opd_read_int_from_file("/proc/sys/dev/oprofile/0/0/unit_mask");
-	footer.ctr1_type_val = opd_read_int_from_file("/proc/sys/dev/oprofile/0/1/event");
-	footer.ctr1_um = (u8) opd_read_int_from_file("/proc/sys/dev/oprofile/0/1/unit_mask");
-	
-	footer.ctr0_count = opd_read_int_from_file("/proc/sys/dev/oprofile/0/0/count");
-	footer.ctr1_count = opd_read_int_from_file("/proc/sys/dev/oprofile/0/1/count");
 
 	opd_options(argc, argv);
 
