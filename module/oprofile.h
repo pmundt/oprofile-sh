@@ -220,13 +220,6 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 #endif
 #endif
  
-/* we can't unload safely on SMP */
-#ifdef CONFIG_SMP
-#define smp_can_unload() (allow_unload)
-#else
-#define smp_can_unload() 1
-#endif
- 
 // 2.4.3 introduced rw mmap semaphore 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(2,4,3)
 #define take_mmap_sem(mm) down(&mm->mmap_sem)
