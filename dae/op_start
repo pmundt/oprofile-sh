@@ -57,7 +57,15 @@ if test -f /proc/cpuinfo; then
 		*Athlon* | *Duron* | *K7*)
 			CPUTYPE=3
 		;;
+		# FIXME: I'm not sure this is right ...
+		*Coppermine*)
+			CPUTYPE=2
+		;;
+		*Celeron*)
+			CPUTYPE=1
+		;;
 		*)
+			echo "Unknown CPU type. Please send /proc/cpuinfo to moz@compsoc.man.ac.uk"
 			CPUTYPE=0
 		;;
 	esac
