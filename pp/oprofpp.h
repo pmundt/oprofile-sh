@@ -15,7 +15,7 @@
 #include <sys/stat.h> 
 #include <sys/mman.h>
 
-#include "../opd_util.h"
+#include "../dae/opd_util.h"
 
 /* missing from libiberty.h */
 #define DMGL_PARAMS     (1 << 0)        /* Include function args */
