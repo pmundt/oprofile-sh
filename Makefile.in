@@ -43,7 +43,7 @@ dist:
 tags:
 	ctags -R
 
-install: oprofile.o
+install: all oprofile.o
 	-$(MKDIR_P) $(MODINSTALLDIR)
 	cp oprofile.o $(MODINSTALLDIR)
 	depmod -a

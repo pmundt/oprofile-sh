@@ -12,7 +12,7 @@ CC=@CC@
 MKDIR_P=mkdir -p
 INSTALL_LIST=oprofiled op_start op_dump op_stop op_help
 
-install: $(INSTALL_LIST)
+install: all $(INSTALL_LIST)
 	-$(MKDIR_P) $(BINDIR)
 	for f in $(INSTALL_LIST); do \
 		cp $$f $(BINDIR)/$$f && chmod 755 $(BINDIR)/$$f; \
