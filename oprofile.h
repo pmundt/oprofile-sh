@@ -209,6 +209,9 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 extern uint perfctr_msr[OP_MAX_COUNTERS];
 extern uint eventsel_msr[OP_MAX_COUNTERS];
 
+void * rvmalloc(signed long size); 
+void rvfree(void * mem, signed long size);
+unsigned long kvirt_to_pa(unsigned long adr); 
 int oprof_init(void);
 void oprof_exit(void);
 void my_set_fixmap(void);
