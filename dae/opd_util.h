@@ -33,8 +33,8 @@
 #define opd_calloc(memb, size) opd_malloc(memb*size)
 #define opd_calloc0(memb, size) opd_malloc0(memb*size)
 #define opd_crealloc(memb, buf, size) opd_realloc((buf), memb*size)
-void *opd_malloc(size_t size);
-void *opd_malloc0(size_t size);
+void *opd_malloc(size_t size) __attribute__((malloc));
+void *opd_malloc0(size_t size) __attribute__((malloc));
 void *opd_realloc(void *buf, size_t size);
 void opd_free(void *p);
  
