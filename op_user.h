@@ -31,8 +31,8 @@
  */
 /* 262144 * 8 = 2097152 bytes default */
 #define OP_DEFAULT_BUF_SIZE 262144
-/* 32768 * 32 = 1048756 bytes default */
-#define OP_DEFAULT_HASH_SIZE 32768
+/* 65536 * 32 = 2097152 bytes default */
+#define OP_DEFAULT_HASH_SIZE 65536
 
 #define OP_BITS 2
 
