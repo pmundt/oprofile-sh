@@ -83,11 +83,12 @@ void opd_alarm(int val __attribute__((unused)))
 	printf("Average depth of iteration through mapping array: %f\n",
 		(double)opd_stats[OPD_MAP_ARRAY_DEPTH]/(double)opd_stats[OPD_MAP_ARRAY_DEPTH]);
 	printf("Nr. sample dumps: %lu\n",opd_stats[OPD_DUMP_COUNT]);
+	fflush(stdout);
 
 	for (i=0;i<OPD_MAX_STATS;i++)
 		opd_stats[i]=0;
 
-	alarm(60*20);
+	alarm(60*10);
 }
 
 /**
