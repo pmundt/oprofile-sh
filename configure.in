@@ -177,4 +177,4 @@ AC_CHECK_LIB(dl, dlopen,, AC_MSG_ERROR(dl library not found))
 AC_CHECK_LIB(iberty, cplus_demangle,, AC_MSG_ERROR(liberty library not found))
 AC_CHECK_LIB(bfd, bfd_openr,, AC_MSG_ERROR(bfd library not found))
 
-AC_OUTPUT(Makefile dae/Makefile doc/Makefile doc/oprofile.1 pp/Makefile version.h)
+AC_OUTPUT(Makefile dae/Makefile doc/Makefile doc/oprofile.1 pp/Makefile gui/Makefile version.h)
