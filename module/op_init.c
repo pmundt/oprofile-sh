@@ -31,6 +31,7 @@ static void __init set_cpu_type(void)
 		(current_cpu_data.x86_vendor != X86_VENDOR_AMD &&
 		 current_cpu_data.x86 != 6)) {
 		sysctl.cpu_type = CPU_RTC;
+		return;
 	}
 
 	/* 0 if PPro, 1 if PII, 2 if PIII, 3 if Athlon */
@@ -40,8 +41,6 @@ static void __init set_cpu_type(void)
 		sysctl.cpu_type = (current_cpu_data.x86_model > 5) ? CPU_PIII :
 			(current_cpu_data.x86_model > 2);
 	}
- 
-	sysctl.cpu_type = CPU_RTC; 
 }
 
 int __init stub_init(void)
