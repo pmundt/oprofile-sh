@@ -215,7 +215,7 @@ static void pmc_setup(void *dummy)
 		}
 	}
 	
-	/* Here all setup is made except the start/stop bit 21), counter
+	/* Here all setup is made except the start/stop bit 22, counter
 	 * disabled contains zeros in the eventsel msr except the reserved bit
 	 * 21 */
 }

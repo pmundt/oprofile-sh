@@ -390,7 +390,7 @@ static void opd_open_sample_file(struct opd_image *image, int counter)
 	/* truncate to grow the file is ok on linux, and probably ok in POSIX.
 	 * I am unsure than don't touch the last page and un-sparse a little
 	 * what the samples file */
-	if (ftruncate(sample_file->fd, image->len + sizeof(struct opd_footer) - 1) == -1) {
+	if (ftruncate(sample_file->fd, image->len + sizeof(struct opd_footer)) == -1) {
 		fprintf(stderr, "oprofiled: ftruncate failed for \"%s\". %s\n", mangled, strerror(errno));
 		goto err2;
 	}
