@@ -5,14 +5,17 @@ MODINSTALLDIR=@MODINSTALLDIR@
 CC=@CC@ 
 LD=@LD@ 
  
-.PHONY: all install clean distclean
+.PHONY: all install clean distclean tags
  
 all: oprofile.o
 	$(MAKE) -C dae
 	$(MAKE) -C pp
 
 distclean: clean
-	rm -f Makefile dae/Makefile pp/Makefile
+	rm -f Makefile dae/Makefile pp/Makefile tags
+ 
+tags:
+	ctags -R
  
 install: oprofile.o
 	cp oprofile.o $(MODINSTALLDIR)
