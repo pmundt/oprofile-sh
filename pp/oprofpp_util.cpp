@@ -372,6 +372,8 @@ void opp_bfd::open_bfd_image(const string & filename, bool is_kernel)
 		sect_offset = OPD_KERNEL_OFFSET - sect->filepos;
 		verbprintf("Adjusting kernel samples by 0x%x, .text filepos 0x%lx\n", sect_offset, sect->filepos); 
 	}
+
+	get_symbols();
 }
 
 /**
