@@ -172,6 +172,8 @@ asmlinkage void op_nmi(void);
 struct _descr { u16 limit; u32 base; } __attribute__((__packed__));
 struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 
+#define op_cpu_id() (cpu_number_map(smp_processor_id()))
+
 /* we can't unload safely on SMP */
 #ifdef CONFIG_SMP
 #define smp_can_unload() (allow_unload)

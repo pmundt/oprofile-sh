@@ -96,7 +96,7 @@ void opd_alarm(int val __attribute__((unused)))
 		}
 	}
 
-	printf("%s stats:\n", opd_get_time());
+	printf("%s\n", opd_get_time());
 	printf("Nr. kernel samples: %lu\n", opd_stats[OPD_KERNEL]);
 	printf("Nr. samples lost due to no process information: %lu\n", opd_stats[OPD_LOST_PROCESS]);
 	printf("Nr. process samples in user-space: %lu\n", opd_stats[OPD_PROCESS]);
