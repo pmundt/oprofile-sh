@@ -24,7 +24,7 @@ uninstall:
 	done
 
 clean:
-	rm -f oprofiled *.o *.d oprofiled-src.html 
+	rm -rf oprofiled *.o .deps oprofiled-src.html 
 
 srcdoc: oprofiled-src.html
 
