@@ -16,13 +16,16 @@
 # Place - Suite 330, Boston, MA 02111-1307, USA.
 #
 
-PID=`ps x | grep oprofiled | grep -v grep | awk '{print $1}'`
-if [ "$PID" != "" ]
+PSLINE=`ps x | grep oprofiled | grep -v grep`
+
+NAME=`echo $PSLINE | awk '{print $5}'`
+if [ "$NAME" = "oprofiled" ]
 then
+	PID=`echo $PSLINE | awk '{print $1}'`
 	echo "Stopping profiling and killing daemon"
 	kill $PID
 	exit
 fi
-
+ 
 # if profiler is not started consider as ok to try to stop it.
 exit 0
