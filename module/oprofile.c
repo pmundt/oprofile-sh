@@ -345,6 +345,11 @@ inline static void up_and_check_note(void)
 	note_pos++;
 	if (likely(note_pos < (sysctl.note_size - OP_PRE_NOTE_WATERMARK) && !is_ready()))
 		return;
+ 
+	if (unlikely(note_pos == sysctl.note_size)) {
+		note_pos = 0;
+	}
+ 
 	/* we just use cpu 0 as a convenient one to wake up */
 	oprof_ready[0] = 2;
 	wake_up(&oprof_wait);
