@@ -397,7 +397,7 @@ retry:
 	goto retry;
 
 new_entry:
-	strncpy(hash_map[value].name, dentry->d_name.name, dentry->d_name.len);
+	strcpy(hash_map[value].name, dentry->d_name.name);
 	hash_map[value].parent = parent;
 	return value;
 
