@@ -670,6 +670,51 @@ typedef struct
 
 #endif /* USE_ELF_INTERNAL */
 
+size_t opp_bfd::symbol_size(uint sym_idx) const
+{
+	asymbol * next, *sym;
+	sym = syms[sym_idx];
+
+	next = (sym_idx == syms.size() - 1) ? NULL : syms[sym_idx + 1];
+
+	u32 start = sym->section->vma + sym->value;
+	size_t length;
+
+#ifndef USE_ELF_INTERNAL
+	u32 end;
+	if (next) {
+		end = next->value;
+		/* offset of section */
+		end += next->section->filepos;
+		/* adjust for kernel image */
+		end += sect_offset;
+	} else
+		end = nr_samples;
+
+	length = end - start;
+#else /* !USE_ELF_INTERNAL */
+	size_t length =
+		((elf_symbol_type *)sym)->internal_elf_sym.st_size;
+
+	// some asm symbol can have a zero length such system_call
+	// entry point in vmlinux. Calculate the length from the next
+	// symbol vma
+	if (length == 0) {
+		u32 next_offset = start;
+		if (next) {
+			next_offset = next->value +
+				next->section->filepos + sect_offset;
+		} else {
+			next_offset = nr_samples;
+		}
+		length = next_offset - start;
+	}
+	end = start + length;
+#endif /* USE_ELF_INTERNAL */
+
+	return length;
+}
+
 void opp_bfd::get_symbol_range(uint sym_idx, u32 & start, u32 & end) const
 {
 	asymbol *sym, *next;

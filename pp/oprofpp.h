@@ -273,6 +273,12 @@ public:
 	 */
 	u32 sym_offset(uint num_symbols, u32 num) const;
 
+	/**
+	 * symbol_size - return the size of a symbol
+	 * \param index symbol index
+	 */
+	size_t symbol_size(uint sym_idx) const;
+
 	/** Returns true if the underlined bfd object contains debug info */
 	bool have_debug_info() const;
 

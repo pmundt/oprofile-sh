@@ -407,7 +407,8 @@ int main(int argc, char const *argv[])
 	opp_bfd abfd(samples_files.header[samples_files.first_file],
 		     samples_files.nr_samples, image_file);
 
-	samples_files.output_header();
+	if (!gproffile)
+		samples_files.output_header();
 
 	if (list_symbols)
 		do_list_symbols(abfd, samples_files, counter, sort_by_counter);
