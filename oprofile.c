@@ -546,11 +546,13 @@ void oprof_out8(void *buf)
 	pmc_select_stop(0);
 
 	memcpy(&data->buffer[data->nextbuf],buf,8);
-	if (++data->nextbuf==data->buf_size) {
-		data->nextbuf=0;
+	if (++data->nextbuf==(data->buf_size-OP_PRE_WATERMARK)) {
 		oprof_ready[0] = 1;
 		wake_up(&oprof_wait);
 	}
+
+	if (data->nextbuf==data->buf_size)
+		data->nextbuf=0;
 
 	pmc_select_start(0);
 	spin_unlock(&note_lock);
