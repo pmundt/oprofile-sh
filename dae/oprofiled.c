@@ -82,7 +82,8 @@ static void opd_open_logfile(void)
  * opd_open_files - open necessary files
  *
  * Open the three device files and the log file,
- * and mmap() the hash map.
+ * and mmap() the hash map. Also read the System.map
+ * file.
  */
 static void opd_open_files(void)
 {
@@ -269,7 +270,8 @@ inline static u16 opd_is_mapping(const struct op_sample *sample)
  * variable ignore_myself is set.
  *
  * If the sample could be processed correctly, it is written
- * to the relevant sample file.
+ * to the relevant sample file. Additionally mapping and
+ * process notifications are handled here.
  */
 void opd_do_samples(const struct op_sample *opd_buf)
 {
