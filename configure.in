@@ -227,7 +227,7 @@ AC_MSG_RESULT([no]);,
 AC_MSG_RESULT([yes]); BFD_CXXFLAGS="-DTRUE_FALSE_ALREADY_DEFINED")
 AC_SUBST(BFD_CXXFLAGS)
 
-AC_OUTPUT(Makefile events/Makefile util/Makefile module/Makefile dae/Makefile doc/Makefile doc/oprofile.1 pp/Makefile gui/Makefile gui/ui/Makefile version.h Rules.make)
+AC_OUTPUT(Makefile events/Makefile util/Makefile module/Makefile dae/Makefile doc/Makefile doc/oprofile.1 pp/Makefile gui/Makefile gui/ui/Makefile version.h)
 
 if test "$have_qt2" != "yes"; then
 	echo "Warning: Qt2 not found; no GUI will be built"
