@@ -33,7 +33,7 @@ struct op_cpu_type {
 
 /* be careful here, later entries will be override earlier ones */
 static struct op_cpu_type op_cpu_types[] = {
-	{ "PentiumPro",  CPU_PPRO },
+	{ "Pentium Pro",  CPU_PPRO },
 	{ "Pentium II",  CPU_PII },
 	{ "Pentium III", CPU_PIII },
 	{ "Pentium(R) III", CPU_PIII },
