@@ -263,7 +263,8 @@ static void __init lvtpc_apic_setup(void *dummy)
 static void __exit lvtpc_apic_restore(void *dummy)
 {
 	uint val = apic_read(APIC_LVTPC);
-	val = SET_APIC_DELIVERY_MODE(val, lvtpc_old_mode[smp_processor_id()]);
+	// FIXME: this gives APIC errors on SMP hardware.
+	// val = SET_APIC_DELIVERY_MODE(val, lvtpc_old_mode[smp_processor_id()]);
 	if (lvtpc_old_mask[smp_processor_id()])
 		val |= APIC_LVT_MASKED;
 	else
@@ -1226,13 +1227,7 @@ static int can_unload(void)
 	int can = -EBUSY;
 	down(&sysctlsem);
 
-/* the module unload race can currently only happen on SMP */
-#ifdef CONFIG_SMP
-	if (!allow_unload)
-		return -EBUSY;
-#endif
- 
-	if (!prof_on && !GET_USE_COUNT(THIS_MODULE))
+	if (smp_can_unload() && !prof_on && !GET_USE_COUNT(THIS_MODULE))
 		can = 0;
 	up(&sysctlsem);
 	return can;
