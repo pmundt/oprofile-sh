@@ -34,7 +34,6 @@ int wind_dentries_2_2(struct dentry *dentry)
 {
 	struct dentry * root = current->fs->root;
 
-	/* FIXME: correct ? */
 	if (dentry->d_parent != dentry && list_empty(&dentry->d_hash))
 		return 0;
 
@@ -64,11 +63,11 @@ uint do_path_hash_2_2(struct dentry *dentry)
 	uint value;
 	struct dentry *root;
 
-	lock_kernel();
+	/* BKL is already taken */
+ 
 	root = dget(current->fs->root);
 	value = do_hash(dentry, 0, root, 0);
 	dput(root);
-	unlock_kernel();
 	return value;
 }
 
