@@ -62,7 +62,11 @@ void my_set_fixmap(void)
 
 	set_pte_phys (address, APIC_DEFAULT_PHYS_BASE);
 }
-#endif /* CONFIG_X86_UP_APIC */
+#else /* !CONFIG_X86_UP_APIC */
+void my_set_fixmap(void)
+{
+}
+#endif /* !CONFIG_X86_UP_APIC */
 
 /* Given PGD from the address space's page table, return the kernel
  * virtual mapping of the physical memory mapped at ADR.
