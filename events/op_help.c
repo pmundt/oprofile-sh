@@ -24,7 +24,6 @@
 #include <string.h>
 #include <limits.h>
 
-#include "../version.h"
 #include "../op_user.h"
 
 static int cpu_type = CPU_NO_GOOD;

@@ -1,10 +1,5 @@
 # $Id$
 
-BKCFLAGS=@BKCFLAGS@ @MODVERSIONS@
-MKDIR_P=mkdir -p
-CC=@CC@
-LD=@LD@
-
 .PHONY: all install clean distclean maintainerclean uninstall tags
 
 # take care: order of sub-dir build is meaningfull.
@@ -55,7 +50,7 @@ maintainerclean: distclean
 	rm -f configure doc/Makefile aclocal.m4
 
 distclean: clean
-	rm -f Makefile module/Makefile events/Makefile util/Makefile doc/oprofile.1 dae/Makefile pp/Makefile gui/Makefile tags config.status config.log config.cache version.h
+	rm -f Makefile module/Makefile events/Makefile util/Makefile doc/oprofile.1 dae/Makefile pp/Makefile gui/Makefile gui/ui/Makefile tags config.status config.log config.cache version.h Rules.make
 
 tags:
 	ctags -R
