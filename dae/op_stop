@@ -22,3 +22,6 @@ if [ "$PID" != "" ]
 then
 	kill $PID
 fi
+
+# we might be able to unload, let's have a go 
+/sbin/rmmod oprofile >/dev/null 2>&1

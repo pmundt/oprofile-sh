@@ -20,7 +20,6 @@
 EXPORT_NO_SYMBOLS;
 
 extern int cpu_type;
-extern int oprof_init(void);
 
 static int __init hw_ok(void)
 {
@@ -49,6 +48,7 @@ int __init stub_init(void)
 
 void __exit stub_exit(void)
 {
+	oprof_exit();
 	return;
 }
 
