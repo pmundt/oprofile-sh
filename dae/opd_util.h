@@ -120,6 +120,9 @@ time_t opd_get_mtime(const char *file);
 char *opd_get_time(void);
 char *opd_get_line(FILE *fp);
 
+int opd_move_regular_file(const char *new_dir, const char *old_dir, 
+			  const char *name);
+
 #ifdef __cplusplus
 }
 #endif

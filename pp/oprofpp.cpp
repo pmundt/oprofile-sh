@@ -189,7 +189,7 @@ void opp_samples_files::do_list_symbols(opp_bfd & abfd) const
 /**
  * do_list_symbol - list detailed samples for a symbol
  * @abfd: the bfd object from where come the samples
-  *
+ *
  * the global variable @symbol is used to list all
  * the samples for this symbol from the image 
  * specified by @abfd.
