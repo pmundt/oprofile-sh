@@ -33,6 +33,7 @@
 #include <sys/mman.h>
 
 #include <vector>
+#include <string>
 
 #include "../dae/opd_util.h"
 #include "../op_user.h"
@@ -63,7 +64,7 @@ char *cplus_demangle (const char *mangled, int options);
 	} while (0)
 
 void opp_get_options(int argc, char const *argv[]);
-char* demangle_symbol(const char* symbol);
+std::string demangle_symbol(const char* symbol);
 
 //---------------------------------------------------------------------------
 // A simple container of counter.
