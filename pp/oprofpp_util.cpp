@@ -20,6 +20,7 @@
 #include <sstream>
 
 #include "oprofpp.h"
+#include "../util/file_manip.h"
  
 int verbose;
 char const *samplefile;
