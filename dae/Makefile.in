@@ -17,7 +17,7 @@ install: oprofiled op_start op_stop op_help
 	cd $(BINDIR) && chmod 755 oprofiled op_start op_stop op_help
  
 clean:
-	rm -f oprofiled op_help *.o
+	rm -f oprofiled op_help *.o oprofiled-src.html
  
 CFLAGS=-Wall -Wstrict-prototypes -O2 -pipe -Wstrict-prototypes -Wunused -W -Wshadow -Wmissing-prototypes -Winline @CFLAGS@
 LIBS=@extra_libraries@ -lpopt
