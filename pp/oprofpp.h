@@ -71,8 +71,9 @@ struct opd_fentry {
         u32 count1;
 };
 
+/* FIXME : Carefull these are also present in dae/oprofiled.h */
 #define OPD_MAGIC 0xdeb6
-#define OPD_VERSION 0x2
+#define OPD_VERSION 0x3
 
 /* at the end of the sample files */
 struct opd_footer {
@@ -84,4 +85,10 @@ struct opd_footer {
         u8 ctr0_um;
         u8 ctr1_um;
 	char md5sum[16];
+	u32 ctr0_count;
+	u32 ctr1_count;
+	/* Set to 0.0 if not available */
+	double cpu_speed;
+	/* binary compatibility reserve */
+	u32  reserved[32];
 };

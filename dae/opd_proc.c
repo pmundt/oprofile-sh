@@ -33,17 +33,13 @@ extern int verbose;
 extern unsigned long opd_stats[];
 extern char *vmlinux;
 extern char *smpdir;
-extern u8 ctr0_type_val;
-extern u8 ctr1_type_val;
-extern int ctr0_um;
-extern int ctr1_um;
 extern struct op_hash *hashmap;
 
 /* hash of process lists */
 static struct opd_proc *opd_procs[OPD_MAX_PROC_HASH];
 
 struct opd_footer footer = { OPD_MAGIC, OPD_VERSION, 
-	0, 0, 0, 0, 0, {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
+	0, 0, 0, 0, 0, {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, 0, 0, 0.0, { 0 } };
 
 /* image structure */
 static struct opd_image *opd_images;

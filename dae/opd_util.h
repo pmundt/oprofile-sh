@@ -53,6 +53,7 @@ u16 opd_read_u16_he(FILE *fp);
 u32 opd_read_u32_he(FILE *fp);
 u16 opd_read_u16_ne(FILE *fp);
 u32 opd_read_u32_ne(FILE *fp);
+u32 opd_read_int_from_file(const char *filename);
 #ifdef OPD_GZIP
 #define opd_try_open_file_z(n,m) opd_do_open_file_z((n),(m),0)
 #define opd_open_file_z(n,m) opd_do_open_file_z((n),(m),1)
