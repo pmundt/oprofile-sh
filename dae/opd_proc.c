@@ -1006,8 +1006,8 @@ void opd_handle_mapping(const struct op_sample *sample)
 
 	/* eip is actually nr. of bytes to read from map device */
 	size = (ssize_t)sample->eip;
-	if (size<sizeof(u32)*4) {
-		fprintf(stderr,"oprofiled: size is less than 32 : %lu\n", size);
+	if (size<(ssize_t)sizeof(u32)*4) {
+		fprintf(stderr,"oprofiled: size is less than 32 : %u\n", size);
 		exit(1);
 	}
 
@@ -1016,7 +1016,7 @@ void opd_handle_mapping(const struct op_sample *sample)
 
 	opd_read_device(mapdevfd,buf,size,0);
 
-	while (pos < size/(sizeof u32)) { 
+	while (pos < size/sizeof(u32)) { 
 		mapping = (struct op_mapping *)&buf[pos];
 		pos += 4;
  
