@@ -319,8 +319,6 @@ struct samples_file_t
 	opd_fentry *samples;		// header + sizeof(header)
 	opd_header *header;		// mapping begin here
 	fd_t fd;
-	// This do not include the header size
-	size_t size;
 	size_t nr_samples;
 
 private:
@@ -407,8 +405,6 @@ struct opp_samples_files {
 	size_t counter_mask;
 
 private:
-	void output_event(int i) const;
-
 	// ctor helper
 	void open_samples_file(u32 counter, bool can_fail);
 	void check_event(int i);
