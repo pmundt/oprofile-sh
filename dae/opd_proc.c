@@ -216,9 +216,6 @@ static void opd_handle_old_sample_file(int counter, const char * mangled, time_t
 	struct opd_header oldheader; 
 	FILE * fp;
 
-	if (!opd_get_fsize(mangled, 0))
-		return;
-
 	fp = fopen(mangled, "r"); 
 	if (!fp)
 		goto del;
@@ -229,11 +226,9 @@ static void opd_handle_old_sample_file(int counter, const char * mangled, time_t
 	if (memcmp(&oldheader.magic, OPD_MAGIC, sizeof(oldheader.magic)) || oldheader.version != OPD_VERSION)
 		goto closedel;
 
-	if (difftime(mtime, oldheader.mtime))
-		goto closedel;
-
 	/* versions match, but we might be using different values */
-	if (oldheader.ctr_event != ctr_event[counter] ||
+	if (difftime(mtime, oldheader.mtime) ||
+	    oldheader.ctr_event != ctr_event[counter] ||
 	    oldheader.ctr_um != ctr_um[counter] ||
 	    oldheader.ctr_count != ctr_count[counter] ||
 	    oldheader.cpu_type != cpu_type) {

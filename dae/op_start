@@ -455,10 +455,9 @@ do_sysctl_setup() {
  
 # start the daemon
 do_start() {
-	OPD_ARGS="--buffer-size=$BUF_SIZE --ignore-myself=$IGNORE_MYSELF \
+	OPD_ARGS="--ignore-myself=$IGNORE_MYSELF \
 		--log-file=$LOG_FILE --base-dir=$DIR --samples-dir=$SAMPLES_DIR \
 		--device-file=$DEVICE_FILE --note-device-file=$NOTE_DEVICE_FILE \
-		--kernel-only=$KERNEL_ONLY \
 		--hash-map-device-file=$HASH_MAP_DEVICE_FILE --vmlinux=$VMLINUX \
 		--map-file=$MAP_FILE"
 

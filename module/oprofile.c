@@ -36,7 +36,7 @@ static int allow_unload = 1;
 static struct oprof_sysctl sysctl_parms;
 /* some of the sys ctl settable variable needs to be copied to protect
  * against user that try to change through /proc/sys/dev/oprofile/ * running
- * parameters during a profiling session */
+ * parameters during profiling */
 struct oprof_sysctl sysctl;
 
 /* the MSRs we need */
