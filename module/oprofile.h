@@ -30,7 +30,7 @@
 #include <asm/apic.h>
 
 /* userspace/module interface */
-#include "op_user.h"
+#include "../op_user.h"
 
 #undef min
 #undef max
