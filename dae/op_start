@@ -143,6 +143,8 @@ do_init() {
 
 	CPUTYPE=`cat /proc/sys/dev/oprofile/cpu_type`
 
+	IS_RTC=0
+ 
 	case "$CPUTYPE" in
 		0|1|2)
 			OP_MAX_COUNTERS=2
