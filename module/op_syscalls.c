@@ -23,8 +23,6 @@
 #include "oprofile.h"
 #include "op_dcache.h"
 
-// FIXME: check these syscalls are same code as 2.2 where necessary
-
 extern u32 prof_on;
 
 uint dname_top;
