@@ -15,6 +15,9 @@
  * Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#ifndef OPROFILE_H
+#define OPROFILE_H
+ 
 #include <linux/version.h>
 #include <linux/module.h>
 #include <linux/config.h>
@@ -234,3 +237,5 @@ void lvtpc_apic_restore(void *dummy);
 void install_nmi(void);
 void restore_nmi(void);
 int apic_setup(void);
+
+#endif /* OPROFILE_H */
