@@ -687,5 +687,10 @@ int main(int argc, char const *argv[])
 
 	opd_print_stats();
 	printf("oprofiled stopped %s", opd_get_time());
+
+	free(sbuf);
+	free(nbuf);
+	opd_proc_cleanup();
+ 
 	return 0;
 }

@@ -1409,3 +1409,37 @@ void opd_get_ascii_procs(void)
 
 	closedir(dir);
 }
+
+
+/**
+ * opd_proc_cleanup - clean up on exit
+ */
+void opd_proc_cleanup(void)
+{
+	struct opd_image * image = 0;
+	struct list_head * pos, * pos2;
+	uint i;
+
+	list_for_each_safe(pos, pos2, &opd_images) {
+		image = list_entry(pos, struct opd_image, list_node);
+		if (image->name)
+			free(image->name);
+		free(image);
+	}
+ 
+	free(kernel_image->name); 
+	free(kernel_image);
+ 
+	for (i=0; i < OPD_MAX_PROC_HASH; i++) {
+		struct opd_proc * proc = opd_procs[i];
+		struct opd_proc * next;
+
+		while (proc) {
+			next = proc->next;
+			opd_delete_proc(proc);
+			proc=next;
+		}
+	}
+	
+	opd_clear_module_info();
+}
