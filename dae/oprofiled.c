@@ -155,7 +155,8 @@ static void opd_options(int argc, char const *argv[])
 	int ret;
 	char c;
 
-	optcon = poptGetContext(NULL, argc, argv, options, 0);
+	/* Some old version of popt need the cast to char ** */
+	optcon = poptGetContext(NULL, argc, (char **)argv, options, 0);
 
 	c=poptGetNextOpt(optcon);
 

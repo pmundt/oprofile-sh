@@ -190,6 +190,9 @@ do
 		--samples-dir)
 			SAMPLES_DIR=$val
 			;;
+		--log-file)
+			LOG_FILE=$val
+			;;
 		--device-file)
 			DEVICE_FILE=$val
 			;;
@@ -433,7 +436,7 @@ if [ "$VERBOSE" = "1" ]; then
 	OPD_ARGS="$OPD_ARGS --verbose"
 fi
 
-cpu_speed=`grep "cpu MHz" /proc/cpuinfo | awk -F": " '{print $2}'`
+cpu_speed=`grep "cpu MHz" /proc/cpuinfo | tail -1 | awk -F": " '{print $2}'`
 OPD_ARGS="$OPD_ARGS --cpu-speed=$cpu_speed"
 
 if [ "$VERBOSE" = "1" ]; then

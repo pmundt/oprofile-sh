@@ -112,7 +112,8 @@ static void get_options(int argc, char const *argv[])
 	char c; 
 	const char *file;
 	
-	optcon = poptGetContext(NULL, argc, argv, options, 0);
+	/* Some old version of popt needs the cast to char ** */
+	optcon = poptGetContext(NULL, argc, (char **)argv, options, 0);
 
 	c=poptGetNextOpt(optcon);
 
