@@ -74,14 +74,6 @@ struct _oprof_data {
 #define APIC_SPIV_APIC_ENABLED (1<<8)
 #endif
 
-#ifdef ALLOW_UNLOAD
-#define LOCK_UNLOAD MOD_INC_USE_COUNT
-#define UNLOCK_UNLOAD MOD_DEC_USE_COUNT
-#else
-#define LOCK_UNLOAD do { } while (0)
-#define UNLOCK_UNLOAD do { } while (0)
-#endif
- 
 #define streqn(a, b, len) (!strncmp((a), (b), (len)))
 
 /* maximum nr. of counters, up to 4 for Athlon (18 for P4) */

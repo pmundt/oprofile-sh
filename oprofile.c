@@ -114,12 +114,10 @@ asmlinkage void op_do_nmi(struct pt_regs *regs)
 {
 	struct _oprof_data *data = &oprof_data[smp_processor_id()];
 
-#ifdef PID_FILTER
 	if (pid_filter && current->pid != pid_filter)
 		return;
 	if (pgrp_filter && current->pgrp != pgrp_filter)
 		return;
-#endif
 
 	if (data->ctrs & OP_CTR_0)
 		op_check_ctr(data, regs, 0);
@@ -1070,12 +1068,10 @@ void __exit cleanup_sysctl(void)
 static int can_unload(void)
 {
 	int can = -EBUSY;
-#ifdef ALLOW_UNLOAD
 	down(&sysctlsem);
 	if (!prof_on)
 		can = 0;
 	up(&sysctlsem);
-#endif
 	return can;
 }
 
