@@ -10,12 +10,13 @@ BINDIR=@bindir@
 MANDIR=@mandir@
 CC=@CC@
 
-install: oprofiled op_start op_stop op_help
+install: oprofiled op_start op_dump op_stop op_help
 	cp oprofiled $(BINDIR)/oprofiled
 	cp op_start $(BINDIR)/op_start
+	cp op_dump $(BINDIR)/op_dump
 	cp op_stop $(BINDIR)/op_stop
 	cp op_help $(BINDIR)/op_help
-	cd $(BINDIR) && chmod 755 oprofiled op_start op_stop op_help
+	cd $(BINDIR) && chmod 755 oprofiled op_start op_dump op_stop op_help
  
 clean:
 	rm -f oprofiled  op_help *.o oprofiled-src.html 
