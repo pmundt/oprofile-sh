@@ -19,7 +19,7 @@ maintainerclean: distclean
 	rm -f configure doc/Makefile aclocal.m4
 
 distclean: clean
-	rm -f Makefile dae/Makefile pp/Makefile gui/Makefile tags config.status config.log config.cache
+	rm -f Makefile doc/oprofile.1 dae/Makefile pp/Makefile gui/Makefile tags config.status config.log config.cache version.h
 
 # broken 
 dist:
