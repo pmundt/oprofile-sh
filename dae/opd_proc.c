@@ -269,9 +269,8 @@ static void opd_open_image(struct opd_image *image)
 {
 	uint i;
 
-	/* FIXME: image->app_name can be null. */
 	verbprintf("Opening image \"%s\" for app \"%s\"\n",
-		   image->name, image->app_name);
+		   image->name, image->app_name ? image->app_name : "none");
 
 	for (i = 0 ; i < op_nr_counters ; ++i) {
 		image->sample_files[i].fd = -1;
