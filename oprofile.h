@@ -97,8 +97,6 @@ struct _oprof_data {
 #define ctr_overflowed(n) (!((n) & (1U<<31)))
 
 asmlinkage void op_nmi(void);
-ulong idt_addr;
-ulong kernel_nmi;
 
 /* If the do_nmi() patch has been applied, we can use the NMI watchdog */
 #ifdef OP_EXPORTED_DO_NMI

@@ -215,6 +215,9 @@ void unmask_LVT_NMIs(void)
 struct _descr { u16 limit; u32 base; } __attribute__((__packed__));
 struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 
+static ulong idt_addr;
+static ulong kernel_nmi;
+
 static void install_nmi(void)
 {
 	volatile struct _descr descr = { 0, 0,};
