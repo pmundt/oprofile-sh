@@ -387,8 +387,8 @@ int main(int argc, char *argv[])
 	sigaddset(&maskset,SIGALRM);
 	sigaddset(&maskset,SIGHUP);
 
-	/* clean up every 20 minutes */
-	alarm(60*20);
+	/* clean up every 10 minutes */
+	alarm(60*10);
 
 	/* simple sleep-then-process loop */
 	opd_do_read(opd_buf,opd_buf_bytesize);
