@@ -462,7 +462,7 @@ static int oprof_read(struct file *file, char *buf, size_t count, loff_t *ppos)
 
 	max = sizeof(struct op_sample) * op_buf_size;
 
-	if (*ppos || count != sizeof(struct op_sample) + max)
+	if (*ppos || count != max)
 		return -EINVAL;
 
 	mybuf = vmalloc(max);
