@@ -125,6 +125,9 @@ AC_ARG_WITH(module-dir,
 [  --with-module-dir=dir        Path to module installation directory], MODINSTALLDIR=$withval)
 AC_SUBST(MODINSTALLDIR)
 
+AC_ARG_ENABLE(filter,
+[  --enable-filter              Enable filtering on pid or pgrp value feature], KCFLAGS="$KCFLAGS -DPID_FILTER")
+
 dnl --- user space configuration ---
 
 AC_ARG_WITH(extra-includes,
