@@ -28,7 +28,7 @@ dist:
 	cvs checkout oprofile ; \
 	cd oprofile ; \
 	(find -type d -name CVS | xargs rm -rf) ; \
-	autoconf ; \
+	./autogen.sh ; \
 	./configure ; \
 	cp doc/Makefile doc/Makefile.tmp ; \
 	make distclean ; \
