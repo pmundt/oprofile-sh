@@ -635,7 +635,6 @@ static int opd_get_image_by_hash(int hash)
 	unsigned int i;
 
 	for (i=1; i < nr_images; i++) {
-		verbprintf("Looking for hash %d, this (%s) is %d\n", hash, opd_images[i].name, opd_images[i].hash); 
 		if (opd_images[i].hash == hash)
 			return i;
 	}

@@ -174,6 +174,22 @@ struct _idt_descr { u32 a; u32 b; } __attribute__((__packed__));
 
 #define op_cpu_id() (cpu_number_map(smp_processor_id()))
 
+/* branch prediction */
+#ifdef EXPECT_OK
+#ifndef likely
+#define likely(a) __builtin_expect((a), 1)
+#endif
+#ifndef unlikely
+#define unlikely(a) __builtin_expect((a), 0)
+#endif
+#else
+#ifdef likely
+#error likely defined - kernel compiler and compiler specified do not match !
+#endif
+#define likely(a) (a)
+#define unlikely(a) (a)
+#endif
+ 
 /* we can't unload safely on SMP */
 #ifdef CONFIG_SMP
 #define smp_can_unload() (allow_unload)
