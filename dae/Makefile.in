@@ -20,7 +20,7 @@ install: $(INSTALL_LIST)
 
 uninstall:
 	for f in $(INSTALL_LIST); do \
-		-rm -f $(BINDIR)/$$f; \
+		rm -f $(BINDIR)/$$f; \
 	done
 
 clean:

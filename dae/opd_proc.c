@@ -472,6 +472,7 @@ inline static void opd_put_image_sample(struct opd_image *image, u32 offset, u16
 	counter = opd_get_counter(count);
 	sample_file = &image->sample_files[counter];
 
+	printf("counter %d\n", counter); 
 	if (sample_file->fd < 1) {
 		opd_open_sample_file(image, counter);
 		if (sample_file->fd < 1) {
