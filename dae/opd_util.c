@@ -418,6 +418,8 @@ char *opd_get_time(void)
  * Get a line of ASCII text from a file. The file is read
  * up to the first \0 or \n. A trailing \n is deleted.
  * 
+ * Empty lines are not handled.
+ *
  * Returns the dynamically-allocated string containing
  * that line. At the end of a file a string "" will
  * be returned.
