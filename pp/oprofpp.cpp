@@ -151,7 +151,7 @@ void opp_samples_files::do_list_symbols(opp_bfd & abfd) const
 	op_nr_counters = nr_counters;
 	samples_files_t samples;
 
-	samples.build(*this, abfd, true, false, show_shared_libs);
+	samples.add(*this, abfd, true, false, show_shared_libs);
 
 	vector<const symbol_entry *> symbols;
 
@@ -332,7 +332,7 @@ void opp_samples_files::do_list_all_symbols_details(opp_bfd & abfd) const
 
 	samples_files_t samples;
 
-	samples.build(*this, abfd, false, true, show_shared_libs);
+	samples.add(*this, abfd, false, true, show_shared_libs);
 
 	vector<const symbol_entry *> symbols;
 
