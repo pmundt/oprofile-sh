@@ -27,9 +27,9 @@ dist:
 	(find -type d -name CVS | xargs rm -rf) ; \
 	autoconf ; \
 	./configure ; \
-	mv doc/Makefile doc/Makefile.tmp ; \
+	cp doc/Makefile doc/Makefile.tmp ; \
 	make distclean ; \
-	cd doc && make && rm -f Makefile.tmp && cd .. ; \
+	cd doc && make && rm -f Makefile && cd .. ; \
 	cd .. ; \
 	mv oprofile oprofile-@VERSION@ ; \
 	tar cvfz ../oprofile-@VERSION@.tar.gz oprofile-@VERSION@ ; \

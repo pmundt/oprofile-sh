@@ -4,6 +4,7 @@ prefix=@prefix@
 MANDIR=@mandir@
 LN_S=ln -s
 RM=rm
+MKDIR=mkdir
 DB2HTML=db2html
 
 .PHONY: all clean install
@@ -11,6 +12,8 @@ DB2HTML=db2html
 all:
 	-$(RM) -rf oprofile.junk
 	$(DB2HTML) oprofile.sgml
+	-$(MKDIR) html
+	-$(MKDIR) html/stylesheet-images/ 
 	-mv oprofile/* html/
 	-mv oprofile/stylesheet-images/* html/stylesheet-images/
 	-$(RM) -rf oprofile 
