@@ -169,5 +169,6 @@ const char* op_get_cpu_type_str(int cpu_type);
 /* not used currently */
 int op_check_events_str(int ctr, char *ctr_type, u8 ctr_um, int cpu_type, u8 *ctr_t);
 void op_get_event_desc(int cpu_type, u8 type, u8 um, char **typenamep, char **typedescp, char **umdescp);
+int op_get_cpu_type(void);
 
 #endif /* OP_USER_H */

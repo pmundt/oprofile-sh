@@ -419,7 +419,7 @@ int main(int argc, char const *argv[])
 	struct sigaction act;
 	int i;
 
-	cpu_type = opd_read_int_from_file("/proc/sys/dev/oprofile/cpu_type");
+	cpu_type = op_get_cpu_type();
 	if (cpu_type == CPU_ATHLON)
 		op_nr_counters = 4;
 
