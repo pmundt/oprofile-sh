@@ -873,7 +873,7 @@ static ctl_table oprof_table[] = {
 	{ 1, "kernel_only", &sysctl_parms.kernel_only, sizeof(int), 0600, NULL, &lproc_dointvec, NULL, },
 	{ 1, "pid_filter", &sysctl_parms.pid_filter, sizeof(pid_t), 0600, NULL, &lproc_dointvec, NULL, },
 	{ 1, "pgrp_filter", &sysctl_parms.pgrp_filter, sizeof(pid_t), 0600, NULL, &lproc_dointvec, NULL, },
-	{ 1, "nr_interrupts", &sysctl_parms.nr_interrupts, sizeof(int), 0400, NULL, &get_nr_interrupts, NULL, },
+	{ 1, "nr_interrupts", &sysctl.nr_interrupts, sizeof(int), 0400, NULL, &get_nr_interrupts, NULL, },
 	{ 1, "notesize", &sysctl_parms.note_size, sizeof(int), 0600, NULL, &lproc_dointvec, NULL, },
 	{ 0, }, { 0, }, { 0, }, { 0, },
 	{ 0, },
