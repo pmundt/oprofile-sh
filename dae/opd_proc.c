@@ -512,9 +512,6 @@ void opd_init_images(void)
 	/* 0 is reserved for the kernel image */
 	opd_images = xcalloc(sizeof(struct opd_image), OPD_DEFAULT_IMAGES);
 
-	opd_images[0].name = xstrdup(vmlinux);
-	opd_images[0].kernel = 1;
-
 	opd_open_image(&opd_images[0], -1, vmlinux, 1);
 	nr_images = 1;
 }
