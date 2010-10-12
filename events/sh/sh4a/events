@@ -1,0 +1,32 @@
+# SH-4A/SH4AL-DSP PPC events
+#
+event:0x0000 counters:0,1 um:zero minimum:500 name:ELAPSED_CYCLES : number of elapsed cycles
+event:0x0200 counters:0,1 um:zero minimum:500 name:ELAPSED_CYCLES_PRIV : number of elapsed cycles in privileged mode
+event:0x0280 counters:0,1 um:zero minimum:500 name:ELAPSED_CYCLES_SRBL : number of elapsed cycles while SR.BL is asserted
+event:0x0202 counters:0,1 um:zero minimum:500 name:INSN_EXECUTION : instruction execution
+event:0x0203 counters:0,1 um:zero minimum:500 name:INSN_EXECUTION_PARALLEL : instruction execution in parallel
+event:0x0204 counters:0,1 um:zero minimum:500 name:UNCONDITIONAL_BRANCHES : number of unconditional branches
+event:0x0208 counters:0,1 um:zero minimum:500 name:EXCEPTION : number of exceptions
+event:0x0209 counters:0,1 um:zero minimum:500 name:INTERRUPT : number of interrupts
+event:0x0220 counters:0,1 um:zero minimum:500 name:UTLB_MISS_I : UTLB miss caused by instruction fetch
+event:0x0222 counters:0,1 um:zero minimum:500 name:UTLB_MISS_O : UTLB miss caused by operand access
+event:0x02a0 counters:0,1 um:zero minimum:500 name:ITLB_MISS : number of ITLB misses
+event:0x0028 counters:0,1 um:zero minimum:500 name:IMEM_ACCESS : number of accesses to instruction memories
+event:0x0029 counters:0,1 um:zero minimum:500 name:ICACHE_ACCESS : number of accesses to instruction cache
+event:0x002a counters:0,1 um:zero minimum:500 name:ICACHE_MISS : instruction cache miss
+event:0x022e counters:0,1 um:zero minimum:500 name:IMEM_XY_ACCESS : number of access to instruction X/Y memory
+event:0x0030 counters:0,1 um:zero minimum:500 name:OMEM_ACCESS_R : number of reads to operand memories
+event:0x0038 counters:0,1 um:zero minimum:500 name:OMEM_ACCESS_W : number of writes to operand memories
+event:0x0031 counters:0,1 um:zero minimum:500 name:OCACHE_R : number of operand cache read accesses
+event:0x0039 counters:0,1 um:zero minimum:500 name:OCACHE_W : number of operand cache write accesses
+event:0x0032 counters:0,1 um:zero minimum:500 name:OCACHE_RM : operand cache read miss
+event:0x003a counters:0,1 um:zero minimum:500 name:OCACHE_WM : operand cache write miss
+event:0x0236 counters:0,1 um:zero minimum:500 name:OMEM_XY_R : number of reads to operand X/Y memory
+event:0x023e counters:0,1 um:zero minimum:500 name:OMEM_XY_W : number of writes to operand X/Y memory
+event:0x0237 counters:0,1 um:zero minimum:500 name:OMEM_U_R : number of reads to operand U memory
+event:0x023f counters:0,1 um:zero minimum:500 name:OMEM_U_W : number of writes to operand U memory
+event:0x0337 counters:0,1 um:zero minimum:500 name:UMEM_READ_BUFFER_MISS : number of U memory read buffer misses
+event:0x02b4 counters:0,1 um:zero minimum:500 name:WAIT_CYCLES_OPERAND_READ : number of wait cycles due to operand read access
+event:0x02bc counters:0,1 um:zero minimum:500 name:WAIT_CYCLES_OPERAND_WRITE : number of wait cycles due to operand write access
+event:0x0033 counters:0,1 um:zero minimum:500 name:WAIT_CYCLES_OCACHE_RM : number of wait cycles due to operand cache read miss
+event:0x003b counters:0,1 um:zero minimum:500 name:WAIT_CYCLES_OCACHE_WM : number of wait cycles due to operand cache write miss

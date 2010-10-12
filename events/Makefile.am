@@ -59,7 +59,9 @@ event_files = \
 	ppc/7450/events ppc/7450/unit_masks \
 	ppc/e500/events ppc/e500/unit_masks \
 	ppc/e500v2/events ppc/e500v2/unit_masks \
-	ppc/e300/events ppc/e300/unit_masks
+	ppc/e300/events ppc/e300/unit_masks \
+	sh/sh7750/events sh/sh7750/unit_masks \
+	sh/sh4a/events sh/sh4a/unit_masks
 
 install-data-local:
 	for i in ${event_files} ; do \

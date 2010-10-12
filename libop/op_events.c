@@ -1062,6 +1062,14 @@ void op_default_event(op_cpu cpu_type, struct op_default_event_descr * descr)
 			descr->name = "INSTRUCTIONS_EXECUTED";
 			break;
 
+		case CPU_SH7750:
+			descr->name = "ELAPSED_TIME";
+			break;
+
+		case CPU_SH4A:
+			descr->name = "ELAPSED_CYCLES";
+			break;
+
 		case CPU_PPC_E500:
 		case CPU_PPC_E500_2:
 		case CPU_PPC_E300:

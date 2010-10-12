@@ -661,6 +661,18 @@ int main(int argc, char const * argv[])
 			"Downloadable from http://www.freescale.com\n";
 		break;
 
+	case CPU_SH7750:
+		event_doc =
+			"See SH-4 Emulator / Program Performance Counter Manual\n"
+			"Chapter 1: Emulation Function and ASE Mode\n"
+			"Section 1.8: Performance Measurement\n";
+		break;
+
+	case CPU_SH4A:
+		event_doc =
+			"See SH-4A, SH4AL-DSP Program Performance Counter Application Note\n";
+		break;
+
 	case CPU_AVR32:
 		event_doc =
 			"See AVR32 Architecture Manual\n"

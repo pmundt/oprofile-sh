@@ -162,8 +162,8 @@ For information on how to use OProfile's JIT support, see <xref linkend="setup-j
 			see later in this manual for details.  Hyper-threaded Pentium IVs
 			are not supported in 2.4. For 2.4 kernels, the Intel
 			IA-64 CPUs are also supported. For 2.6 kernels, there is additionally
-			support for Alpha processors, MIPS, ARM, x86-64, sparc64, ppc64, AVR32, and,
-			in timer mode, PA-RISC and s390.
+			support for Alpha processors, MIPS, ARM, x86-64, sparc64, ppc64, AVR32, SuperH,
+			and, in timer mode, PA-RISC and s390.
 		</para></listitem>
 	</varlistentry>
 	<varlistentry>

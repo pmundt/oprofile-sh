@@ -1,0 +1,35 @@
+# SH7750 PPC events
+#
+event:0x01 counters:0,1 um:zero minimum:500 name:OPERAND_READ : operand read access
+event:0x02 counters:0,1 um:zero minimum:500 name:OPERAND_WRITE : operand write access
+event:0x03 counters:0,1 um:zero minimum:500 name:UTLB_MISS : number of UTLB misses
+event:0x04 counters:0,1 um:zero minimum:500 name:OCACHE_RM : operand cache read miss
+event:0x05 counters:0,1 um:zero minimum:500 name:OCACHE_WM : operand cache write miss
+event:0x06 counters:0,1 um:zero minimum:500 name:INSN_FETCH : instruction fetch w/ cache
+event:0x07 counters:0,1 um:zero minimum:500 name:ITLB_MISS : number of ITLB misses
+event:0x08 counters:0,1 um:zero minimum:500 name:ICACHE_MISS : instruction cache miss
+event:0x09 counters:0,1 um:zero minimum:500 name:OPERAND_ACCESS : all operand accesses
+event:0x0a counters:0,1 um:zero minimum:500 name:INSN_ACCESS : all instruction accesses
+event:0x0b counters:0,1 um:zero minimum:500 name:OCRAM_OPERAND_ACCESS : OC RAM operand access
+event:0x0d counters:0,1 um:zero minimum:500 name:ONCHIP_IO : on-chip I/O space accesses
+event:0x0e counters:0,1 um:zero minimum:500 name:OPERAND_RW : operand read and write accesses
+event:0x0f counters:0,1 um:zero minimum:500 name:OCACHE_MISS : operand cache read and write misses
+event:0x10 counters:0,1 um:zero minimum:500 name:BR_INST : branch instruction
+event:0x11 counters:0,1 um:zero minimum:500 name:BR_TAKEN : branch taken
+event:0x12 counters:0,1 um:zero minimum:500 name:BR_BSR_JSR : BSR/BSRF/JSR based branches
+event:0x13 counters:0,1 um:zero minimum:500 name:INSN_EXECUTION : instruction execution
+event:0x14 counters:0,1 um:zero minimum:500 name:INSN_EXECUTION_PARALLEL : instruction execution in parallel
+event:0x15 counters:0,1 um:zero minimum:500 name:FPU_INSN_EXECUTION : FPU instruction execution
+event:0x16 counters:0,1 um:zero minimum:500 name:INTERRUPT : number of interrupts
+event:0x17 counters:0,1 um:zero minimum:500 name:NMI : number of NMIs
+event:0x18 counters:0,1 um:zero minimum:500 name:TRAPA_INSN_EXECUTION : trapa instruction execution
+event:0x19 counters:0,1 um:zero minimum:500 name:UBCA_MATCH : UBC channel A match
+event:0x1a counters:0,1 um:zero minimum:500 name:UBCB_MATCH : UBC channel B match
+event:0x21 counters:0,1 um:zero minimum:500 name:ICACHE_FILL : instruction cache fill
+event:0x22 counters:0,1 um:zero minimum:500 name:OCACHE_FILL : operand cache fill
+event:0x23 counters:0,1 um:zero minimum:500 name:ELAPSED_TIME : elapsed time
+event:0x24 counters:0,1 um:zero minimum:500 name:PFREEZE_ICACHE_MISS : pipeline freeze by instruction cache miss
+event:0x25 counters:0,1 um:zero minimum:500 name:PFREEZE_OCACHE_MISS : pipeline freeze by operand cache miss
+event:0x27 counters:0,1 um:zero minimum:500 name:PFREEZE_BRANCH_INST : pipeline freeze by branch instruction
+event:0x28 counters:0,1 um:zero minimum:500 name:PFREEZE_CPU_REG : pipeline freeze by CPU register
+event:0x29 counters:0,1 um:zero minimum:500 name:PFREEZE_FPU : pipeline freeze by FPU

@@ -38,6 +38,10 @@
 #define __NR_lookup_dcookie 208
 #elif defined(__s390__) || defined (__s390x__)
 #define __NR_lookup_dcookie 110
+#elif defined(__SH5__)
+#define __NR_lookup_dcookie 281
+#elif defined(__sh__)
+#define __NR_lookup_dcookie 253
 #elif defined(__arm__)
 #define __NR_lookup_dcookie (__NR_SYSCALL_BASE+249)
 #elif defined(__mips__)

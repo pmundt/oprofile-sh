@@ -75,6 +75,8 @@ static struct cpu_descr const cpu_descrs[MAX_CPU_TYPE] = {
 	{ "ppc64 POWER5++", "ppc64/power5++", CPU_PPC64_POWER5pp, 6 },
 	{ "e300", "ppc/e300", CPU_PPC_E300, 4 },
 	{ "AVR32", "avr32", CPU_AVR32, 3 },
+	{ "SuperH SH7750", "sh/sh7750", CPU_SH7750, 2 },
+	{ "SuperH SH-4A", "sh/sh4a", CPU_SH4A, 2 },
 	{ "ARM Cortex-A8", "arm/armv7", CPU_ARM_V7, 5 },
  	{ "Intel Architectural Perfmon", "i386/arch_perfmon", CPU_ARCH_PERFMON, 0},
 	{ "AMD64 family11h", "x86-64/family11h", CPU_FAMILY11H, 4 },
