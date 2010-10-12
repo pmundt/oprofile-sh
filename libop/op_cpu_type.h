@@ -71,8 +71,6 @@ typedef enum {
 	CPU_ARM_V6, /**< ARM V6 */
 	CPU_PPC64_POWER5pp,  /**< ppc64 Power5++ family */
 	CPU_PPC_E300, /**< e300 */
-	CPU_SH7750, /**< SuperH SH7750 (SH7750/SH7750S/SH7091) */
-	CPU_SH4A, /**< SuperH SH-4A/SH4AL-DSP */
 	CPU_AVR32, /**< AVR32 */
 	CPU_ARM_V7, /**< ARM Cortex-A8 */
  	CPU_ARCH_PERFMON, /**< Intel architectural perfmon */
@@ -86,6 +84,8 @@ typedef enum {
 	CPU_ARM_V7_CA9, /**< ARM Cortex-A9 */
 	CPU_MIPS_74K, /**< MIPS 74K */
 	CPU_MIPS_1004K, /**< MIPS 1004K */
+	CPU_SH7750, /**< SuperH SH7750 (SH7750/SH7750S/SH7091) */
+	CPU_SH4A, /**< SuperH SH-4A/SH4AL-DSP */
 	MAX_CPU_TYPE
 } op_cpu;
 
